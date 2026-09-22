@@ -38,6 +38,7 @@
   .seg{display:inline-flex;background:var(--pill);border-radius:999px;padding:3px}
   .seg button{padding:5px 12px;border-radius:999px;font-weight:500;color:var(--muted)}
   .seg button[aria-pressed="true"]{background:#fff;color:#111}
+  .seg[hidden]{display:none}
   .arrow{width:34px;height:34px;border-radius:50%;background:var(--pill);display:inline-grid;place-items:center;font-size:16px}
   .arrow:hover{background:var(--pill-hover)}
   .link{padding:7px 12px;border-radius:999px;border:1px solid var(--line-strong);text-decoration:none;font-weight:500;font-size:13px}
@@ -82,7 +83,7 @@
   <div class="right">
     <button class="arrow" id="prev" aria-label="Previous direction" title="Previous (←)">‹</button>
     <button class="arrow" id="next" aria-label="Next direction" title="Next (→)">›</button>
-    <div class="seg" role="group" aria-label="Device">
+    <div class="seg" id="device" role="group" aria-label="Device">
       <button id="dev-desktop" aria-pressed="true" title="Desktop (D)">Desktop</button>
       <button id="dev-phone" aria-pressed="false" title="Phone (P)">Phone</button>
     </div>
@@ -103,7 +104,7 @@
 </main>
 
 <script>
-  // Finalists come first; the three first-round directions have desktop heroes only.
+  // Finalists come first; the three first-round directions have desktop heroes only (phone: null hides the device switch).
   const DIRECTIONS = [
     { slug:'amplitude',       name:'Amplitude',       register:'Recommended · warm paper, vermilion signal arcs',      ground:'#F3F0E8', accent:'#E4432A', desktop:'directions/Amplitude.html',       phone:'directions/Amplitude-mobile.html' },
     { slug:'broadsheet',      name:'Broadsheet',      register:'Runner-up · newsprint white, brand blue only, serif',    ground:'#FAFAF8', accent:'#0A23A2', desktop:'directions/Broadsheet.html',      phone:'directions/Broadsheet-mobile.html' },
@@ -146,7 +147,7 @@
   function go(i, dev, push = true){
     index = (i + DIRECTIONS.length) % DIRECTIONS.length;
     const d = DIRECTIONS[index];
-    if (dev === 'phone' && !d.phone) dev = 'desktop';   // first-round directions have no phone hero
+    if (dev === 'phone' && !d.phone) dev = 'desktop';   // no phone mockup for this direction
     device = dev;
     const src = device === 'phone' ? d.phone : d.desktop;
     if (view.getAttribute('src') !== src) view.setAttribute('src', src);
@@ -157,7 +158,7 @@
     pills.querySelectorAll('.pill').forEach(p => p.setAttribute('aria-pressed', String(+p.dataset.i === index)));
     $('dev-desktop').setAttribute('aria-pressed', String(device === 'desktop'));
     $('dev-phone').setAttribute('aria-pressed', String(device === 'phone'));
-    $('dev-phone').disabled = !d.phone; $('dev-phone').title = d.phone ? 'Phone (P)' : 'No phone mockup for first-round directions';
+    $('device').hidden = !d.phone;   // no phone mockup: hide the switch entirely
     const active = pills.querySelector('.pill[aria-pressed="true"]'); if (active) active.scrollIntoView({ block:'nearest', inline:'nearest' });
     if (push) history.replaceState(null, '', `#${d.slug}/${device}`);
     requestAnimationFrame(fit);
