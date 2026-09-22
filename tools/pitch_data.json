@@ -10,13 +10,19 @@
     "Poster",
     "Receipt",
     "Atlas",
-    "Sky"
+    "Sky",
+    "Circles",
+    "Google",
+    "Dots"
   ],
   "new": [
     "Poster",
     "Receipt",
     "Atlas",
-    "Sky"
+    "Sky",
+    "Circles",
+    "Google",
+    "Dots"
   ],
   "badges": {
     "Amplitude": "Recommended",
@@ -171,6 +177,27 @@
       "type": "Source Serif 4 / Source Sans 3",
       "device": "A contour map of reach",
       "register": "Exploratory, precise, calm"
+    },
+    "Circles": {
+      "ground": "Soft lilac-gray",
+      "accent": "Vivid violet",
+      "type": "Outfit / Figtree",
+      "device": "Concentric rings as a live meter",
+      "register": "Friendly, precise, optimistic"
+    },
+    "Google": {
+      "ground": "Pure white, Material spacing",
+      "accent": "Google blue CTA, four-color hairlines",
+      "type": "Roboto Flex / Roboto",
+      "device": "A search-results mock with the ad on top",
+      "register": "Familiar, clean, product-page calm"
+    },
+    "Dots": {
+      "ground": "Pale peach",
+      "accent": "Warm pastel dots, rose CTA",
+      "type": "Gabarito / Nunito Sans",
+      "device": "Dot fields and clusters",
+      "register": "Warm, generous, hand-assembled"
     }
   },
   "recommendation": {

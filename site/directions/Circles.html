@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rings — desktop hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ----------
+   One ground (lilac), one ink, one chromatic colour (violet) with a deeper step for hover and small text,
+   and white. Every shape on the page is a circle, a ring, a dot or a fully rounded pill. */
+:root{
+  --ground:#EEEDF5; --white:#FFFFFF;
+  --ink:#16151C; --ink-2:#3E3D4A; --muted:#5F5E70; --on-ink:#C9C6DB;
+  --line:#DBD9E8;              /* hairline rings and the dot rule */
+  --violet:#5B3DF5;            /* the accent: progress rings, buttons, dots, the one headline phrase */
+  --violet-deep:#3F2BC0;       /* hover, pressed, and any violet text under 24px */
+  --violet-tint:#E4DFFC;       /* halo, SAMPLE tag, secondary tag */
+  --display:'Outfit',system-ui,sans-serif;
+  --body:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E1DFEC}
+body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--violet-deep);outline-offset:3px;border-radius:999px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* one frame: 1200 wide, nav 80 + hero 584 + trust 187 = 851 */
+.page{width:1200px;min-height:800px;max-height:860px;margin:0 auto;background:var(--ground);position:relative;overflow:hidden}
+
+/* ---------- 00 nav ---------- */
+.nav{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 48px}
+.logo{display:flex;align-items:center;gap:12px}
+.mark{width:40px;height:40px;border-radius:50%;background:var(--violet);display:grid;place-items:center;flex:none}
+.word{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1}
+.word small{display:block;font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;line-height:1}
+.links{display:flex;gap:2px;padding:4px;background:var(--white);border-radius:999px;font-size:15px;font-weight:500}
+.links a{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;line-height:1}
+.links a:hover{background:var(--ground)}
+.links a.on{background:var(--ground);font-weight:600}
+.links a.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet);margin-right:8px}
+.navr{display:flex;align-items:center;gap:22px}
+.quote-link{font-size:14px;font-weight:600;color:var(--violet-deep)}
+
+/* buttons: pills only */
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px;background:var(--violet);color:#fff;font-weight:600;font-size:15px;line-height:1;border-radius:999px;white-space:nowrap;transition:background .15s ease}
+.btn:hover,.btn:active{background:var(--violet-deep)}
+.ring-i{width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;flex:none;transition:background .18s ease}
+.btn:hover .ring-i{background:#fff}                       /* the ring fills on hover: "kept full" */
+.btn.big{height:56px;padding:0 10px 0 24px;font-size:16px;gap:12px}
+.tag{display:inline-flex;align-items:center;height:30px;padding:0 11px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1}
+.ghost{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 10px 0 20px;border-radius:999px;background:var(--white);color:var(--ink);font-weight:600;font-size:16px;line-height:1;white-space:nowrap;box-shadow:inset 0 0 0 1.5px var(--line);transition:box-shadow .15s ease}
+.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+.ghost .tag{border:0;background:var(--violet-tint);color:var(--violet-deep)}
+.ghost .mini{width:16px;height:16px;flex:none}
+
+/* ---------- 01 hero ---------- */
+.hero{position:relative;z-index:2;display:grid;grid-template-columns:560px minmax(0,1fr);min-height:584px}
+.copy{padding:32px 24px 32px 48px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;height:30px;padding:0 14px 0 10px;border-radius:999px;background:var(--white);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:22px;line-height:1;white-space:nowrap}
+.eyebrow b{width:8px;height:8px;border-radius:50%;background:var(--violet);box-shadow:0 0 0 3px var(--violet-tint);flex:none}
+h1{font-family:var(--display);font-weight:700;font-size:60px;line-height:.98;letter-spacing:-.03em;color:var(--ink);max-width:536px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--violet)}
+.sub{font-size:18px;line-height:1.5;color:var(--ink-2);max-width:470px;margin:20px 0 28px}
+.sub strong{color:var(--ink);font-weight:600}
+.ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fine{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:12px;font-weight:500;color:var(--muted);line-height:1;white-space:nowrap}
+.fine i{width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none}
+.fine span{color:var(--ink);font-weight:600}
+.guar{display:flex;align-items:center;gap:14px;margin-top:26px;max-width:480px}
+.portrait{width:56px;height:56px;border-radius:50%;flex:none;background:linear-gradient(160deg,#D9D5EB,#B7B1D5);position:relative;overflow:hidden;box-shadow:0 0 0 3px var(--white)}
+.portrait svg{position:absolute;left:0;bottom:-3px;width:100%;height:100%}
+.guar p{font-size:15px;line-height:1.45;color:var(--ink)}
+.guar p b{font-weight:600}
+.guar p small{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-top:4px}
+.guar p small a{color:var(--violet-deep);font-weight:600}
+
+/* ---------- the ring meter ----------
+   Decorative (aria-hidden SVG): the dotted orbit dial, the white ring tracks, the two violet progress rings,
+   the playhead and the tick dot, the dot-grid texture, the halo. Informational (real DOM text): the centre
+   figures, the SAMPLE tag, the floor label, the satellites and the lead pill; a visually hidden figcaption
+   states the meter in one sentence. */
+.field{position:relative;min-height:584px}
+.field::before{content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(circle,rgba(22,21,28,.16) 1.1px,transparent 1.7px) 0 0/18px 18px,
+    radial-gradient(circle at 320px 280px,rgba(91,61,245,.16) 0,rgba(91,61,245,.06) 160px,rgba(91,61,245,0) 250px);
+  -webkit-mask-image:radial-gradient(circle at 320px 280px,#000 120px,rgba(0,0,0,.55) 240px,transparent 330px);
+  mask-image:radial-gradient(circle at 320px 280px,#000 120px,rgba(0,0,0,.55) 240px,transparent 330px)}
+.dial{position:absolute;left:90px;top:50px;width:460px;height:460px;z-index:1}
+.dial svg.rings{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.disc{position:absolute;left:130px;top:130px;width:200px;height:200px;border-radius:50%;background:var(--white);box-shadow:0 22px 44px -20px rgba(22,21,28,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.sample{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:999px;background:var(--violet-tint);color:var(--violet-deep);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1;margin-bottom:9px}
+.disc .fig{font-family:var(--display);font-weight:700;font-size:44px;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.disc .of{font-size:14px;font-weight:500;color:var(--ink-2);line-height:1.3;margin-top:6px}
+.disc .of b{color:var(--ink);font-weight:600}
+.disc .ctr{font-size:12px;font-weight:500;color:var(--muted);margin-top:8px;line-height:1.3}
+.disc .ctr b{color:var(--violet-deep);font-weight:700}
+
+.sat{position:absolute;border-radius:50%;background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 14px 30px -16px rgba(22,21,28,.28)}
+.sat .n{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.sat .l{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.25;margin-top:6px;max-width:82%}
+/* satellites sit 236px from the centre, on the dotted orbit (35, 128, 220, 305 degrees, plus two moons) */
+.sat.s1{left:307px;top:-30px;width:124px;height:124px}
+.sat.s1 .n{font-size:32px}
+.sat.s2{left:-11px;top:47px;width:96px;height:96px}
+.sat.s2 .n{font-size:24px}
+.sat.badge{left:362px;top:321px;width:108px;height:108px;display:block}
+.sat.badge svg{display:block;width:108px;height:108px;transform-origin:50% 50%}
+.sat.badge:hover{box-shadow:0 0 0 1.5px var(--violet),0 14px 30px -16px rgba(22,21,28,.28)} /* hover: a violet hairline, like the ghost button; the rim text stays deep violet */
+.moon{position:absolute;border-radius:50%;background:var(--violet)}
+.moon.a{left:70px;top:403px;width:16px;height:16px}
+.moon.b{left:460px;top:246px;width:10px;height:10px;background:var(--ink);opacity:.5}
+
+.lead-wrap{position:absolute;left:0;right:0;top:452px;display:flex;justify-content:center}
+.lead{display:flex;align-items:center;gap:12px;height:64px;padding:0 22px 0 8px;border-radius:999px;background:var(--ink);color:#fff;box-shadow:0 14px 30px -16px rgba(22,21,28,.45)}
+.lead .portrait{width:48px;height:48px;background:linear-gradient(160deg,#5C5975,#3A384C);box-shadow:0 0 0 2px rgba(255,255,255,.16)}
+.lead b{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.lead small{display:block;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--on-ink);margin-top:4px;line-height:1;white-space:nowrap}
+.lead small em{font-style:normal;color:#fff}
+
+.floor{position:absolute;left:50%;top:410px;width:176px;margin-left:-88px;height:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;background:var(--white);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);line-height:1;white-space:nowrap;box-shadow:0 10px 24px -14px rgba(22,21,28,.3)}
+.floor i{width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+
+/* ---------- motion: CSS only; the static final state is the design ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .p1{animation:draw1 1.2s cubic-bezier(.3,.7,.2,1) .15s both}
+  .p2{animation:draw2 1s cubic-bezier(.3,.7,.2,1) .45s both}
+  .late{animation:fade .4s ease-out both;animation-delay:var(--d,1.2s)}
+  .disc,.sat,.lead,.floor,.moon{animation:pop .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+  .sat.badge svg{animation:spin 48s linear infinite}
+  @keyframes draw1{from{stroke-dashoffset:98.47}to{stroke-dashoffset:0}}
+  @keyframes draw2{from{stroke-dashoffset:84}to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+}
+
+/* ---------- 02 trust strip ---------- */
+.trust{position:relative;z-index:3;margin:0 48px;padding:24px 0 24px;
+  background:radial-gradient(circle,rgba(22,21,28,.26) 1.2px,transparent 1.8px) 0 0/12px 4px repeat-x}
+.row1{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.letter{display:flex;align-items:center;gap:18px;min-width:0}
+.stamp{width:64px;height:64px;border-radius:50%;background:var(--white);display:grid;place-items:center;flex:none}
+.stampline{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;line-height:1;white-space:nowrap}
+.stampline b{color:var(--violet-deep)}
+.stampline i{width:4px;height:4px;border-radius:50%;background:var(--muted);flex:none}
+.letter blockquote p{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.25;letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.ticker{display:flex;gap:12px;margin:0}
+.ticker div{width:104px;height:104px;border-radius:50%;background:var(--white);display:flex;flex-direction:column-reverse;/* dt precedes dd in the markup (valid dl); reversed so the figure sits above its label */align-items:center;justify-content:center;text-align:center}
+.ticker div.ink{background:var(--ink);color:#fff}
+.ticker dd{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.03em;line-height:1}
+.ticker dt{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:5px;line-height:1.2;max-width:84%}
+.ticker .ink dt{color:var(--on-ink)}
+.roll{display:flex;align-items:center;gap:18px;margin-top:20px;font-size:15px;font-weight:500;color:var(--ink-2);white-space:nowrap;line-height:1}
+.roll .lab{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none}
+.roll .lab b{color:var(--ink)}
+.roll ul{display:flex;flex:1;justify-content:space-between;list-style:none;align-items:center}
+.roll li{display:flex;align-items:center;gap:12px}
+.roll li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet);flex:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="#" aria-label="Nonprofit Megaphone, home">
+      <span class="mark"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="8" stroke="#fff" stroke-width="2.2"/><circle cx="11" cy="11" r="3" fill="#fff"/></svg></span>
+      <span class="word">Nonprofit Megaphone<small>Google Ad Grant management</small></span>
+    </a>
+    <div class="links"><a class="on" href="#" aria-current="page">Services</a><a href="#">Our work</a><a href="#">Happy clients</a><a href="#">Team</a><a href="#">Blog</a></div>
+    <div class="navr">
+      <a class="quote-link" href="#">Get a free quote &rarr;</a>
+      <a class="btn" href="#"><span class="ring-i" aria-hidden="true"></span>Book a free call</a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="copy">
+      <p class="eyebrow"><b aria-hidden="true"></b>One of the first nine agencies certified by Google</p>
+      <h1 id="h1">$10,000 a month,<br><em>kept full.</em></h1>
+      <p class="sub">Google gives eligible nonprofits <strong>$10,000 a month</strong> in search ads. We acquire it, keep it above Google&rsquo;s 5% click-through floor, spend it well, and send one plain monthly report your board can read in a minute.</p>
+      <div class="ctas">
+        <a class="btn big" href="#"><span class="ring-i" aria-hidden="true"></span>Book a free call <span class="tag">15 min</span></a>
+        <a class="ghost" href="#"><svg class="mini" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#5B3DF5" stroke-width="2"/><circle cx="8" cy="8" r="2.2" fill="#5B3DF5"/></svg>Am I eligible? <span class="tag">2 min</span></a>
+      </div>
+      <p class="fine"><span>100% grant-acquisition guarantee</span><i aria-hidden="true"></i>Certified by Google<i aria-hidden="true"></i><span>60+ team</span></p>
+      <div class="guar">
+        <div class="portrait" role="img" aria-label="Portrait of Amber Snow, CEO (photograph placeholder)"><svg viewBox="0 0 56 56" fill="#8F88B4" aria-hidden="true"><circle cx="28" cy="21" r="11"/><path d="M4 60c0-14 10-22 24-22s24 8 24 22z"/></svg></div>
+        <p><b>Our guarantee is a person, not a policy.</b> Not happy? Meet our CEO, Amber Snow, and we&rsquo;ll pay you $25.<small>Amber Snow &middot; CEO &middot; <a href="#">Read the guarantee &rarr;</a></small></p>
+      </div>
+    </div>
+
+    <figure class="field" aria-labelledby="fieldcap">
+      <figcaption class="sr-only" id="fieldcap">Ring meter, sample month. Outer ring: $9,847 of the $10,000 monthly budget spent. Inner ring: 8.4% click-through rate on a scale of zero to ten percent, with a tick at Google&rsquo;s 5% floor, which the account clears. Around the meter: 780+ nonprofits served, $48M+ in ad spend managed, one named account lead, and the Google Ad Grants Certified Professional badge, one of the first nine. Rings and dots are decorative; the figures are sample data.</figcaption>
+      <div class="dial">
+        <svg class="rings" viewBox="0 0 460 460" aria-hidden="true" focusable="false">
+          <!-- orbit dial: a hairline and 36 round dots -->
+          <circle cx="230" cy="230" r="228" fill="none" stroke="#16151C" stroke-opacity=".14" stroke-width="1"/>
+          <circle cx="230" cy="230" r="228" fill="none" stroke="#16151C" stroke-opacity=".3" stroke-width="3" stroke-linecap="round" pathLength="36" stroke-dasharray="0 1" transform="rotate(-90 230 230)"/>
+          <!-- spend ring: $9,847 of $10,000 = 98.47% -->
+          <circle cx="230" cy="230" r="160" fill="none" stroke="#FFFFFF" stroke-width="20"/>
+          <circle class="p1" cx="230" cy="230" r="160" fill="none" stroke="#5B3DF5" stroke-width="20" pathLength="100" stroke-dasharray="98.47 100" transform="rotate(-90 230 230)"/>
+          <!-- click-through ring: 8.4% on a 0-10% scale = 84%; the tick at 50% is Google's 5% floor -->
+          <circle cx="230" cy="230" r="124" fill="none" stroke="#FFFFFF" stroke-width="13"/>
+          <circle class="p2" cx="230" cy="230" r="124" fill="none" stroke="#3F2BC0" stroke-width="13" stroke-linecap="round" pathLength="100" stroke-dasharray="84 100" transform="rotate(-90 230 230)"/>
+          <circle class="late" style="--d:1.3s" cx="230" cy="354" r="6" fill="#16151C" stroke="#FFFFFF" stroke-width="2.5"/>
+          <!-- spend playhead: where the outer ring stops -->
+          <circle class="late" style="--d:1.25s" cx="214.6" cy="70.7" r="7" fill="#FFFFFF" stroke="#5B3DF5" stroke-width="3"/>
+        </svg>
+
+        <div class="disc" style="--d:.05s">
+          <span class="sample">Sample month</span>
+          <div class="fig">$9,847</div>
+          <div class="of">of <b>$10,000</b> spent</div>
+          <div class="ctr"><b>8.4%</b> click-through</div>
+        </div>
+
+        <p class="floor" style="--d:.9s"><i aria-hidden="true"></i>Google&rsquo;s 5% floor</p>
+
+        <div class="sat s1" style="--d:.5s"><div class="n">780+</div><div class="l">Nonprofits served</div></div>
+        <div class="sat s2" style="--d:.62s"><div class="n">$48M+</div><div class="l">Ad spend managed</div></div>
+        <a class="sat badge" href="#" style="--d:.74s" aria-label="Google Ad Grants Certified Professional agency, one of the first nine. Read about the certification.">
+          <svg viewBox="0 0 108 108" aria-hidden="true" focusable="false">
+            <defs><path id="badge-path" d="M54,54 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0"/></defs>
+            <text font-family="Figtree, system-ui, sans-serif" font-size="11" font-weight="600" fill="#3F2BC0" letter-spacing="1"><textPath href="#badge-path" textLength="264" lengthAdjust="spacing">CERTIFIED BY GOOGLE &#183; ONE OF NINE &#183;&#160;</textPath></text>
+            <circle cx="54" cy="54" r="13" fill="none" stroke="#5B3DF5" stroke-width="3"/>
+            <circle cx="54" cy="54" r="4.5" fill="#5B3DF5"/>
+          </svg>
+        </a>
+        <div class="lead-wrap"><div class="lead" style="--d:.86s">
+          <div class="portrait" role="img" aria-label="Portrait of your account lead (photograph placeholder)"><svg viewBox="0 0 56 56" fill="#8A87A6" aria-hidden="true"><circle cx="28" cy="21" r="11"/><path d="M4 60c0-14 10-22 24-22s24 8 24 22z"/></svg></div>
+          <div><b>Your account lead</b><small><em>One named contact</em> &middot; $10,000 / mo in</small></div>
+        </div></div>
+        <span class="moon a" style="--d:1s" aria-hidden="true"></span>
+        <span class="moon b" style="--d:1.05s" aria-hidden="true"></span>
+      </div>
+    </figure>
+  </section>
+
+  <section class="trust" aria-label="Trust">
+    <div class="row1">
+      <div class="letter">
+        <span class="stamp" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true" focusable="false"><circle cx="15" cy="15" r="12" stroke="#5B3DF5" stroke-width="2.5"/><circle cx="15" cy="15" r="4.5" fill="#5B3DF5"/></svg></span>
+        <div>
+          <p class="stampline"><b>Letter from Google</b><i aria-hidden="true"></i>Michelle Hurtado, Google&rsquo;s first Head of Ad Grants</p>
+          <blockquote><p>&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;</p></blockquote>
+        </div>
+      </div>
+      <dl class="ticker">
+        <div class="ink"><dt>Acquisition guaranteed</dt><dd>100%</dd></div>
+        <div><dt>Person team</dt><dd>60+</dd></div>
+      </dl>
+    </div>
+    <div class="roll">
+      <span class="lab">Among <b>780+</b> clients &middot; Sep 2026</span>
+      <ul>
+        <li>UNCF</li><li>Scouting America</li><li>COPD Foundation</li><li>YWCA Chicago</li><li>Earthwatch</li><li>Solar Sister</li><li>AAU</li><li>JFCS</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top Result Mobile</title>
+<meta name="description" content="Nonprofit Megaphone phone hero, Top Result direction: pure white, Roboto Flex, Google's four colors as thin accents, a sample results page.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+:root{
+  --ground:#FFFFFF; --ink:#202124; --ink-2:#5F6368; --rule:#DADCE0; --chip:#F1F3F4; --wash:#F8F9FA; --skel:#E8EAED;
+  --action:#1A73E8; --action-dark:#174EA6; --action-tint:#E8F0FE;
+  --g-blue:#4285F4; --g-red:#EA4335; --g-yellow:#FBBC04; --g-green:#34A853;
+  --display:'Roboto Flex','Roboto',Arial,sans-serif;
+  --body:'Roboto',Arial,sans-serif;
+  --mono:'Roboto Mono',Consolas,monospace;
+  --ease:cubic-bezier(.2,0,0,1);
+  --elev:0 1px 2px rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E8EAED}
+body{background:#E8EAED;font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5;font-optical-sizing:auto}
+.page{width:390px;min-height:760px;margin:0 auto;background:var(--ground);padding:0 0 20px;overflow:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--action);outline-offset:3px;border-radius:6px}
+.btn:focus-visible,.tbtn:focus-visible,.menu:focus-visible{border-radius:24px}
+svg{display:block}
+.mono{font-family:var(--mono)}
+
+/* compact nav: mark + wordmark, a 36px pill, a 44px menu target that hangs into the gutter */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:8px;height:56px;padding:0 6px 0 16px;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:8px;flex:none;padding:6px 4px 6px 0}
+.brand .name{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1;white-space:nowrap;color:var(--ink);font-variation-settings:'wdth' 100}
+.navr{display:flex;align-items:center;gap:2px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 24px;border-radius:24px;background:var(--action);color:#fff;font-family:var(--body);font-weight:500;font-size:16px;line-height:1;letter-spacing:.01em;white-space:nowrap;transition:background .15s ease}
+.btn:hover{background:var(--action-dark)}
+.btn.sm{height:36px;padding:0 16px;font-size:14px}
+.btn.full{width:100%}
+.menu{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);transition:background .15s ease}
+.menu:hover{background:var(--wash)}
+.tbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;margin-left:-12px;border-radius:22px;color:var(--action);font-weight:500;font-size:15.5px;line-height:1;white-space:nowrap;transition:background .15s ease}
+.tbtn:hover{background:var(--action-tint);color:var(--action-dark)}
+
+/* hero: single column, CTA and eligibility link above the fold, then the results card; the trust strip is its own region below */
+.hero{padding:22px 16px 0}
+.eyebrow{font-size:13px;font-weight:500;color:var(--ink-2);line-height:1.4;margin-bottom:12px;white-space:nowrap}
+.eyebrow .mono{font-size:13.5px;color:var(--ink);letter-spacing:-.01em}
+h1{font-family:var(--display);font-weight:800;font-size:38px;line-height:1.06;letter-spacing:-.02em;color:var(--ink);font-variation-settings:'wdth' 104;margin-left:-1px}
+h1 .key{position:relative;display:inline-block;padding-bottom:8px}
+h1 .ul{position:absolute;left:1px;right:3px;bottom:0;height:5px;border-radius:3px;overflow:hidden;display:flex;transform-origin:left center;animation:draw .7s var(--ease) .25s both}
+h1 .ul i{flex:1;display:block}
+h1 .ul i:nth-child(1){background:var(--g-blue)}
+h1 .ul i:nth-child(2){background:var(--g-red)}
+h1 .ul i:nth-child(3){background:var(--g-yellow)}
+h1 .ul i:nth-child(4){background:var(--g-green)}
+@keyframes draw{from{transform:scaleX(0)}}
+.sub{font-size:16px;line-height:1.5;color:var(--ink);margin:14px 0 18px}
+.exits{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
+.exits .meta{font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+
+/* the results card, condensed: SAMPLE chip in the corner, field, the ad, one skeleton result */
+.mock{position:relative;margin-top:16px;background:#fff;border-radius:8px;box-shadow:var(--elev);padding:14px 16px 14px;animation:rise .6s var(--ease) .1s both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.mock .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px}
+.chip{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:4px;background:var(--chip);border:1px solid var(--rule);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.mock .hint{font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.field{display:flex;align-items:center;gap:10px;height:40px;padding:0 14px;border:1px solid var(--rule);border-radius:20px;font-size:14.5px;color:var(--ink);background:#fff}
+.field svg{flex:none}
+.field .q{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ad{padding:14px 0 12px;margin-top:4px;border-bottom:1px solid var(--rule)}
+.ad .sp{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.ad .who{display:flex;align-items:center;gap:9px}
+.ad .fav{width:24px;height:24px;border-radius:50%;background:var(--action-tint);color:var(--action-dark);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.ad .who .n{font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.2}
+.ad .who .u{font-size:12px;color:var(--ink-2);line-height:1.2;margin-top:2px}
+.ad .h{display:inline-block;font-size:17px;line-height:1.3;color:var(--action);margin-top:8px;font-weight:400}
+.ad .d{font-size:13.5px;line-height:1.45;color:var(--ink);margin-top:4px}
+.ad .sl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.ad .sl a{font-size:13.5px;font-weight:500;color:var(--action);line-height:1.3}
+.ad .sl small{display:block;font-size:12px;color:var(--ink-2);font-weight:400;margin-top:2px}
+.skel{padding-top:12px}
+.skel i{display:block;height:7px;border-radius:4px;background:var(--chip)}
+.skel .t{height:10px;width:60%;background:var(--skel);margin-bottom:6px}
+.skel .l1{width:94%;margin-bottom:5px}
+.skel .l2{width:70%}
+.cap{font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:10px;padding:0 2px}
+.cap b{font-weight:500;color:var(--ink)}
+
+/* one trust element: four figures in Roboto Mono, 2 x 2, with Google's floor as a mini loading bar in the foot */
+.trust{margin:18px 16px 0;border-top:1px solid var(--rule);padding-top:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;row-gap:16px}
+.cell{padding-right:12px;min-width:0}
+.cell:nth-child(even){padding-left:16px;border-left:1px solid var(--rule)}
+.cell .n{font-family:var(--mono);font-size:26px;font-weight:500;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+.cell .n sup{font-size:13px;color:var(--ink-2);vertical-align:top;position:relative;top:1px;margin-left:1px}
+.cell .n .of{font-size:15px;color:var(--ink-2);margin:0 3px;font-weight:400}
+.cell .l{font-size:12.5px;color:var(--ink-2);margin-top:6px;line-height:1.3}
+.floor{margin-top:16px;padding:12px 14px 10px;border:1px solid var(--rule);border-radius:8px}
+.floor .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.floor .row b{font-size:13.5px;font-weight:500;color:var(--ink)}
+.floor .row .m{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.bar{position:relative;height:6px;border-radius:3px;background:var(--chip);margin:12px 0 24px}
+.bar .fill{position:absolute;left:0;top:0;bottom:0;width:50%;border-radius:3px;overflow:hidden;display:flex;transform-origin:left center;animation:fill .9s var(--ease) .3s both}
+.bar .fill i{flex:1;display:block}
+.bar .fill i:nth-child(1){background:var(--g-blue)}
+.bar .fill i:nth-child(2){background:var(--g-red)}
+.bar .fill i:nth-child(3){background:var(--g-yellow)}
+.bar .fill i:nth-child(4){background:var(--g-green)}
+@keyframes fill{from{transform:scaleX(0)}}
+.bar .tick{position:absolute;left:50%;top:-5px;width:2px;height:16px;margin-left:-1px;background:var(--ink);border-radius:1px}
+.bar .tk{position:absolute;top:13px;font-family:var(--mono);font-size:11px;line-height:1.2;color:var(--ink-2);letter-spacing:.02em;white-space:nowrap}
+.bar .tk.z{left:0}
+.bar .tk.f{left:50%;transform:translateX(-50%);color:var(--ink);font-weight:500}
+.bar .tk.x{right:0}
+.floor p{font-size:12.5px;line-height:1.45;color:var(--ink-2)}
+.floor p b{font-weight:500;color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#" aria-label="Nonprofit Megaphone, home">
+        <svg width="27" height="23" viewBox="0 0 36 30" aria-hidden="true">
+          <path d="M2 11.5 L19 4 L19 26 L2 18.5 Z" fill="#1A73E8" stroke="#1A73E8" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M19 4 L26 1 L26 29 L19 26 Z" fill="#202124" stroke="#202124" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M29 9 A 7 7 0 0 1 29 21" stroke="#1A73E8" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M32 5 A 12 12 0 0 1 32 25" stroke="#202124" stroke-width="1.5" fill="none" opacity=".45" stroke-linecap="round"/>
+        </svg>
+        <span class="name">Nonprofit Megaphone</span>
+      </a>
+      <div class="navr">
+        <a class="btn sm" href="#">Book a call</a>
+        <a class="menu" href="#" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow"><span class="mono">$10,000</span> a month in Google search ads, for nonprofits</p>
+    <h1 id="h1">Show up first.<br><span class="key">Stay there.<span class="ul" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span></h1>
+    <p class="sub">Google gives eligible nonprofits $10,000 a month in search ads. We get the account approved, keep it above Google's 5% click-through floor, and report every month.</p>
+    <a class="btn full" href="#">Book a free call</a>
+    <p class="exits">
+      <a class="tbtn" href="#">Am I eligible?
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <span class="meta">4 questions &middot; no email</span>
+    </p>
+
+    <figure aria-label="Sample search results page">
+      <div class="mock">
+        <div class="top">
+          <span class="chip">Sample</span>
+          <span class="hint">Your ad, at the top of the results</span>
+        </div>
+        <div class="field" role="img" aria-label="Search query: free family counseling near me">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="#5F6368" stroke-width="2" fill="none"/><path d="M15.5 15.5 21 21" stroke="#5F6368" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="q">free family counseling near me</span>
+        </div>
+        <div class="ad">
+          <div class="sp">Sponsored</div>
+          <div class="who">
+            <div class="fav" aria-hidden="true">W</div>
+            <div><div class="n">Willow Creek Family Services</div><div class="u">willowcreekfamily.org</div></div>
+          </div>
+          <a class="h" href="#">Free Family Counseling | Same-Week Appointments</a>
+          <p class="d">Licensed counselors at no cost, no insurance needed. Evening and online sessions available.</p>
+          <div class="sl">
+            <a href="#">Book an appointment<small>Same-week openings</small></a>
+            <a href="#">Who we help<small>Families, teens, veterans</small></a>
+          </div>
+        </div>
+        <div class="skel" aria-hidden="true">
+          <i class="t"></i><i class="l1"></i><i class="l2"></i>
+        </div>
+      </div>
+      <figcaption class="cap"><b>Sample only.</b> Your nonprofit's ad at the top of the results page, paid for by Google. Not a client's account.</figcaption>
+    </figure>
+  </section>
+
+  <section class="trust" aria-label="Figures on the record">
+    <div class="grid">
+      <div class="cell"><div class="n">780<sup>+</sup></div><div class="l">Nonprofits under management</div></div>
+      <div class="cell"><div class="n">$48M<sup>+</sup></div><div class="l">In Google Ads managed</div></div>
+      <div class="cell"><div class="n">100%</div><div class="l">Approval guaranteed, in writing</div></div>
+      <div class="cell"><div class="n">1<span class="of">of</span>9</div><div class="l">Inaugural Google-certified agencies</div></div>
+    </div>
+    <div class="floor" role="group" aria-label="Google's click-through floor">
+      <div class="row"><b>The rule Google enforces</b><span class="m">CTR &ge; 5.0%</span></div>
+      <div class="bar" role="img" aria-label="A scale from 0 to 10 percent click-through rate, with Google's floor marked at 5 percent.">
+        <div class="fill" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <span class="tick" aria-hidden="true"></span>
+        <span class="tk z" aria-hidden="true">0</span><span class="tk f" aria-hidden="true">5% floor</span><span class="tk x" aria-hidden="true">10%</span>
+      </div>
+      <p>Below <b>5% click-through</b> two months running and Google deactivates the account. We keep yours above the line and show you the number monthly.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
