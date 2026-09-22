@@ -30,8 +30,9 @@ Live: **https://hmohyud.github.io/grant_web/**
 9. **Open Air** (added later): a calm pale-sky ground, light Manrope type, proof as floating chips.
 10. **Rings** (added later): every shape a circle; a ring meter as the hero on a soft lilac ground, Outfit + Figtree, one violet.
 11. **Top Result** (added later): Google's own idiom, white and Roboto, the four colors only as hairlines, a search-results mock as the hero.
+12. **Pointillist** (added later): a megaphone built from 780 dots, one per client, in warm pastels on pale peach, Gabarito + Nunito Sans.
 
-Directions 6 to 11 were added as alternatives after the first judging round and have not been scored by the panel. `tools/build_pitch.py` rebuilds `site/pitch/index.html` from the direction files and `tools/pitch_data.json`.
+Directions 6 to 12 were added as alternatives after the first judging round and have not been scored by the panel. `tools/build_pitch.py` rebuilds `site/pitch/index.html` from the direction files and `tools/pitch_data.json`.
 
 ## Deploying
 
