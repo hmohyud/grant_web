@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>Nonprofit Megaphone — The Ledger</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+:root{
+  --paper:#F7F3EA;--paper-2:#EFEADF;--surface:#FFFFFF;--ink:#14161C;--ink-2:#454955;--muted:#62666F;
+  --rule:#DDD8CB;--rule-soft:#EAE5D8;--blue:#0A23A2;--blue-soft:#E6EAF9;--cta:#C8472A;--cta-hover:#B03E24;
+  --green:#1F9D5C;--green-on-ink:#3DCB80;--amber:#D9A126;--ink-muted:#A5A9B4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.serif{font-family:'Newsreader',Georgia,serif}
+.page{width:1200px;min-height:760px;margin:0 auto;background:var(--paper);position:relative;overflow:hidden}
+
+/* document header line: a statement is dated, not live */
+.strip{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid var(--rule);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.strip b{color:var(--ink);font-weight:500}
+.strip .sep{margin:0 12px;color:#C9C4B6}
+
+/* nav */
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.01em;white-space:nowrap}
+.brand svg{display:block}
+.links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.links a{padding:4px 0;border-bottom:1px solid transparent}
+.links a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.nav-r{display:flex;align-items:center;gap:22px;white-space:nowrap}
+.login{font-size:13.5px;color:var(--ink-2);display:inline-flex;align-items:center;gap:7px}
+.login svg{display:block}
+.login:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 16px;border-radius:4px;font-size:14.5px;font-weight:600;border:1px solid transparent;white-space:nowrap;transition:background .15s,border-color .15s}
+.btn-primary{background:var(--cta);color:#fff}
+.btn-primary:hover{background:var(--cta-hover)}
+.btn-primary .k{font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:400;padding:2px 6px;border:1px solid rgba(255,255,255,.5);border-radius:3px;letter-spacing:.02em}
+.btn-ghost{background:var(--surface);border-color:var(--rule);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-ghost svg{display:block;margin-right:-2px}
+.btn-ghost .k{font-family:'Geist Mono',monospace;font-size:11.5px;font-weight:400;color:var(--muted);letter-spacing:.04em}
+
+/* hero on ruled ledger paper: horizontal rules on a 48px pitch, one red margin line */
+.hero{position:relative;display:grid;grid-template-columns:500px minmax(0,1fr);gap:48px;padding:54px 40px 44px;align-items:start;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 47px,var(--rule-soft) 47px 48px);background-position:0 6px}
+.hero::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:1px;background:var(--cta);opacity:.26}
+.copy{position:relative}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.eyebrow i{width:28px;height:1px;background:var(--ink);display:inline-block;flex-shrink:0}
+h1{font-size:54px;line-height:1.05;letter-spacing:-.03em;font-weight:600;color:var(--ink)}
+h1 .fig{font-family:'Geist Mono',monospace;font-weight:500;font-size:.9em;color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+h1 .fig small{font-size:.62em;color:var(--muted);font-weight:400;margin-left:2px}
+.sub{margin-top:24px;font-size:17px;line-height:1.55;color:var(--ink-2);max-width:470px}
+.sub b{color:var(--ink);font-weight:600}
+.ctas{display:flex;gap:12px;margin-top:30px;align-items:center}
+.guar{margin-top:30px;display:flex;gap:14px;align-items:flex-start;max-width:500px;padding-top:18px;border-top:1px solid var(--rule)}
+.guar .pic{flex-shrink:0;width:44px;height:44px;border-radius:50%;overflow:hidden;border:1px solid var(--rule)}
+.guar .pic svg{display:block;width:44px;height:44px}
+.guar p{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.guar p b{color:var(--ink);font-weight:600}
+.guar .fine{margin-top:6px;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.guar .fine b{color:var(--ink);font-weight:500}
+
+/* the statement: a paper document, not a dashboard */
+.stmt{position:relative;background:var(--surface);border:1px solid var(--rule);border-top:2px solid var(--ink);border-radius:6px;box-shadow:0 28px 48px -34px rgba(20,22,28,.45),0 1px 2px rgba(20,22,28,.04);overflow:hidden}
+.s-head{padding:16px 22px 14px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;white-space:nowrap}
+.s-head h2{font-size:15.5px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.s-head .m{margin-top:5px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.s-head .m b{color:var(--ink);font-weight:500}
+.s-head .right{text-align:right}
+.redact{display:inline-block;height:10px;width:58px;background:var(--ink);vertical-align:middle;margin:0 6px 0 2px;border-radius:1px}
+.tag{display:inline-block;font-size:10.5px;letter-spacing:.08em;padding:2px 5px;border:1px solid var(--ink);border-radius:2px;color:var(--ink);vertical-align:middle;font-weight:500}
+.s-kpis{display:grid;grid-template-columns:1.45fr 1fr 1fr;border-bottom:1px solid var(--rule)}
+.kpi{padding:16px 16px 15px;border-right:1px solid var(--rule)}
+.kpi:last-child{border-right:0}
+.kpi .l{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.kpi .v{margin-top:8px;font-size:27px;line-height:1;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.kpi .v small{font-size:12.5px;color:var(--muted);margin-left:5px;letter-spacing:0}
+.kpi .d{margin-top:10px;font-size:12px;font-weight:500;color:var(--ink-2);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.kpi .d::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
+.kpi .d.flr::before{background:var(--amber)}
+.s-chart{padding:16px 22px 10px;border-bottom:1px solid var(--rule)}
+.s-chart .cap{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.s-chart .cap b{color:var(--ink);font-weight:500}
+.s-chart svg{display:block;width:100%;height:auto}
+.s-comp{background:var(--ink);color:#F4F2EC;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;white-space:nowrap}
+.s-comp .t{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-muted)}
+.s-comp .checks{display:flex;gap:16px;font-size:12.5px}
+.s-comp .checks span{display:inline-flex;align-items:center;gap:6px}
+.s-comp .checks span::before{content:"";width:13px;height:13px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'><circle cx='6.5' cy='6.5' r='6.5' fill='%233DCB80'/><path d='M3.6 6.8l2 2 3.9-4.2' stroke='%2314161C' stroke-width='1.7' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/contain no-repeat}
+.s-comp .score{font-size:13px;color:#F4F2EC}
+.s-comp .score .pass{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:3px;background:rgba(61,203,128,.16);color:var(--green-on-ink);font-size:10.5px;letter-spacing:.08em;font-weight:500}
+.s-note{padding:16px 22px 18px;display:flex;gap:16px;align-items:flex-start;background:var(--surface)}
+.s-note .faces{display:flex;flex-shrink:0}
+.s-note .faces span{width:38px;height:38px;border-radius:50%;overflow:hidden;border:2px solid #fff;margin-left:-10px;box-shadow:0 0 0 1px var(--rule)}
+.s-note .faces span:first-child{margin-left:0}
+.s-note .faces svg{display:block;width:38px;height:38px}
+.s-note q{quotes:none;font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:16px;line-height:1.45;color:var(--ink);display:block}
+.s-note .by{margin-top:7px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.s-note .by b{color:var(--ink);font-weight:500}
+/* tear-off footer: where the sample statement is offered */
+.s-foot{margin:0 22px;padding:12px 0 14px;border-top:1px dashed var(--rule);display:flex;justify-content:space-between;align-items:center;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.s-foot b{color:var(--ink);font-weight:500}
+.s-foot a{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:500;border-bottom:1px solid transparent}
+.s-foot a:hover{border-bottom-color:var(--blue)}
+.s-foot a svg{display:block}
+
+/* ledger row */
+.ledger{margin:6px 40px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);display:grid;grid-template-columns:repeat(4,1fr)}
+.ledger>div{padding:18px 0 18px 20px;border-right:1px solid var(--rule)}
+.ledger>div:first-child{padding-left:0}
+.ledger>div:last-child{border-right:0}
+.ledger .k{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.ledger .v{margin-top:7px;font-size:30px;line-height:1;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.ledger .v small{font-size:12.5px;color:var(--muted);letter-spacing:0;margin-left:7px}
+
+/* trust strip: a letter from Google and a typographic client roll */
+.trust{margin:0 40px;padding:22px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.letter{display:flex;align-items:center;gap:14px;max-width:430px;flex-shrink:0}
+.letter .g{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--rule);background:#fff;display:grid;place-items:center;font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:19px;color:var(--blue)}
+.letter p{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:15.5px;line-height:1.4;color:var(--ink)}
+.letter .by{margin-top:4px;font-family:'Geist Mono',monospace;font-style:normal;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.letter .by b{color:var(--ink);font-weight:500}
+.roll{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:baseline;gap:10px 18px;min-width:0;white-space:nowrap;color:var(--ink-2)}
+.roll span::before{content:"";display:inline-block;width:1px;height:12px;background:var(--rule);margin-right:18px;vertical-align:-1px}
+.roll span:first-child::before{display:none}
+.roll .a{font-family:'Newsreader',Georgia,serif;font-variant:small-caps;font-size:16px;letter-spacing:.06em;font-weight:500}
+.roll .b{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.roll .c{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:16px}
+.roll .d{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.roll .e{font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:14px;letter-spacing:-.01em}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="strip mono">
+    <span><b>Nonprofit Megaphone</b><span class="sep">·</span>Statement of results<span class="sep">·</span>No. <b>2026-09</b></span>
+    <span>Figures as of <b>1 Sep 2026</b><span class="sep">·</span>updated monthly</span>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#">
+      <svg width="28" height="24" viewBox="0 0 28 24" aria-hidden="true">
+        <path d="M2.5 8.5h6.5l9-6.5v20l-9-6.5H2.5z" fill="#0A23A2"/>
+        <path d="M5 15.5h4.2v6.5H6.4z" fill="#0A23A2"/>
+        <path d="M20.5 8.2a4.2 4.2 0 0 1 0 7.6" stroke="#0A23A2" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M23.4 5a8.4 8.4 0 0 1 0 14" stroke="#C8472A" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      Nonprofit Megaphone
+    </a>
+    <nav class="links">
+      <a href="#">Ad Grant</a><a href="#">Services</a><a href="#">Results</a><a href="#">Pricing</a><a href="#">Team</a><a href="#">Resources</a>
+    </nav>
+    <div class="nav-r">
+      <a class="login" href="#"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M1.5 1.5h6l3 3v8h-9z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M4 7h4M4 9.5h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Client reports</a>
+      <a class="btn btn-primary" href="#">Book a Free Call <span class="k">15 min</span></a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="copy">
+      <div class="eyebrow mono"><i></i>One of nine inaugural Google-certified Ad Grant agencies</div>
+      <h1>Every dollar of<br>your <span class="fig">$10,000<small>/mo</small></span><br>Google Ad Grant,<br>accounted for.</h1>
+      <p class="sub">We win, build and run your Google Ad Grant so it never lapses or goes unspent, then send you the statement every month. <b>Flat monthly fee. No percentage of spend.</b></p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#">Book a Free Call <span class="k">15 min</span></a>
+        <a class="btn btn-ghost" href="#"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="#0A23A2" stroke-width="1.4"/><path d="M4.3 7.2l1.9 1.9 3.6-4" fill="none" stroke="#0A23A2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Am I eligible? <span class="k">2 min</span></a>
+      </div>
+      <div class="guar">
+        <div class="pic"><svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" fill="#EFEADF"/><circle cx="22" cy="17" r="8" fill="#14161C"/><path d="M6 47c0-10 7-16 16-16s16 6 16 16z" fill="#14161C"/></svg></div>
+        <div>
+          <p><b>Our guarantee is a person, not a policy.</b> Unhappy at any point? Meet Amber Snow, our CEO, on a call and we pay you $25 for your time.</p>
+          <div class="fine mono">Amber Snow, CEO <b>·</b> 60+ person team <b>·</b> cancel any month</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stmt">
+      <div class="s-head">
+        <div>
+          <h2>Monthly account statement</h2>
+          <div class="m mono">Google Ad Grant <b>·</b> August 2026</div>
+        </div>
+        <div class="right">
+          <div class="m mono" style="margin-top:0">Client <span class="redact"></span><span class="tag">Redacted</span></div>
+          <div class="m mono">Health nonprofit <b>·</b> Ohio</div>
+        </div>
+      </div>
+
+      <div class="s-kpis mono">
+        <div class="kpi"><div class="l">Grant used this month</div><div class="v">$9,847<small>of $10,000</small></div><div class="d">98.5% of credit spent</div></div>
+        <div class="kpi"><div class="l">Click-through</div><div class="v">11.2<small>%</small></div><div class="d flr">Floor 5% · clear</div></div>
+        <div class="kpi"><div class="l">Conversions</div><div class="v">214</div><div class="d">+31% vs Q2</div></div>
+      </div>
+
+      <div class="s-chart">
+        <div class="cap mono"><span>Grant spend by month <b>·</b> trailing 12</span><span>Cap <b>$10,000</b></span></div>
+        <svg viewBox="0 0 526 126" aria-hidden="true">
+          <defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0A23A2" stop-opacity=".16"/><stop offset="1" stop-color="#0A23A2" stop-opacity="0"/></linearGradient></defs>
+          <line x1="40" y1="16" x2="518" y2="16" stroke="#D9A126" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="40" y1="62" x2="518" y2="62" stroke="#EDE9DE"/>
+          <line x1="40" y1="104" x2="518" y2="104" stroke="#DDD8CB"/>
+          <g stroke="#DDD8CB"><line x1="40" y1="104" x2="40" y2="108"/><line x1="127" y1="104" x2="127" y2="108"/><line x1="214" y1="104" x2="214" y2="108"/><line x1="301" y1="104" x2="301" y2="108"/><line x1="388" y1="104" x2="388" y2="108"/><line x1="475" y1="104" x2="475" y2="108"/><line x1="518" y1="104" x2="518" y2="108"/></g>
+          <path d="M40 96 L84 84 L127 70 L171 52 L214 38 L258 43 L301 30 L345 26 L388 31 L432 22 L475 23 L518 19 L518 104 L40 104 Z" fill="url(#fill)"/>
+          <polyline points="40,96 84,84 127,70 171,52 214,38 258,43 301,30 345,26 388,31 432,22 475,23 518,19" fill="none" stroke="#0A23A2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="40" cy="96" r="3" fill="#0A23A2"/>
+          <circle cx="518" cy="19" r="4" fill="#fff" stroke="#0A23A2" stroke-width="2"/>
+          <g font-family="Geist Mono, monospace" font-size="11" fill="#62666F">
+            <text x="0" y="20">$10k</text>
+            <text x="0" y="66">$5k</text>
+            <text x="0" y="108">$0</text>
+            <text x="40" y="122">Sep '25</text>
+            <text x="279" y="122" text-anchor="middle">Feb '26</text>
+            <text x="518" y="122" text-anchor="end">Aug '26</text>
+            <text x="94" y="98">onboarded</text>
+            <text x="512" y="12" text-anchor="end">$10,000 cap</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="s-comp mono">
+        <span class="t">Compliance</span>
+        <div class="checks"><span>CTR ≥ 5%</span><span>Conversions</span><span>Keywords</span></div>
+        <span class="score">14 / 14 checks<span class="pass">PASS</span></span>
+      </div>
+
+      <div class="s-note">
+        <div class="faces">
+          <span><svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" fill="#E6EAF9"/><circle cx="19" cy="15" r="7" fill="#0A23A2"/><path d="M5 41c0-9 6-14 14-14s14 5 14 14z" fill="#0A23A2"/></svg></span>
+          <span><svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" fill="#EFEADF"/><circle cx="19" cy="15" r="7" fill="#14161C"/><path d="M5 41c0-9 6-14 14-14s14 5 14 14z" fill="#14161C"/></svg></span>
+          <span><svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" fill="#F6DED6"/><circle cx="19" cy="15" r="7" fill="#C8472A"/><path d="M5 41c0-9 6-14 14-14s14 5 14 14z" fill="#C8472A"/></svg></span>
+        </div>
+        <div>
+          <q>August in one sentence: we moved budget from awareness terms to your Ohio program pages, and sign-ups rose 31 percent.</q>
+          <div class="by mono"><b>Maya, Account Lead</b> · with your ad specialist and impact advisor · replies within 1 business day</div>
+        </div>
+      </div>
+
+      <div class="s-foot mono">
+        <span>Statement <b>No. 0824</b> · prepared 1 Sep 2026</span>
+        <a href="#"><svg width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><path d="M5.5 1v7M2.5 5.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 10.5h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Download this sample · PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ledger mono">
+    <div><div class="k">Nonprofits served</div><div class="v">780<small>+ active accounts</small></div></div>
+    <div><div class="k">Grant spend managed</div><div class="v">$48.0M<small>+ lifetime</small></div></div>
+    <div><div class="k">Grant acquisition</div><div class="v">100<small>% · guaranteed</small></div></div>
+    <div><div class="k">Google Ad Grant team</div><div class="v">60<small>+ strategists &amp; data nerds</small></div></div>
+  </div>
+
+  <div class="trust">
+    <div class="letter">
+      <span class="g">G</span>
+      <div>
+        <p>“As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone.”</p>
+        <div class="by"><b>Michelle Hurtado</b> · first Head of Ad Grants, Google</div>
+      </div>
+    </div>
+    <div class="roll">
+      <span class="b">UNCF</span>
+      <span class="a">COPD Foundation</span>
+      <span class="e">Scouting America</span>
+      <span class="c">YWCA Chicago</span>
+      <span class="d">Earthwatch</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

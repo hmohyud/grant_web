@@ -1,0 +1,72 @@
+{
+ "name": "Signal Room",
+ "oneLiner": "A dark, cinematic control room where a nonprofit's $10,000 grant is watched every hour: the account ledger is the hero, luminous data is the only color, and the mood is calm vigilance rather than hype.",
+ "concept": "Nonprofit Megaphone's proof is operational: 780 accounts, $48M of Google's money routed without waste, a 100% acquisition record, and a compliance regime (5% CTR floor, conversion tracking, sitelinks, geo-targeting) that most nonprofits are terrified of. Signal Room renders that as a night-shift operations center. The site is dark not because dark is fashionable but because the story is \"the lights are on at NPM while you sleep.\" Every section is built around a glowing instrument: the live account panel in the hero, a compliance ledger, a spend-utilization curve, a sortable case-study table. Nobody in the Ad Grant category shows a real account as a designed object; this direction makes it the identity.\n\nThe emotional register is relief through visible control. The audience brief is explicit that EDs and comms directors are burnt out and want \"one less thing to worry about,\" and that their concrete fears are suspension and wasted credit. Instead of the current \"Amplify your voice\" energy, the copy names the fear (5% floor, $10,000 accounted for) and answers it with a screen they can forward to their board. The megaphone survives as geometry, not noise: concentric signal arcs and a cone of rays radiate from the account panel, so \"amplification\" becomes carry and clarity rather than shouting.\n\nWhy it fits NPM specifically: the brand's true positioning is \"the calm expert who is quietly the biggest.\" The current #0000FF site renders the loud half only. Dark ink with a single coral signal keeps the coral CTA equity, retires the saturated-blue field the whole category shares, and moves NPM from \"agency template\" into the Linear/Mercury tier of craft, where the Google endorsement and \"1 of 9 inaugural certified agencies\" fact finally look as premium as they are. Guardrails against crypto/gaming energy: no pure black, no neon gradients, no 3D, tabular numerals and hairlines everywhere, real people and real client accounts as the imagery.",
+ "palette": [
+  {
+   "role": "bg / ink",
+   "hex": "#0A0E16",
+   "note": "Midnight navy-black, never pure #000. Whole site ground."
+  },
+  {
+   "role": "surface",
+   "hex": "#111725",
+   "note": "Cards, panels, nav dropdowns."
+  },
+  {
+   "role": "raised surface",
+   "hex": "#182033",
+   "note": "Elevated cards, tooltips, floating tags."
+  },
+  {
+   "role": "hairline",
+   "hex": "#263049",
+   "note": "All borders and rules at 1px; no drop shadows on cards except the hero panel."
+  },
+  {
+   "role": "text",
+   "hex": "#F3F5F9",
+   "note": "Off-white body/heading text, never #FFF except the lit headline number."
+  },
+  {
+   "role": "muted text",
+   "hex": "#98A2B8",
+   "note": "Subheads, labels, wordmarks."
+  },
+  {
+   "role": "dim / units",
+   "hex": "#5C6680",
+   "note": "Axis labels, mono footnotes, disabled."
+  },
+  {
+   "role": "primary action (Signal Coral)",
+   "hex": "#FF6A45",
+   "note": "Evolved from brand coral #DA6343 so it glows on dark. The ONLY warm color; used for the CTA, the 5% floor line, and one highlighted number per screen."
+  },
+  {
+   "role": "data (Ice)",
+   "hex": "#8FD3FF",
+   "note": "Charts, sparklines, utilization bars, link hovers. Descends from the brand's sky #85C1FA."
+  },
+  {
+   "role": "success / compliant",
+   "hex": "#5BE49B",
+   "note": "Compliance ticks, live dot, 'Compliant' badge only."
+  },
+  {
+   "role": "brand mark blue",
+   "hex": "#4C6FFF",
+   "note": "Reserved for the npm megaphone mark and Google Partner badge; never a surface."
+  }
+ ],
+ "typography": {
+  "display": "Clash Display (Fontshare), weights 500 and 600. Headlines, big numbers, KPI values, wordmark.",
+  "body": "Switzer (Fontshare), weights 400/500/600. All UI and body copy. Fallback Inter.",
+  "mono": "Geist Mono (Google Fonts), 400/500. Every label, unit, timestamp, table header, footnote, and the account-panel chrome.",
+  "scaleNotes": "H1 60-72px, Clash Display 600, line-height 1.02, tracking -0.025em, sentence case, one muted clause allowed at weight 500. H2 40px/1.1/-0.02em. H3 24px. Body 17-18px/1.5 Switzer 400 in #98A2B8 with key phrases in #F3F5F9 500. Labels 11-12px Geist Mono, uppercase, tracking 0.06-0.08em. All numerals tabular (font-variant-numeric: tabular-nums); large stats 46px Clash 600 with -0.03em. Radii: 10px buttons, 12px small cards, 18px hero panel, 999px pills; nothing else."
+ },
+ "mean": 34.2,
+ "panel": {
+  "mean": 34.2
+ }
+}

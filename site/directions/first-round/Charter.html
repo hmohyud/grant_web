@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Charter — Nonprofit Megaphone</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap');
+:root{--ivory:#F3EDE0;--paper:#FAF6EC;--ink:#0E1B33;--navy:#14295C;--gold:#B8892E;--gold-tint:#E9D9B0;--slate:#5B6478;--rule:#D8CFBB;--signal:#9E2F1F}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ivory)}
+body{font-family:'Switzer',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+.page{width:1200px;min-height:720px;margin:0 auto;position:relative;overflow:hidden;background:var(--ivory);
+  background-image:radial-gradient(900px 520px at 88% 8%,rgba(250,246,236,.9),transparent 65%),
+  repeating-linear-gradient(0deg,rgba(14,27,51,.018) 0 1px,transparent 1px 7px)}
+.wrap{padding:0 56px}
+/* ---------- nav ---------- */
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:34px;height:34px}
+.wordmark{font-family:'Fraunces',serif;font-variation-settings:"opsz" 48;font-size:19px;letter-spacing:.01em;line-height:1}
+.wordmark b{font-weight:600}
+.wordmark small{display:block;font-family:'Switzer';font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:600}
+.links{display:flex;gap:34px}
+.links a{font-size:14.5px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:.005em;padding-bottom:2px;border-bottom:1px solid transparent}
+.links a:hover{border-bottom-color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:26px}
+.phone{font-size:13px;color:var(--slate);letter-spacing:.02em}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:var(--paper);font-weight:500;font-size:14.5px;padding:12px 20px;border-radius:2px;text-decoration:none;letter-spacing:.005em;border:1px solid var(--navy)}
+.btn svg{width:14px;height:14px}
+.btn.lg{font-size:16px;padding:16px 26px}
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1fr 452px;gap:72px;padding:60px 0 52px;position:relative;align-items:start}
+.rays{position:absolute;right:-330px;top:-140px;width:1040px;height:1040px;pointer-events:none;opacity:.55}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:34px}
+.eyebrow i{display:inline-block;width:36px;height:1px;background:var(--gold)}
+.eyebrow span+span::before{content:"·";margin:0 10px 0 -4px;color:var(--rule)}
+h1{font-family:'Fraunces',Georgia,serif;font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 0;font-weight:400;font-size:66px;line-height:1.03;letter-spacing:-.018em;color:var(--ink);max-width:640px;text-wrap:balance}
+h1 em{font-style:italic;font-weight:400;color:var(--navy)}
+.sub{font-size:19px;line-height:1.55;color:var(--slate);max-width:540px;margin:30px 0 38px}
+.sub b{color:var(--ink);font-weight:500}
+.ctas{display:flex;align-items:center;gap:22px}
+.ctas a.text{font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.endorse{display:flex;gap:16px;align-items:flex-start;margin-top:52px;padding-top:26px;border-top:1px solid var(--rule);max-width:560px}
+.endorse .q{font-family:'Fraunces',serif;font-variation-settings:"opsz" 72;font-style:italic;font-size:19px;line-height:1.35;color:var(--ink)}
+.endorse .who{font-size:12.5px;color:var(--slate);margin-top:8px;letter-spacing:.02em}
+.endorse .who b{color:var(--ink);font-weight:500}
+.gmark{flex:none;width:44px;height:44px;border:1px solid var(--rule);border-radius:50%;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:22px;color:var(--navy);background:var(--paper)}
+/* ---------- charter card ---------- */
+.card{position:relative;background:var(--paper);border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-7px;padding:40px 36px 30px;box-shadow:0 30px 60px -30px rgba(14,27,51,.35)}
+.card::before{content:"";position:absolute;inset:0;transform:translate(14px,14px);background:var(--paper);border:1px solid var(--rule);z-index:-1}
+.card::after{content:"";position:absolute;inset:0;transform:translate(28px,28px);background:#F6F1E4;border:1px solid var(--rule);z-index:-2}
+.crest{display:block;width:112px;height:112px;margin:0 auto 20px}
+.card h2{font-family:'Switzer';font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);text-align:center}
+.card .cl{font-family:'Fraunces',serif;font-variation-settings:"opsz" 72;font-style:italic;font-size:21px;text-align:center;color:var(--ink);margin:8px 0 26px;line-height:1.3}
+.ledger{border-top:1px solid var(--ink)}
+.ledger div{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule)}
+.ledger dt{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:500}
+.ledger dd{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
+.ledger dd sup{font-size:12px;color:var(--gold);vertical-align:top;margin-left:2px}
+.card .foot{display:flex;justify-content:space-between;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+.card .foot b{color:var(--signal);font-weight:500}
+/* ---------- trust strip ---------- */
+.trust{border-top:1px solid var(--rule);padding:22px 0 30px}
+.trust-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.trust .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.logos{display:flex;align-items:center;justify-content:space-between;color:var(--navy);opacity:.85;padding:0 8px}
+.logos span{white-space:nowrap;line-height:1}
+.l1{font-family:'Fraunces';font-weight:600;font-size:19px;letter-spacing:.06em}
+.l2{font-family:'Switzer';font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.l3{font-family:'Fraunces';font-style:italic;font-size:19px}
+.l4{font-family:'Switzer';font-weight:600;font-size:16px;letter-spacing:-.02em}
+.l5{font-family:'Fraunces';font-weight:400;font-size:16px;letter-spacing:.12em;text-transform:uppercase}
+.l6{font-family:'IBM Plex Mono';font-weight:500;font-size:14px;letter-spacing:.06em}
+.badge{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--slate);border:1px solid var(--rule);padding:8px 12px;border-radius:2px;background:var(--paper);white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+</style>
+</head>
+<body>
+<div class="page">
+<svg class="rays" viewBox="0 0 1000 1000" fill="none" stroke="#14295C" stroke-width="1" aria-hidden="true">
+  <g opacity=".22"><circle cx="500" cy="500" r="120"/><circle cx="500" cy="500" r="190"/><circle cx="500" cy="500" r="260"/><circle cx="500" cy="500" r="330"/><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="470"/></g>
+  <g opacity=".14" stroke="#B8892E"><circle cx="500" cy="500" r="155"/><circle cx="500" cy="500" r="225"/><circle cx="500" cy="500" r="295"/><circle cx="500" cy="500" r="365"/><circle cx="500" cy="500" r="435"/></g>
+</svg>
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><pattern id="h" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#14295C" stroke-width="1.1"/></pattern></defs>
+        <path d="M6 24 L6 16 L20 9 L20 31 Z" fill="url(#h)" stroke="#14295C" stroke-width="1.4" stroke-linejoin="round"/><path d="M20 9 C27 12 27 28 20 31" fill="none" stroke="#14295C" stroke-width="1.4"/>
+        <path d="M27 14 C31 17 31 23 27 26 M31 11 C37 15 37 25 31 29" fill="none" stroke="#B8892E" stroke-width="1.4" stroke-linecap="round"/><path d="M8 24 L11 33 L15 33 L13 25" fill="#14295C"/></svg>
+      <span class="wordmark">Nonprofit <b>Megaphone</b><small>Google Ad Grant Stewards</small></span>
+    </a>
+    <nav class="links"><a href="#">About</a><a href="#">Services</a><a href="#">Our Work</a><a href="#">Journal</a><a href="#">Contact</a></nav>
+    <div class="nav-right"><span class="phone">773-887-0050</span><a class="btn" href="#">Book a Free Call <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><i></i><span>Est. 2016</span><span>One of nine inaugural Google-certified agencies</span></div>
+      <h1>Your $10,000 a month from Google—<em>kept, spent, and accounted&nbsp;for.</em></h1>
+      <p class="sub">We acquire and manage the Google Ad Grant for <b>780+ nonprofits</b>, with <b>$48M+</b> in grant spend stewarded and a <b>100% grant-acquisition guarantee</b>. Every month you get a report your board can read in one sentence.</p>
+      <div class="ctas"><a class="btn lg" href="#">Book a Free Call <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a><a class="text" href="#">Read the standing guarantee</a></div>
+      <div class="endorse">
+        <div class="gmark">G</div>
+        <div><p class="q">“As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone.”</p><p class="who"><b>Michelle Hurtado</b> — Google’s first Global Head of Ad Grants</p></div>
+      </div>
+    </div>
+
+    <aside class="card">
+      <svg class="crest" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="ring" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/><pattern id="h2" width="2.6" height="2.6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="2.6" stroke="#14295C" stroke-width=".9"/></pattern></defs>
+        <circle cx="60" cy="60" r="58" fill="none" stroke="#B8892E" stroke-width="1"/><circle cx="60" cy="60" r="54" fill="none" stroke="#B8892E" stroke-width=".6"/>
+        <text font-family="Switzer,sans-serif" font-size="7.2" font-weight="600" letter-spacing="1.9" fill="#B8892E"><textPath href="#ring" startOffset="0">NONPROFIT MEGAPHONE · GOOGLE AD GRANT STEWARDS · MMXVI ·</textPath></text>
+        <circle cx="60" cy="60" r="34" fill="none" stroke="#14295C" stroke-width=".8"/>
+        <path d="M40 66 L40 55 L60 45 L60 76 Z" fill="url(#h2)" stroke="#14295C" stroke-width="1.2" stroke-linejoin="round"/><path d="M60 45 C69 49 69 72 60 76" fill="none" stroke="#14295C" stroke-width="1.2"/>
+        <path d="M70 53 C75 57 75 64 70 68 M75 49 C82 54 82 67 75 72" fill="none" stroke="#B8892E" stroke-width="1.3" stroke-linecap="round"/><path d="M43 66 L46 76 L50 76 L48 67" fill="#14295C"/>
+      </svg>
+      <h2>Google Ad Grants Certified Professional</h2>
+      <p class="cl">Inaugural class — one of nine agencies worldwide</p>
+      <dl class="ledger">
+        <div><dt>Nonprofits served</dt><dd>780<sup>+</sup></dd></div>
+        <div><dt>Grant spend stewarded</dt><dd>$48,000,000<sup>+</sup></dd></div>
+        <div><dt>Grant acquisition</dt><dd>100%</dd></div>
+        <div><dt>Strategists on staff</dt><dd>60<sup>+</sup></dd></div>
+        <div><dt>Unhappy? Meet the CEO</dt><dd>$25<sup>*</sup></dd></div>
+      </dl>
+      <div class="foot"><span>Record № 0001 · Amber Snow, CEO</span><span><b>●</b> As of Sep 2026</span></div>
+    </aside>
+  </section>
+
+  <footer class="trust">
+    <div class="trust-head"><span class="lbl">Trusted by 780+ nonprofits · Recommended by Google’s first Head of Ad Grants</span><span class="badge"><i></i>Google Partner · Inc. 5000, four years running</span></div>
+    <div class="logos"><span class="l1">UNCF</span><span class="l2">COPD Foundation</span><span class="l3">Scouting America</span><span class="l4">YWCA Chicago</span><span class="l5">Earthwatch</span><span class="l3">Solar Sister</span><span class="l6">AAU</span><span class="l2">Essential Partners</span></div>
+  </footer>
+</div>
+</div>
+</body>
+</html>

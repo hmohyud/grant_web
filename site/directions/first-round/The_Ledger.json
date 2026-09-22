@@ -1,0 +1,184 @@
+{
+ "name": "The Ledger",
+ "oneLiner": "Nonprofit Megaphone as the monthly account statement it already sends 780 clients: warm ledger paper, a white statement with ink rules and one dark compliance line, every figure in tabular mono with a unit and a date, and a named human signing each month.",
+ "concept": "The category sells relief but designs excitement. Every Ad Grant agency shouts \"#1\" on a saturated-blue field; none shows the thing the buyer is afraid of losing, which is the account itself. The Ledger flips the homepage from advertisement to evidence: it is built around a real, redacted monthly account statement (spend against the $10,000 cap, CTR against Google's 5% policy floor, 14/14 compliance checks) and the sentence the account lead writes about that month. Proof replaces promises and the numbers do the persuading, but the panel's final version answers the jury's core objection: it is no longer a black developer dashboard with a live clock. It is a paper statement, white with ink rules, dated \"August 2026\", labelled \"Client: REDACTED\", with a single dark compliance line and a signed one-sentence month from a named account lead with three portraits. A bank statement is dated, not live; a statement is signed by a person, not a system.\n\nThe emotional register is a well-run finance office rather than a growth-hacking agency, and the type is now the reason it reads that way. Schibsted Grotesk (a humanist grotesk with a genuine voice) carries headlines and body; Geist Mono is demoted to figures, labels and captions only; Newsreader italic carries the two human artefacts on the page, the account lead's monthly sentence and Michelle Hurtado's endorsement, treated as a letter from Google. Warmth is structural, not decorative: the guarantee is a person (Amber Snow, with her portrait, under the primary CTA), the statement closes with faces, and the paper is a notch warmer so it never reads grey. This is the register that survives being forwarded to a board: the executive director sees stewardship, the comms director sees policy literacy, the development officer sees named accountability and a flat fee.\n\nIt fits Nonprofit Megaphone specifically because NPM's proof is already financial and already unique: $48M managed, 100% acquisition, one of nine inaugural Google-certified agencies, the endorsement of Google's first Head of Ad Grants. The competitor scan shows nobody renders proof as a financial object; TGAGA's fake dashboard gestures at it and stops. The Ledger commits, and it is honest about the mechanism: a labelled redaction, a named client at launch, figures with an \"as of\" date, and a sample statement PDF anyone can read without talking to a rep. It retires the electric-blue hero (the most crowded lane in the category) while keeping the mark's #0A23A2 as the colour of every figure and every chart line, so the brand still reads as itself to 780 existing clients and to Google's partner directory.",
+ "palette": [
+  {
+   "role": "bg / paper",
+   "hex": "#F7F3EA",
+   "note": "Warmed a notch from the first round so it never reads grey on a laptop. Faint 48px horizontal rules (#EAE5D8) appear only inside the hero, like ledger paper; the rest of the page is plain paper."
+  },
+  {
+   "role": "surface / statement",
+   "hex": "#FFFFFF",
+   "note": "The statement, tables, ghost buttons. One step lighter than paper. Statements get a 2px ink top rule, 1px #DDD8CB sides and a soft shadow (the only shadow on the page)."
+  },
+  {
+   "role": "text / ink",
+   "hex": "#14161C",
+   "note": "Headlines, figures, top rules, and the fill of the single dark object per page: the compliance line inside the statement. Never used as a hero background."
+  },
+  {
+   "role": "text secondary",
+   "hex": "#454955",
+   "note": "Body copy and nav links."
+  },
+  {
+   "role": "muted / labels",
+   "hex": "#62666F",
+   "note": "Mono uppercase labels, timestamps, axis text. Darkened from #7C808B: measures 5.1:1 on paper, so 11.5px labels pass AA."
+  },
+  {
+   "role": "rule",
+   "hex": "#DDD8CB",
+   "note": "Hairlines and dividers; #EAE5D8 for the ledger-paper rules. Cards get a rule, never a shadow."
+  },
+  {
+   "role": "primary / data signal",
+   "hex": "#0A23A2",
+   "note": "Retained from the npm mark. The colour of every figure that matters: the $10,000 in the H1, chart lines, links, the eligibility chip, one portrait duotone. Keeps brand equity without a blue wall."
+  },
+  {
+   "role": "accent / action",
+   "hex": "#C8472A",
+   "note": "Burnt coral, evolved from the current #DA6343 (which is 3.6:1 with white) just far enough to pass 4.5:1 with white text. The only CTA colour; nothing else on the page is red. Hover #B03E24."
+  },
+  {
+   "role": "status pass / floor",
+   "hex": "#1F9D5C",
+   "note": "Green for pass and 'clear' (#3DCB80 on ink). Amber #D9A126 for the policy-floor and cap markers only. Chart-only saturation, never decorative."
+  }
+ ],
+ "typography": {
+  "display": "Schibsted Grotesk (Google Fonts), weights 500, 600 and 700. H1 at 54-64px, weight 600, tracking -0.03em, line-height 1.05; section H2 at 36-42px weight 600, tracking -0.02em. A humanist grotesk with visible character in the a, g and t, chosen specifically to move the type from developer tooling to finance office.",
+  "body": "Schibsted Grotesk 400/500 at 17px/1.55 for lead paragraphs and 15.5px/1.6 for running text. Optional continuity variant: keep Satoshi (Fontshare) for body to soften the visible rebrand for existing clients; the system works either way because body never carries figures.",
+  "mono": "Geist Mono (Google Fonts) 400/500 with font-variant-numeric: tabular-nums, demoted to figures, units, labels, eyebrows, captions and dates only. Never body text, never a headline word, with one deliberate exception: the figure inside the H1 ($10,000/mo) is set in mono blue, because on this site a number is always a number.",
+  "scaleNotes": "Scale: 11.5 (mono labels, .07em tracking, uppercase, the floor for a 55-year-old ED on a laptop) - 12.5 - 13.5 - 15.5 - 17 - 24 - 27 - 30 - 42 - 54 - 64. Three type voices, each with one job: Schibsted for words, Geist Mono for numbers and system labels, Newsreader italic (Google Fonts) for the two human artefacts only (the account lead's monthly sentence and the Google endorsement) and the client roll. Headlines are sentence case, left-aligned, four lines maximum, with the one figure in blue mono; no italics, no bold spans. Every stat carries its unit in a smaller muted mono suffix ('$48.0M + lifetime', '100 % \u00b7 guaranteed') and every figure on the site has an 'as of' date within reach. Radius: 4px buttons, 6px statement, 3px tags; no pills. Minimum interactive target 44px."
+ },
+ "layout": "12-column grid on a 1200px container with 40px page gutters and 24px column gutters; 48px vertical module (echoed by the ruled-paper lines in the hero only); section spacing 96px, 128px before and after the two proof sections; internal rhythm 8/16/24. Cards are replaced by hairline-ruled rows and tables; only the statement gets a shadow. Type and figures are CMS-driven from a single 'figures' collection so 780+, $48M+, 100% and the 'as of' date have one source of truth.\n\nHomepage, top to bottom:\n\n01. Figures strip (34px): '780+ nonprofits \u00b7 $48M+ grant spend managed \u00b7 100% acquisition, guaranteed' left, 'Figures as of 1 Sep 2026 \u00b7 updated monthly' right. Mono 11.5px. No clock, no pulse; the date is driven by CMS and hidden on phones.\n\n02. Nav (68px): vector mark plus wordmark; six plain links (Ad Grant, Services, Results, Pricing, Team, Resources), no index numbers; right side 'Client reports' login link and the coral 'Book a Free Call \u00b7 15 min' button. Sticky, paper background at 92% opacity.\n\n03. Hero (ruled ledger paper): 500px headline column left with the eyebrow 'One of nine inaugural Google-certified Ad Grant agencies', the H1 with $10,000/mo in mono blue, the sub with 'Flat monthly fee. No percentage of spend.' in bold, the CTA row (primary with '15 min' tag, ghost 'See a sample statement \u00b7 PDF' that opens a real redacted PDF, 'Am I eligible? \u00b7 2 min' chip) and the guarantee block under it: Amber Snow's portrait, 'Our guarantee is a person, not a policy', the $25 clause in plain words. Right: the 572px Monthly Account Statement (header with client REDACTED tag, three KPIs, spend-vs-cap chart, dark compliance line, signed one-sentence month with three portraits).\n\n04. Ledger stat row: 780+ / $48.0M+ / 100% / 60+ with units, ink top rule, hairline bottom.\n\n05. Trust strip: the Michelle Hurtado endorsement set as a letter (Newsreader italic, 'G' seal, verifiable title) plus a typographic client roll (small-caps serif, tracked grotesk, italic, mono) that needs no logo licensing. Links to a full client roll page.\n\n06. Eligibility checker (moved up from section 12): four questions, one arc completing per answer, ending in 'eligible / not eligible, here's why / ask us'. The 'not eligible' card names hospitals, schools and governments honestly and links to Microsoft Advertising instead. No form, no email gate.\n\n07. 'The rules that end a grant': a three-column table (Requirement, as Google words it / What Google does if you miss it / What we do about it) for the 5% CTR floor, conversion-tracking requirement, keyword quality rules and the no-notice suspension. Pass rate across accounts stated in the footer of the table with a date.\n\n08. 'What you get each month': one real redacted statement rendered full-width as a three-column ledger table (line item, figure, note), with the signed one-sentence month beneath it and the 'Forward to board' PDF action. This is the sample statement the ghost CTA opens.\n\n09. Results as statements: six one-page case sheets, each with the fixed three-figure header (CTR, conversion rate, outcome per month), before/after, unit, date and the client's verifiable title; a mono filter bar for the 12 verticals; a filterable table view for all 54 studies. Print stylesheet included.\n\n10. Services as a price list: seven hairline rows (Ad Grant management, Website SEO, Content Creation, VisitorEmail, Google Remarketing, Microsoft Advertising, Spanish Ad Creation), each with a one-line outcome and 'from $X/mo' or 'quote', and a 'flat fee, no % of spend' footnote. First published price range in the category.\n\n11. Team: the cabin-retreat candid printed full-bleed in ink/paper duotone, then a directory table (name, role, nonprofits supported, years) with eye-level black-and-white portraits and a 'Nonprofits I support' caption, instead of a headshot grid.\n\n12. Guarantees as line items: 100% acquisition, the $25 meet-the-CEO clause with Amber Snow's signature line set as an engraved plate, flat fee, cancel any month.\n\n13. Closing CTA on paper (not blue): headline, the calendar embed inline, 'Book a Free Call \u00b7 15 min' and the eligibility chip repeated; the guarantee line repeated beneath.\n\n14. Footer: four columns, Inc. 5000 and Google Certified Professional badges as vector, the figures strip repeated with its date, fixed links, and a plain-text 'talk to a person' line.",
+ "imagery": "No illustration system and no stock. Three image classes only. (a) Screens: real Google Ads Grant account views and NPM's own monthly statement, redacted with a visible mono 'REDACTED' tag over the client name rather than a blur; framed in the white statement style with a 2px ink top rule and the month in the corner; these are the hero objects on Home, Ad Grant and every service page. Before launch the hero statement is bound to one consented client account (name, vertical, state, month) with the median utilisation across accounts replacing the placeholder 98.5%. (b) People: the existing cabin-retreat candid printed full-bleed in ink/paper duotone; new team photography shot eye-level against paper-coloured seamless in natural light, black and white, rectangular crops on the team page and small circular crops inside statements (the three portraits in the closing row) and beside the guarantee (Amber Snow); name and role set as a mono caption like a figure in a report. The placeholder silhouettes in the mockup mark exactly where these portraits go. (c) Clients: case sheets use one consented, eye-level image supplied by the client (beneficiary or program), captioned with org, city and year; where none exists the sheet runs type-only, never a placeholder. Data viz is the icon set: 2px #0A23A2 lines with a 16% gradient fill, a dashed amber line for the $10,000 cap and the 5% CTR floor on every chart (house rule), green tick chips for pass, and a sourced footnote under every chart ('Google Ads, Aug 2026, redacted'). Client logos are replaced by a typographic roll so the mixed-format logo wall disappears. The npm mark is redrawn as true vector (blue cone, one coral sound wave) and used small; a hairline-outline version becomes the section end-mark.",
+ "motion": "Motion is instrumentation, not decoration, and there is no clock anywhere. Numbers count up once on first view using GSAP (free in Webflow) with a 900ms expo-out, tabular nums so nothing reflows; chart lines draw their stroke via stroke-dashoffset over 1.2s when scrolled into view, with the dashed cap or floor line appearing 200ms later; compliance ticks pop in at 60ms intervals. The eligibility checker completes one arc per answered question (Amplitude's device) and the primary button carries a small four-bar level-meter glyph that rises on hover, a two-second brand memory that is pure CSS. Hover on any figure reveals a mono tooltip with source and date ('Google Ads, Aug 2026, redacted'). Scroll is native (no Lenis, no smooth-scroll) to keep the document feel; reveals are 12px translate plus opacity, 400ms, staggered 40ms per row, all disabled under prefers-reduced-motion. Page transitions: none. Buttons darken to #B03E24 on hover and show the mono key tag; no scale, no glow. Focus ring is 3px #0A23A2 on every interactive element; targets are 44px minimum.",
+ "heroCopy": {
+  "eyebrow": "One of nine inaugural Google-certified Ad Grant agencies",
+  "headline": "Every dollar of your $10,000/mo Google Ad Grant, accounted for.",
+  "sub": "We acquire, build and run your Google Ad Grant so it never lapses and never goes unspent, and we send you the statement every month. Flat monthly fee. No percentage of spend.",
+  "cta": "Book a Free Call \u00b7 15 min"
+ },
+ "signatureMoments": [
+  "The Monthly Account Statement hero: a white paper statement with a 2px ink top rule (not a black dashboard) showing spend vs the $10,000 cap, CTR against the dashed amber 5% floor, a single dark compliance line reading 14/14 PASS, and a closing row where a named account lead, with three portraits, writes the month in one sentence. Dated 'August 2026', client visibly REDACTED, never 'live'.",
+  "The guarantee is a person: Amber Snow's portrait directly under the primary CTA with 'Our guarantee is a person, not a policy' and the $25 clause in plain words, so the first screen contains a face and the buried guarantee becomes a differentiator.",
+  "The conversion row: coral 'Book a Free Call' with a '15 min' mono tag, a ghost 'See a sample statement \u00b7 PDF' that opens a real redacted report without a rep, and 'Am I eligible? \u00b7 2 min' chip that ends honestly for hospitals, schools and governments.",
+  "Figures with units and dates everywhere: the 34px strip carries 780+ / $48M+ / 100% with 'Figures as of 1 Sep 2026', the H1 sets $10,000/mo in mono blue, and every stat suffix ('$48.0M + lifetime') is a CMS rule that ends the 750/780 and $10k/$11K inconsistencies.",
+  "The rules table and the price list: Google's suspension rules quoted beside NPM's control for each, and seven services as hairline rows with flat monthly fees, answering the buyer's two stated tests (policy literacy, pricing transparency) on the homepage rather than in a call."
+ ],
+ "references": [
+  "Mercury (mercury.com): tabular numerals, hairline tables, one action colour on a near-mono ground",
+  "Anthropic (anthropic.com): warm paper ground, one accent, editorial calm with a humanist grotesk",
+  "Stripe annual letter and Stripe Press: proof as figures with units, set on paper rather than on a screen",
+  "Monzo and Wise annual statements: the bank-statement document as a designed, human object with a signed note",
+  "Schibsted's own editorial products (the face's origin): grotesk with a voice used for news, not for code",
+  "Bloomberg Terminal reimagined in daylight: dense, labelled, dated, trusted, but on paper",
+  "The Google Ad Grant Agency (googleadsgrantagency.com): the one competitor gesturing at a dashboard hero, which this direction out-commits and out-honests"
+ ],
+ "risks": [
+  "The hero statement's persuasive load depends on it being real: before launch the placeholder figures (a health nonprofit in Ohio, $9,847 used, 11.2% CTR, 214 conversions, 'Maya') must be replaced by one consented client's actual August statement with the REDACTED tag over the name, and 98.5% by the actual median utilisation across accounts. If no client consents, the panel must be labelled 'sample statement' in the header or it becomes the fake-dashboard pattern the brief criticises.",
+  "Residual dev-tool read: Schibsted plus paper plus a white statement moves the direction to finance office, but mono labels and a dark compliance line are still a coded vocabulary. Run the fold past three executive directors before committing; the fallback is dropping the dark compliance line to a green-ruled white row and setting labels in Schibsted small caps.",
+  "Content the client does not currently publish: flat prices, a real monthly statement PDF, policy pass rates, a named account lead per statement. Without the sample PDF and a price range, 'See a sample statement' and the price list have no destination and the Ledger degrades into styled stat cards.",
+  "Number hygiene is now a brand requirement: every figure needs one CMS source with an 'as of' date, and the 34px strip must be updated monthly or the date itself becomes the inconsistency. Assign an owner before launch.",
+  "Density and accessibility: labels are held at 11.5px minimum with #62666F (5.1:1 on paper); the KPI cells and compliance row are at their width limit at 572px and must reflow to two rows on tablet and to a stacked list on phone rather than shrink. Body copy never drops below 15.5px.",
+  "The CTA colour shifts from #DA6343 to #C8472A to reach 4.5:1 with white text; recognition should carry (same hue family, same 4px radius) but A/B it on the booking page against the current coral with a darker text-shadow alternative before switching sitewide.",
+  "Three type families (Schibsted, Geist Mono, Newsreader) is one more than the first round; Newsreader is limited to two artefacts and the client roll, but if performance budgets bite, the italic serif can be replaced by Schibsted italic without changing the system."
+ ],
+ "panel": {
+  "mean": 40.8,
+  "strongest": [
+   "The account-statement panel is the most fully resolved instrument in the set (spend vs cap chart, CTR vs floor with amber tick, 14/14 compliance, named humans) and the conversion layer is the smartest: '15 min' tag on the CTA, 'See a real account report' ghost button, and 'Flat monthly fee \u00b7 no % of spend' as fine print in the hero.",
+   "The black account-statement panel (spend vs cap, CTR vs the amber 5% floor, 14/14 checks, three named humans) is the most complete rendering of the actual product of the service; the '15 min' tag on the CTA and 'flat fee, no % of spend' fine print answer two buyer objections in the first screen.",
+   "The status ticker and 'services as a price list' are the most direct answers in the set to the research's pricing-transparency test, and the eligibility widget plus 'no % of spend' fine print speak to the rep-averse majority. It keeps the mark's blue as the data colour and is cheap to build with native scroll and Google fonts.",
+   "Cheapest, most performant build in the set: two Google Fonts (Geist, Geist Mono), native scroll, no smooth-scroll library, no illustration, hairlines instead of shadows, one dark panel. The risk ledger (Google's rules quoted beside NPM's control) and services as a price list answer the buyer's two stated tests directly. Number hygiene becomes a brand requirement, which is a useful forcing function for the 750/780 mess.",
+   "Best-executed CTA pair on the panel: vermilion 'Book a Free Call' with a '15 min' mono tag next to a ghost 'See a real account report', with 'Flat monthly fee \u00b7 no % of spend' and 'Meet our CEO, get $25' as fine print. Headline is specific and fear-answering, and the status ticker replaces '#1' with numbers that carry units."
+  ],
+  "weakest": [
+   "Geist + Geist Mono + one black panel on a 48px grid is the Vercel/Linear/Mercury template, not a nonprofit agency identity; the buyer is a comms director at a sub-$1M org, and this reads 'software for engineers'. The 28px ticker with 'Live 09:40' theatre adds fake urgency that a ledger concept should not need. Among the eight, it overlaps heavily with Public Works and Signal Room and is the least ownable of the three.",
+   "Geist + Geist Mono + grid paper + one black panel is the Vercel/Linear vocabulary; a 72%-female ED audience at sub-$1M orgs will read it as software for engineers, and the status ticker running 'Mon 22 Sep 2026 09:41 CT' like a market tape makes a nonprofit's grant feel like a trading desk.",
+   "Geist plus Geist Mono plus a black instrument panel is the Vercel/Linear/Mercury vocabulary, borrowed wholesale; it is distinctive against nonprofit competitors only because it looks like a different industry, which is not the same as being ownable. For a brand named Megaphone selling to women running sub-$1M orgs, it is the coldest light option. The hero stacks a ticker, an indexed nav, a four-line headline, a dense dark panel, a ledger row and a trust row above the fold, which is a lot of chrome for a first impression, and the 'Live 09:40' panel on an illustrative account is exactly the fake-dashboard move the brief warns against.",
+   "Geist plus mono plus a black instrument panel is the Vercel/Linear house style and reads as developer tooling to a 72%-women, sub-$1M-org buyer; the direction itself concedes this. The instrument panel is dense (three KPI cells, chart, four rows) and at 12px mono on #14161C it is the least readable object in any hero. The status ticker with four items overflows at 1200px and needs another surface to update daily. Distinctiveness within design generally is low even if novel in this category.",
+   "Geist + Geist Mono + a black instrument panel on a 48px grid is the Vercel/Linear vocabulary; to a 72%-female ED audience at sub-$1M orgs it reads 'software for engineers', and the illustrative dashboard is the exact fake-dashboard pattern the research flags as a red flag \u2014 the panel's whole persuasive load depends on it being replaced with a real redacted account."
+  ],
+  "fixes": [
+   "Swap the display face to something with a voice (Schibsted Grotesk, Switzer or even Newsreader for H1) and keep Geist Mono only for figures; the type is the cause of the dev-tool read.",
+   "Remove the 'Live 09:40' and market-tape ticker, or make it honest ('Updated monthly \u00b7 last report 1 Sep'); a bank statement is dated, not live.",
+   "Add a photograph of the account team inside or beside the panel; 'Strategist \u00b7 Ad specialist \u00b7 Impact Advisor' as text is the least human line in the hero.",
+   "Replace 'illustrative 501(c)(3)' with a named, consented client and month before launch, or the panel is exactly the fake dashboard the brief criticises in TGAGA.",
+   "Warm the paper ground a notch (#F4F2EC is close to grey on many monitors) and drop the background grid outside the hero.",
+   "Keep the ghost 'See a real account report' CTA and give it a destination: a public sample-report page, which is the rep-free asset the audience brief asks for.",
+   "Swap the display face to a humanist sans (Switzer or Schibsted Grotesk) and keep Geist Mono only for figures; run user tests with three EDs before committing.",
+   "Replace the black panel with a paper-coloured statement (ink rules, white surface) and reserve the dark treatment for the compliance strip only; one dark object on paper still reads 'dev tool' when it is the hero.",
+   "Label the panel with a real client and month ('COPD Foundation, Aug 2026, redacted') and change 98.5% utilization to the actual median across accounts; 'illustrative 501(c)(3)' is honest but weak.",
+   "Drop the market-tape clock from the ticker; keep figures plus 'as of Sep 2026'.",
+   "Add the cabin candid or an account lead's photo beside the CTAs so the first screen contains a face.",
+   "Raise all mono labels to 11.5px minimum and hold #7C808B; the 10px labels in the panel are at the floor for a 55-year-old ED on a laptop.",
+   "Swap the display face to a humanist grotesk (Switzer or Schibsted Grotesk) and keep Geist Mono only for figures, as the risks section itself proposes; do it before user testing, not after.",
+   "Remove 'Live 09:40' and the pulsing dot from an illustrative panel; date it ('Aug 2026 \u00b7 redacted client') and add the client's vertical, or use a real redacted account.",
+   "Cut the indexed nav numbers (01-06); they add developer coding without wayfinding value on six links.",
+   "Reduce the fold to nav, hero and panel; move the ticker's figures into the ledger row and drop the ticker.",
+   "Warm the panel: paper-coloured chart line labels, a named account lead with photo in the last row instead of 'Strategist \u00b7 Ad specialist \u00b7 Impact Advisor', so the dark object has a face.",
+   "Merge with Signal Room's better panel composition (KPI cells with deltas, compliance ticks) and retire Signal Room; two instrument-panel directions split the same idea.",
+   "Swap the display face to a humanist sans (Schibsted Grotesk or Hanken Grotesk, both Google Fonts) and keep Geist Mono for figures only, as the brief's own fallback suggests; test with three EDs before committing.",
+   "Cut the panel to one chart, two KPIs and the compliance row; move the 'account team' line beneath the panel as a captioned portrait of the lead.",
+   "Bump panel body text to 13px minimum and the panel muted colour to #A5A9B4 for 4.5:1 on #14161C.",
+   "Reduce the ticker to two items on desktop and hide it on phone; drive the date from JS and the figures from CMS.",
+   "Replace the 98.5% utilisation figure with a real redacted client month before launch, with the REDACTED tag the brief proposes.",
+   "Use the existing coral #DA6343 for the CTA rather than #E8432E unless an A/B on the booking page justifies the change; both need 4.5:1 checks with white text.",
+   "Add a portrait photograph to the hero row (lead account manager) so the first screen has a human in it.",
+   "Swap the display face to a humanist sans (Switzer or Hanken Grotesk) and keep Geist Mono only for figures; this alone moves it from dev-tool to finance-office.",
+   "Mask the 48px background grid to the hero and ledger sections; across the whole page it competes with body copy.",
+   "Move the eligibility checker from section 12 to directly under the hero stat row, and make 'See a real account report' open a real redacted PDF, not a scroll anchor.",
+   "Add one photograph above the fold (the named account team as three small portraits in the panel's last row) so the first screen has a face.",
+   "Delete the status ticker's live clock and green pulse; a ticking time on a marketing page is a gimmick that invites 'is this real?'"
+  ],
+  "per": [
+   {
+    "brandFit": 6,
+    "audienceTrust": 8,
+    "distinctiveness": 6,
+    "conversion": 8,
+    "feasibility": 8,
+    "craft": 8
+   },
+   {
+    "brandFit": 5,
+    "audienceTrust": 7,
+    "distinctiveness": 6,
+    "conversion": 7,
+    "feasibility": 7,
+    "craft": 7
+   },
+   {
+    "brandFit": 5,
+    "audienceTrust": 7,
+    "distinctiveness": 5,
+    "conversion": 7,
+    "feasibility": 8,
+    "craft": 6
+   },
+   {
+    "brandFit": 6,
+    "audienceTrust": 8,
+    "distinctiveness": 5,
+    "conversion": 7,
+    "feasibility": 8,
+    "craft": 7
+   },
+   {
+    "brandFit": 5,
+    "audienceTrust": 7,
+    "distinctiveness": 6,
+    "conversion": 8,
+    "feasibility": 8,
+    "craft": 8
+   }
+  ]
+ },
+ "originalName": "The Ledger"
+}

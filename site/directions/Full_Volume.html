@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>Full Volume</title>
+<meta name="description" content="Nonprofit Megaphone homepage hero, Full Volume direction: electric-blue stage, real Ad Grant account card, Google endorsement sticker.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Geist+Mono:wght@400..700&display=swap');
+
+:root{
+  /* colour */
+  --paper:#FFF9EE; --white:#FFFFFF; --ink:#0E1240; --muted:#4B4F7A; --rule:#DCD9E6;
+  --blue:#2A2AFF; --blue-deep:#1414B8; --yellow:#FFD338; --coral:#FF5C3A; --sky:#D6E6FF; --mint:#BFF3D2;
+  --on-blue:#FFF9EE; --on-blue-soft:#D9DAF7; --marks:#33376A;
+  /* sticker system: two tokens; flatten later by setting --bd:1px and the shadows to 0 */
+  --bd:2px; --sh-card:6px; --sh-btn:4px; --sh-stage:8px;
+  --r-stage:28px; --r-card:20px; --r-pill:999px;
+  --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.stage :focus-visible{outline-color:var(--yellow)}
+
+.page{width:1200px;min-height:800px;max-height:860px;margin:0 auto;background:var(--paper);overflow:hidden;position:relative;padding-bottom:20px}
+
+/* ---------- nav ---------- */
+.nav{height:68px;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:36px;height:36px;display:block}
+.brand b{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.015em;font-variation-settings:"opsz" 24,"wdth" 100;line-height:1}
+.links{display:flex;gap:28px;margin:0;padding:0;list-style:none}
+.links a{font-weight:500;font-size:15px;line-height:1;text-decoration:none;padding:8px 0 6px;border-bottom:2px solid transparent}
+.links a:hover{border-bottom-color:var(--ink)}
+.links a[aria-current="page"]{border-bottom-color:var(--blue);font-weight:600}
+.nav-right{display:flex;align-items:center;gap:22px}
+.reports{font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--blue);text-decoration-thickness:2px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:700;font-size:16px;line-height:1;color:var(--ink);background:var(--coral);border:var(--bd) solid var(--ink);border-radius:var(--r-pill);height:52px;padding:0 24px;text-decoration:none;white-space:nowrap;box-shadow:var(--sh-btn) var(--sh-btn) 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.btn.sm{height:42px;padding:0 18px;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
+.btn.ghost{background:transparent;color:var(--on-blue);border-color:var(--on-blue);box-shadow:none}
+.btn.ghost:hover{background:rgba(255,249,238,.1);transform:none;box-shadow:none}
+.tag{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:6px;padding:4px 6px 3px;line-height:1}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+/* ---------- hero stage ---------- */
+.stage{position:relative;margin:8px 48px 0;height:600px;background:var(--blue);color:var(--on-blue);border:var(--bd) solid var(--ink);border-radius:var(--r-stage);box-shadow:var(--sh-stage) var(--sh-stage) 0 var(--ink);padding:48px;display:grid;grid-template-columns:560px 1fr;gap:40px;isolation:isolate}
+.stage .bg{position:absolute;inset:0;border-radius:26px;overflow:hidden;z-index:0;pointer-events:none}
+.stage .bg svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.copy{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;font-weight:600;font-size:13px;line-height:1;letter-spacing:.005em;border:var(--bd) solid var(--on-blue);border-radius:var(--r-pill);padding:9px 14px 8px 11px;margin:0 0 26px}
+.eyebrow i{width:9px;height:9px;border-radius:50%;background:var(--yellow);border:1.5px solid var(--ink);display:inline-block}
+h1{font-family:var(--display);font-weight:800;font-variation-settings:"opsz" 96,"wdth" 100;font-size:64px;line-height:.98;letter-spacing:-.03em;margin:0 0 24px;max-width:560px}
+.hl{position:relative;display:inline-block;isolation:isolate;color:var(--ink);padding:0 .1em;margin:0 -.1em}
+.hl::before{content:"";position:absolute;left:0;right:0;top:.1em;bottom:0;background:var(--yellow);border-radius:.09em;transform:rotate(-1.5deg);z-index:-1}
+.lead{font-size:18px;line-height:1.5;color:var(--on-blue-soft);max-width:500px;margin:0 0 30px;text-wrap:pretty}
+.lead b{color:var(--on-blue);font-weight:600}
+.ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.guar{margin:22px 0 0;font-size:14px;line-height:1.5;color:var(--on-blue-soft);max-width:470px;text-wrap:pretty}
+.guar b{color:var(--on-blue);font-weight:600}
+
+/* ---------- the account card (prop) ---------- */
+.card-col{position:relative;z-index:1;margin-top:-18px;align-self:stretch} /* stretched on purpose: the sticker anchors to the column's fixed bottom, not the card's variable height */
+.card{position:relative;margin:0;background:var(--white);color:var(--ink);border:var(--bd) solid var(--ink);border-radius:var(--r-card);box-shadow:var(--sh-card) var(--sh-card) 0 var(--ink);padding:18px 22px 14px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.card-head h2{font-family:var(--display);font-weight:700;font-variation-settings:"opsz" 32,"wdth" 100;font-size:20px;line-height:1.1;letter-spacing:-.02em;margin:0 0 5px}
+.mono{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+.pill{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px;line-height:1;background:var(--mint);border:1.5px solid var(--ink);border-radius:var(--r-pill);padding:6px 9px 5px;white-space:nowrap}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--ink);display:inline-block}
+.fig{border-top:1px solid var(--rule);padding-top:12px}
+.fig-lab{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:13px;line-height:1.2}
+.fig-lab .mono{color:var(--ink);font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:8px;height:92px;padding-top:18px}
+.bar{flex:1;background:var(--blue);border:2px solid var(--ink);border-radius:6px 6px 3px 3px;position:relative}
+.bar.before{background:var(--coral)}
+.bar .v{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:0;color:var(--ink);white-space:nowrap;line-height:1}
+.axis{display:flex;justify-content:space-between;margin-top:6px}
+.rows{margin-top:11px;border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:118px 1fr auto;align-items:center;gap:12px;height:29px;border-bottom:1px solid var(--rule);font-weight:500;font-size:13px;line-height:1.2}
+.row .val{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:-.01em;text-align:right;white-space:nowrap}
+.meter{height:9px;border:1.5px solid var(--ink);border-radius:var(--r-pill);background:var(--white);position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0;background:var(--blue);border-radius:var(--r-pill)}
+.meter .floor{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--coral);left:50%;border-radius:1px}
+.note{margin-top:10px;padding:9px 12px 8px;background:var(--paper);border:1.5px solid var(--ink);border-radius:12px}
+.note p{font-style:italic;font-size:14px;line-height:1.35;margin:0 0 5px}
+.foot{margin-top:8px;font-size:11px;line-height:1.35;color:var(--muted);padding-right:196px}
+
+/* Google endorsement sticker (one rotated object, -2deg) */
+.google{position:absolute;right:-36px;bottom:-16px;width:240px;margin:0;background:var(--white);color:var(--ink);border:var(--bd) solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:12px 14px 11px;transform:rotate(-2deg)}
+.google q{display:block;font-family:var(--display);font-weight:600;font-variation-settings:"opsz" 24,"wdth" 100;font-size:14px;line-height:1.3;letter-spacing:-.01em;margin:0 0 8px;quotes:"\201C" "\201D"}
+.google .who{display:flex;align-items:center;gap:8px;font-weight:500;font-size:12px;line-height:1.3;color:var(--muted)}
+.google .who svg{flex:none;width:18px;height:18px}
+
+/* ---------- trust strip (plain, unstickered evidence) ---------- */
+.trust{margin:24px 48px 0;border-top:var(--bd) solid var(--ink);padding-top:14px}
+.stats{display:flex;align-items:center}
+.stat{display:flex;align-items:center;gap:9px;padding:0 24px;border-left:1px solid var(--rule)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat b{font-family:var(--display);font-weight:800;font-variation-settings:"opsz" 48,"wdth" 100;font-size:26px;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.stat span{font-weight:500;font-size:12px;line-height:1.2;color:var(--muted);max-width:150px}
+.marks{display:flex;align-items:center;gap:22px;margin-top:13px;padding-top:12px;border-top:1px solid var(--rule);color:var(--marks);white-space:nowrap;justify-content:space-between}
+.marks .mono{color:var(--muted)}
+.marks .w1{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;font-variation-settings:"opsz" 16,"wdth" 100}
+.marks .w2{font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.marks .w3{font-family:var(--display);font-weight:800;font-size:15px;font-variation-settings:"opsz" 16,"wdth" 78;letter-spacing:.02em}
+.marks .w4{font-style:italic;font-weight:600;font-size:15px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="nav">
+    <a class="brand" href="#" aria-label="Nonprofit Megaphone, home">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><rect x="1" y="1" width="34" height="34" rx="10" fill="#2A2AFF" stroke="#0E1240" stroke-width="2"/><path d="M8 21.5 L19 14.5 V27.5 L8 24 Z" fill="#FFF9EE" stroke="#0E1240" stroke-width="2" stroke-linejoin="round"/><path d="M19 14.5 C24 13 25.5 27 19 27.5" fill="#FFD338" stroke="#0E1240" stroke-width="2"/><path d="M9.5 24.5 v3.5 h4.5" fill="#FF5C3A" stroke="#0E1240" stroke-width="2" stroke-linejoin="round"/><path d="M26.5 14 q3.5 7 0 14" stroke="#FFF9EE" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M30 10.5 q6 10.5 0 21" stroke="#FFF9EE" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <b>Nonprofit Megaphone</b>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="links">
+        <li><a href="#" aria-current="page">Ad Grant</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Our work</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="reports" href="#">Client reports</a>
+      <a class="btn sm" href="#">Book a free call</a>
+    </div>
+  </header>
+
+  <section class="stage" aria-labelledby="h1">
+    <div class="bg" aria-hidden="true">
+      <svg viewBox="0 0 1104 600" preserveAspectRatio="xMidYMid slice">
+        <g fill="none" stroke="#1414B8" stroke-width="2">
+          <circle cx="1054" cy="600" r="210"/><circle cx="1054" cy="600" r="340"/><circle cx="1054" cy="600" r="470"/><circle cx="1054" cy="600" r="600"/><circle cx="1054" cy="600" r="730"/><circle cx="1054" cy="600" r="860"/><circle cx="1054" cy="600" r="990"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="copy">
+      <p class="eyebrow"><i aria-hidden="true"></i>$10,000 a month in free Google Ads, fully handled</p>
+      <h1 id="h1">Your mission,<br>at full <span class="hl">volume.</span></h1>
+      <p class="lead">Google gives eligible nonprofits $10,000 a month in free search ads. We win the grant <b>(100% guaranteed)</b>, run it every day against Google's 5% click-through floor, and show you what it did each month. <b>780+ nonprofits</b> trust us with it.</p>
+      <div class="ctas">
+        <a class="btn" href="#">Book a free call</a>
+        <a class="btn ghost" href="#">Am I eligible? <span class="tag">2 min</span></a>
+      </div>
+      <p class="guar"><b>Our guarantee is a person, not a policy.</b> If we ever let you down, meet our CEO, Amber Snow, and we'll pay you $25.</p>
+    </div>
+
+    <div class="card-col">
+      <figure class="card" aria-label="Sample Google Ad Grant account card">
+        <div class="card-head">
+          <div>
+            <h2>Kennel to Couch</h2>
+            <div class="mono">Google Ad Grant account · August 2026</div>
+          </div>
+          <span class="pill"><i aria-hidden="true"></i>Active</span>
+        </div>
+
+        <div class="fig">
+          <div class="fig-lab"><span>Monthly website visitors</span></div>
+          <div class="bars" role="img" aria-label="Six ascending bars: monthly website visitors rose from about 80 before Nonprofit Megaphone to over 7,000 with the grant running.">
+            <div class="bar before" style="height:8px"><span class="v">80</span></div>
+            <div class="bar" style="height:21px"></div>
+            <div class="bar" style="height:34px"></div>
+            <div class="bar" style="height:48px"></div>
+            <div class="bar" style="height:61px"></div>
+            <div class="bar" style="height:74px"><span class="v">7,000</span></div>
+          </div>
+          <div class="axis"><span class="mono">Before</span><span class="mono">With the grant running · client-reported</span></div>
+        </div>
+
+        <div class="rows">
+          <div class="row"><span>Grant spent</span><div class="meter" aria-hidden="true"><i style="width:99%"></i></div><span class="val">$9,940 / $10,000</span></div>
+          <div class="row"><span>CTR vs 5% floor</span><div class="meter" aria-hidden="true"><i style="width:84%"></i><b class="floor"></b></div><span class="val">8.4%</span></div>
+          <div class="row"><span>Policy checks</span><span></span><span class="pill">14 / 14 passing</span></div>
+        </div>
+
+        <div class="note">
+          <p>"August: CTR held above the 5% floor all 31 days. Nothing needs your attention."</p>
+          <div class="mono">Signed monthly by your named account lead</div>
+        </div>
+        <figcaption class="foot">Visitors: client-reported. Other rows are illustrative until a real export is signed off.</figcaption>
+      </figure>
+
+      <blockquote class="google" cite="https://nonprofitmegaphone.com">
+        <q>As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!</q>
+        <div class="who"><svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="8" fill="#fff" stroke="#0E1240" stroke-width="2"/><path d="M9 9 L9 2 A7 7 0 0 1 16 9 Z" fill="#4285F4"/><path d="M9 9 L16 9 A7 7 0 0 1 9 16 Z" fill="#34A853"/><path d="M9 9 L9 16 A7 7 0 0 1 2 9 Z" fill="#FBBC05"/><path d="M9 9 L2 9 A7 7 0 0 1 9 2 Z" fill="#EA4335"/></svg><span>Michelle Hurtado, Google's first Head of Ad Grants</span></div>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Proof">
+    <div class="stats">
+      <div class="stat"><b>780+</b><span>nonprofits served</span></div>
+      <div class="stat"><b>$48M+</b><span>in grant ad spend managed</span></div>
+      <div class="stat"><b>100%</b><span>grant acquisition guarantee</span></div>
+      <div class="stat"><b>1 of 9</b><span>inaugural Google-certified agencies</span></div>
+      <div class="stat"><b>60+</b><span>people on the team</span></div>
+    </div>
+    <div class="marks" aria-label="Clients">
+      <span class="mono">Trusted by</span>
+      <span class="w3">UNCF</span>
+      <span class="w2">Scouting America</span>
+      <span class="w1">COPD Foundation</span>
+      <span class="w4">YWCA Chicago</span>
+      <span class="w1">Earthwatch</span>
+      <span class="w2">Solar Sister</span>
+      <span class="w3">AAU</span>
+      <span class="w2">JFCS</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

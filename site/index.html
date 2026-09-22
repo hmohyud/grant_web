@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nonprofit Megaphone · Style explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#131519; --bar:#1B1E24; --ink:#E9EBEF; --muted:#8C94A1; --line:#2B3038; --line-strong:#3A414B;
+    --pill:#232730; --pill-hover:#2C313B; --focus:#8FA3FF;
+    --font:'Instrument Sans','Helvetica Neue',Arial,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.4;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+  /* ---- top bar ---- */
+  .bar{background:var(--bar);border-bottom:1px solid var(--line);padding:10px 16px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px 20px;align-items:center}
+  .brand{display:flex;flex-direction:column;line-height:1.15;white-space:nowrap}
+  .brand b{font-weight:600;font-size:14px}
+  .brand small{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .pills{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px}
+  .pills::-webkit-scrollbar{display:none}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 9px;border-radius:999px;background:var(--pill);border:1px solid transparent;white-space:nowrap;font-weight:500;color:var(--ink)}
+  .pill:hover{background:var(--pill-hover)}
+  .pill[aria-pressed="true"]{border-color:var(--line-strong);background:#fff;color:#111}
+  .pill .dot{width:14px;height:14px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.15);background:linear-gradient(135deg,var(--g) 0 50%,var(--a) 50% 100%)}
+  .pill .n{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .pill[aria-pressed="true"] .n{color:#555}
+  .divider{width:1px;height:22px;background:var(--line-strong);margin:0 6px;flex:none}
+  .grouplabel{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin:0 4px 0 2px}
+  .right{display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .seg{display:inline-flex;background:var(--pill);border-radius:999px;padding:3px}
+  .seg button{padding:5px 12px;border-radius:999px;font-weight:500;color:var(--muted)}
+  .seg button[aria-pressed="true"]{background:#fff;color:#111}
+  .arrow{width:34px;height:34px;border-radius:50%;background:var(--pill);display:inline-grid;place-items:center;font-size:16px}
+  .arrow:hover{background:var(--pill-hover)}
+  .link{padding:7px 12px;border-radius:999px;border:1px solid var(--line-strong);text-decoration:none;font-weight:500;font-size:13px}
+  .link:hover{background:var(--pill)}
+
+  /* ---- stage ---- */
+  .stage{flex:1;min-height:0;overflow:auto;padding:24px 16px 40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .meta{width:min(100%,1200px);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .meta h1{margin:0;font-size:15px;font-weight:600}
+  .meta h1 span{font-weight:400;color:var(--muted)}
+  .meta .hint{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em}
+  .meta .hint kbd{font-family:inherit;border:1px solid var(--line-strong);border-radius:4px;padding:0 5px;margin:0 1px}
+
+  .frame{border:1px solid var(--line-strong);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 20px 60px -30px rgba(0,0,0,.9)}
+  .frame.desktop{width:min(100%,1200px)}
+  .chrome{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#F1F2F4;border-bottom:1px solid #DDE0E5;font-family:var(--mono);font-size:11px;color:#6B7280}
+  .chrome .dots{display:inline-flex;gap:5px}.chrome .dots i{width:9px;height:9px;border-radius:50%;background:#C9CDD4;display:block}
+  .chrome .url{background:#fff;border:1px solid #E1E4E9;border-radius:6px;padding:3px 10px;flex:1;max-width:440px;margin-inline:auto;text-align:center}
+  .viewport{position:relative;width:100%;overflow:hidden;--s:1;--w:1200;--h:900;height:calc(var(--h)*1px*var(--s))}
+  .viewport iframe{position:absolute;inset:0;width:calc(var(--w)*1px);height:calc(var(--h)*1px);border:0;background:#fff;transform-origin:0 0;transform:scale(var(--s))}
+
+  .frame.phone{width:390px;max-width:100%;border-radius:36px;border:8px solid #2A2E36;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+  .frame.phone .chrome{display:none}
+  .frame.phone .viewport{--w:390;--h:800;border-radius:28px}
+  .frame.phone .viewport iframe{transform-origin:0 0}
+  .frame.phone .viewport::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:110px;height:24px;border-radius:14px;background:#111;z-index:2;opacity:.9}
+
+  .empty{color:var(--muted);font-size:13px;padding:12px;border:1px dashed var(--line-strong);border-radius:10px;max-width:520px;text-align:center}
+
+  @media (max-width:900px){
+    .bar{grid-template-columns:1fr auto}
+    .pills{grid-column:1/-1;order:3}
+  }
+  @media (prefers-reduced-motion:no-preference){ .pill,.seg button{transition:background .15s,color .15s} }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand"><b>Nonprofit Megaphone</b><small>Redesign · style explorer</small></div>
+  <nav class="pills" id="pills" aria-label="Directions"></nav>
+  <div class="right">
+    <button class="arrow" id="prev" aria-label="Previous direction" title="Previous (←)">‹</button>
+    <button class="arrow" id="next" aria-label="Next direction" title="Next (→)">›</button>
+    <div class="seg" role="group" aria-label="Device">
+      <button id="dev-desktop" aria-pressed="true" title="Desktop (D)">Desktop</button>
+      <button id="dev-phone" aria-pressed="false" title="Phone (P)">Phone</button>
+    </div>
+    <a class="link" href="pitch/">Read the pitch</a>
+    <a class="link" id="open" href="#" target="_blank" rel="noopener">Open full size ↗</a>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="meta">
+    <h1 id="title">Amplitude <span>· loading</span></h1>
+    <p class="hint"><kbd>←</kbd><kbd>→</kbd> switch direction · <kbd>D</kbd> desktop · <kbd>P</kbd> phone · <kbd>1</kbd>–<kbd>8</kbd> jump</p>
+  </div>
+  <figure class="frame desktop" id="frame" style="margin:0">
+    <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">nonprofitmegaphone.com</span><span id="chrome-tag"></span></div>
+    <div class="viewport" id="viewport"><iframe id="view" title="Mockup"></iframe></div>
+  </figure>
+</main>
+
+<script>
+  // Finalists come first; the three first-round directions have desktop heroes only.
+  const DIRECTIONS = [
+    { slug:'amplitude',       name:'Amplitude',       register:'Recommended · warm paper, vermilion signal arcs',      ground:'#F3F0E8', accent:'#E4432A', desktop:'directions/Amplitude.html',       phone:'directions/Amplitude-mobile.html' },
+    { slug:'broadsheet',      name:'Broadsheet',      register:'Runner-up · newsprint white, brand blue only, serif',    ground:'#FAFAF8', accent:'#0A23A2', desktop:'directions/Broadsheet.html',      phone:'directions/Broadsheet-mobile.html' },
+    { slug:'public-works',    name:'Public Works',    register:'Civic · white, blue blocks, signal red, Public Sans',    ground:'#FFFFFF', accent:'#D0261B', desktop:'directions/Public_Works.html',    phone:'directions/Public_Works-mobile.html' },
+    { slug:'full-volume',     name:'Full Volume',     register:'Pop · keeps the electric blue, stickers, highlighter',    ground:'#2A2AFF', accent:'#FFD338', desktop:'directions/Full_Volume.html',     phone:'directions/Full_Volume-mobile.html' },
+    { slug:'signed-sentence', name:'Signed Sentence', register:'Warm · linen, forest, ochre, the signed monthly note',    ground:'#EDE5D5', accent:'#C8912A', desktop:'directions/Signed_Sentence.html', phone:'directions/Signed_Sentence-mobile.html' },
+    { slug:'the-ledger',      name:'The Ledger',      register:'First round · statement-as-hero, cut for overlap',       ground:'#F5F2EC', accent:'#C8432B', desktop:'directions/first-round/The_Ledger.html',  phone:null, firstRound:true },
+    { slug:'charter',         name:'Charter',         register:'First round · heritage navy, ivory and gold seal',       ground:'#F6F1E7', accent:'#1B2A5B', desktop:'directions/first-round/Charter.html',     phone:null, firstRound:true },
+    { slug:'signal-room',     name:'Signal Room',     register:'First round · dark premium dashboard',                    ground:'#0F1117', accent:'#FF6B3D', desktop:'directions/first-round/Signal_Room.html', phone:null, firstRound:true },
+  ];
+
+  const $ = id => document.getElementById(id);
+  const pills = $('pills'), view = $('view'), frame = $('frame'), viewport = $('viewport'), title = $('title'), open = $('open'), tag = $('chrome-tag');
+  let index = 0, device = 'desktop';
+
+  // Build the pill row: finalists, a divider, then the first-round group.
+  DIRECTIONS.forEach((d, i) => {
+    if (d.firstRound && !DIRECTIONS[i-1].firstRound) {
+      const div = document.createElement('span'); div.className = 'divider'; pills.appendChild(div);
+      const lab = document.createElement('span'); lab.className = 'grouplabel'; lab.textContent = 'First round'; pills.appendChild(lab);
+    }
+    const b = document.createElement('button');
+    b.className = 'pill'; b.type = 'button'; b.dataset.i = i; b.setAttribute('aria-pressed', 'false');
+    b.style.setProperty('--g', d.ground); b.style.setProperty('--a', d.accent);
+    b.innerHTML = `<span class="dot" aria-hidden="true"></span><span>${d.name}</span><span class="n">${i+1}</span>`;
+    b.addEventListener('click', () => go(i, device));
+    pills.appendChild(b);
+  });
+
+  function fit(){
+    const w = viewport.clientWidth || viewport.getBoundingClientRect().width;
+    const base = parseFloat(getComputedStyle(viewport).getPropertyValue('--w')) || 1200;
+    viewport.style.setProperty('--s', Math.min(1, w / base).toFixed(4));
+  }
+
+  function go(i, dev, push = true){
+    index = (i + DIRECTIONS.length) % DIRECTIONS.length;
+    const d = DIRECTIONS[index];
+    if (dev === 'phone' && !d.phone) dev = 'desktop';   // first-round directions have no phone hero
+    device = dev;
+    const src = device === 'phone' ? d.phone : d.desktop;
+    if (view.getAttribute('src') !== src) view.setAttribute('src', src);
+    frame.className = 'frame ' + device;
+    title.innerHTML = `${d.name} <span>· ${d.register}${device === 'phone' ? ' · phone' : ''}</span>`;
+    open.href = src; tag.textContent = d.name + ' · hero';
+    document.title = `${d.name} · Nonprofit Megaphone style explorer`;
+    pills.querySelectorAll('.pill').forEach(p => p.setAttribute('aria-pressed', String(+p.dataset.i === index)));
+    $('dev-desktop').setAttribute('aria-pressed', String(device === 'desktop'));
+    $('dev-phone').setAttribute('aria-pressed', String(device === 'phone'));
+    $('dev-phone').disabled = !d.phone; $('dev-phone').title = d.phone ? 'Phone (P)' : 'No phone mockup for first-round directions';
+    const active = pills.querySelector('.pill[aria-pressed="true"]'); if (active) active.scrollIntoView({ block:'nearest', inline:'nearest' });
+    if (push) history.replaceState(null, '', `#${d.slug}/${device}`);
+    requestAnimationFrame(fit);
+  }
+
+  function fromHash(){
+    const [slug, dev] = location.hash.replace('#', '').split('/');
+    const i = Math.max(0, DIRECTIONS.findIndex(d => d.slug === slug));
+    go(i, dev === 'phone' ? 'phone' : 'desktop', false);
+  }
+
+  $('prev').addEventListener('click', () => go(index - 1, device));
+  $('next').addEventListener('click', () => go(index + 1, device));
+  $('dev-desktop').addEventListener('click', () => go(index, 'desktop'));
+  $('dev-phone').addEventListener('click', () => go(index, 'phone'));
+  window.addEventListener('hashchange', fromHash);
+  window.addEventListener('resize', fit);
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(viewport);
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'ArrowRight') go(index + 1, device);
+    else if (e.key === 'ArrowLeft') go(index - 1, device);
+    else if (e.key === 'd' || e.key === 'D') go(index, 'desktop');
+    else if (e.key === 'p' || e.key === 'P') go(index, 'phone');
+    else if (/^[1-8]$/.test(e.key)) go(+e.key - 1, device);
+  });
+  fromHash();
+</script>
+</body>
+</html>

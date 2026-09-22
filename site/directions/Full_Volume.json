@@ -1,0 +1,130 @@
+{
+  "name": "Full Volume",
+  "oneLiner": "The evolutionary option: Nonprofit Megaphone's electric blue kept as the first thing you see, but turned from a wall into a bordered stage on which two real objects sit, a client's Ad Grant account card and Google's own endorsement, so the loudness lives in the evidence, not the copy.",
+  "concept": "Every other finalist retires the blue. Full Volume keeps it, because 780 clients, Google's partner directory and every co-branded deck already know Nonprofit Megaphone as the electric-blue agency, and a redesign that erases that reads as a different company. The fix is not the colour but the execution: #0000FF becomes #2A2AFF (lifted so it stops vibrating against coral and so off-white type passes AA on it), and it is contained. One 1104px stage with a 2px ink border and a hard 8px offset shadow owns two-thirds of the first viewport; the page around it is warm off-white #FFF9EE. The stage is a physical object on paper rather than a background, which is the single move that separates this from the current site and from Funraise, Whole Whale and Getting Attention, all of whom paint the same blue edge to edge.\n\nThe register is pop, but grown-up. The panel's critique of the first round was fair: four rotated stickers, a highlighter, a yellow dot, six bars and four arcs was a party, and the buyer research says the executive director wants relief, not a launch. So the stage now carries exactly two objects. The first is the account card, set square and in flow: a named client (Kennel to Couch), a month, the visitors figure the client actually reported (about 80 a month before, over 7,000 with the grant running) drawn as six ascending bars that trace the megaphone's cone, then spend against the $10,000 cap, CTR against Google's 5% floor with the floor marked in coral, 14/14 policy checks in mint, and a signed one-sentence note from the account lead. The second is Google's endorsement, the only rotated element on the page at -2 degrees, stuck to the card's corner like it was pressed on by hand. Yellow appears once, as the highlighter under the single word 'volume'; coral appears once, as the CTA. The eyebrow states the offer in plain words, the sub-head names the 5% floor unprompted, and the guarantee under the buttons is a person (Amber Snow, $25), not a policy.\n\nThe sticker system is tokenised so it can be flattened later: one border token, three shadow tokens, and a rule that nothing rotates below 1024px. Set --bd to 1px and the shadows to 0 and the whole site becomes plain bordered cards without a relayout, which is the honest answer to the panel's 'dated by 2028' worry. Data colour is semantic, not decorative: blue for the account, coral only for a 'before' bar, a threshold or the CTA, mint only for a passing state. Bricolage Grotesque carries the display voice at full width and 800 weight but at 64px, sentence case, two lines, so the energy sits in the stage and the objects rather than in a shouting headline. Instrument Sans replaces Satoshi (Fontshare is blocked; Instrument Sans has the same low-contrast grotesk warmth and a variable weight axis) and Geist Mono labels every figure with a unit, a period and a source.",
+  "distinctFrom": "It is the only direction where electric blue is the first impression rather than a retired tile, and the only one whose proof is staged as physical objects (a square account card and a hand-placed Google sticker on a bordered blue stage) instead of set in hairlines on paper.",
+  "palette": [
+    {
+      "role": "bg / paper",
+      "hex": "#FFF9EE",
+      "note": "Page ground for nav, trust strip and all sections; the stage sits on it as an object. Held at 70%+ of every viewport below the hero."
+    },
+    {
+      "role": "primary / stage blue",
+      "hex": "#2A2AFF",
+      "note": "Direct evolution of the current #0000FF; the hero stage, bars and meters. Contained in bordered shapes, capped at two stages per page, never full-bleed. Off-white text on it measures 7.0:1."
+    },
+    {
+      "role": "primary deep",
+      "hex": "#1414B8",
+      "note": "Sound-arc pattern inside the stage, pressed and hover states for blue, secondary chart series. Off-white on it measures 11:1."
+    },
+    {
+      "role": "text / ink",
+      "hex": "#0E1240",
+      "note": "Every border, shadow and line of type on paper and white; one pen for the whole system. 17:1 on paper."
+    },
+    {
+      "role": "text on blue",
+      "hex": "#FFF9EE",
+      "note": "Headline, labels and mono on the stage (7.0:1). The soft variant #D9DAF7 is used for lead and guarantee copy on blue (5.3:1)."
+    },
+    {
+      "role": "accent / signal yellow",
+      "hex": "#FFD338",
+      "note": "Fill only, never text: the one highlighter word in a headline and the eyebrow dot. Ink on yellow measures 12.4:1."
+    },
+    {
+      "role": "CTA / coral",
+      "hex": "#FF5C3A",
+      "note": "The single primary action with ink text (5.8:1, so labels can be 14px), and the semantic colour for a 'before' bar or a threshold tick. Never white text on it."
+    },
+    {
+      "role": "surface / card white",
+      "hex": "#FFFFFF",
+      "note": "Account card, stickers, meters; always with the ink border and a 4px or 6px offset shadow."
+    },
+    {
+      "role": "mint (semantic)",
+      "hex": "#BFF3D2",
+      "note": "Passing compliance, active state, positive delta, with ink text (14:1). Never decorative."
+    },
+    {
+      "role": "text muted",
+      "hex": "#4B4F7A",
+      "note": "Captions, mono source labels and the card footnote on paper and white (7.4:1 and 8.2:1). Never on blue."
+    },
+    {
+      "role": "hairline / rule",
+      "hex": "#DCD9E6",
+      "note": "1px dividers inside cards and the trust strip; the only line that is not ink. Non-text, so no contrast requirement."
+    },
+    {
+      "role": "secondary surface / sky",
+      "hex": "#D6E6FF",
+      "note": "Bordered panel ground for the What it costs section only; defined in the token set, unused in the hero."
+    },
+    {
+      "role": "text on blue, soft",
+      "hex": "#D9DAF7",
+      "note": "Lead and guarantee paragraphs on the stage blue (5.3:1). Headline, labels, buttons and mono on blue stay #FFF9EE."
+    },
+    {
+      "role": "client roll",
+      "hex": "#33376A",
+      "note": "The typographic client wordmarks in the trust strip on paper (10.6:1); a half-step quieter than ink so eight names read as one row, not eight shouts."
+    }
+  ],
+  "typography": {
+    "display": "Bricolage Grotesque (Google Fonts), variable: opsz 96, wdth 100, wght 800 for H1 and H2 (wide and heavy); opsz 32, wght 700 for card titles; opsz 24, wght 600 for pull quotes and the Google sticker.",
+    "body": "Instrument Sans (Google Fonts) 400/500/600/700 plus italic. Substitution: Satoshi (Fontshare, blocked in the viewer) -> Instrument Sans; it keeps the low-contrast grotesk warmth of the current site and adds a variable weight axis.",
+    "mono": "Geist Mono (Google Fonts) 500/600 for every figure's unit, period and source label, the eyebrow-style captions on cards, the '2 min' tag and the client-roll label.",
+    "scaleNotes": "Desktop H1 64px / 0.98 / -0.03em, sentence case, two lines maximum inside a 560px column (the first round's 92px condensed H1 overflowed); H2 48px / 1.0 / -0.03em; H3 24px / 1.15 at wght 700; hero lead 18px/1.5, section body 17px/1.55, card body 13px/1.2 for rows and 14px italic for the signed note; mono labels and the card footnote 11px (uppercase with 0.06em tracking for mono) and this is the smallest size anywhere; lead and guarantee paragraphs use text-wrap: pretty to kill widows; stat numbers 26px wght 800 with tabular figures; the highlighter is one yellow block rotated -1.5deg behind a single word with ink text on it, at most once per section and always on a word, never a phrase; the Google sticker is the only rotated object (-2deg) and rotation is removed below 1024px."
+  },
+  "layout": "1200px frame, 48px page margins (1104 working width), 12 columns with 24px gutters, 8px rhythm; sections 112px apart on desktop, 64px on phones. Sticker tokens: --bd 2px ink border; --sh-btn 4px, --sh-card 6px, --sh-stage 8px hard offset shadows in ink; radii 28px stage, 20px card, 14px sticker, 999px pills; no soft shadows, no gradients anywhere. Paper holds at least 70% of every viewport after the hero and blue stages are capped at two per page (hero and closing CTA).\n\n- Nav (68px, paper): vector mark on a blue tile + 'Nonprofit Megaphone' in Bricolage 700; six links (Ad Grant, Services, Our work, Team, Pricing, Blog) with a 2px blue underline on the current page; 'Client reports' text link (signals a real product behind the sales page); one coral pill CTA. 'Book a free call' is the only CTA label on the site.\n- Hero stage (1104 x 600, blue, bordered, 8px shadow): left column 560px with eyebrow pill ('$10,000 a month in free Google Ads, fully handled'), 64px H1 with the single highlighter word, 18px lead that names the 100% guarantee, the 5% floor and 780+ nonprofits, coral 'Book a free call' plus off-white ghost 'Am I eligible? 2 min', and the guarantee line ('Our guarantee is a person, not a policy', Amber Snow, $25). Right column 404px: the account card square and in flow (client, month, visitors bars 80 to 7,000 labelled client-reported, spend vs cap, CTR vs 5% floor, 14/14 policy checks, signed one-sentence note, source footnote) with the Google endorsement sticker stuck to its lower-right corner, half on the card and half hanging into the stage's bottom padding, anchored to the column's fixed bottom so it never touches the stage border. Deep-blue concentric sound arcs radiate from the card's corner across the stage.\n- Trust strip (paper, hairlines, no sticker chrome): five figures in Bricolage 26px with 12px captions (780+ nonprofits served, $48M+ managed, 100% grant acquisition guarantee, 1 of 9 inaugural Google-certified agencies, 60+ people) above a typographic client roll (UNCF, Scouting America, COPD Foundation, YWCA Chicago, Earthwatch, Solar Sister, AAU, JFCS set in mixed Bricolage/Instrument styles, no raster logos).\n- 01 The rules (paper): a plain three-column hairline table, Requirement / What Google does if you miss it / What we do about it, covering the 5% CTR floor, conversion tracking, sitelinks, geo-targeting and the survey; the fear-first section the research asks for, with no stickers.\n- 02 How it runs (paper): three bordered cards, Win it (100% guaranteed, no fee until the grant is live), Run it (daily, against the 5% floor, named account lead), Show it (monthly one-sentence note plus the client dashboard); the third card embeds a second account-card crop for a different named client.\n- 03 Receipts (paper): a hairline outcomes table a board can scan (Organization, Vertical, Input, Outcome, Period, Source) using only published figures (UNCF $38,000 donations/month, Solar Sister 3,000% traffic, COPD Foundation 300+ screenings/month, AOS $20k+ revenue, Kennel to Couch 80 to 7,000 visitors), filterable by the 12 existing verticals; the selected row expands into an account card with that client's bars.\n- 04 What it costs (sky #D6E6FF panel, bordered): seven services as bordered cards on one grid, Ad Grant largest, each with a plain-English promise and a published flat monthly fee or, if leadership declines to publish, 'flat monthly fee, no percentage of spend'.\n- 05 The people (paper): eye-level black-and-white team portraits with a 2px ink outline and 'Nonprofits I support' mono captions from the CMS, the cabin-retreat candid used large and unretouched, the five values as a row of small stickers (the only sticker set on the page beyond the hero).\n- 06 Proof with names (paper): three testimonials maximum with name, title and organisation (American Cancer Society $1M grant, Kennel to Couch, Spotting Cancer 7.5% CTR), the Michelle Hurtado endorsement repeated as a framed letter, Google Ad Grants Certified Professional, Google Partner and Inc. 5000 x4 badges on their own permitted backgrounds.\n- 07 Am I eligible (paper): the four-question inline checker (501(c)(3)? hospital, school or government? website? current grant status?) that ends in either the booking calendar or an honest 'you are not eligible, and here is why' card for hospitals, schools and governments.\n- 08 Closing stage (second and last blue stage, quieter, no objects): 'Book a free call', Amber Snow's portrait and the $25 guarantee spelled out with her plain-text email.\n- Footer (paper): four columns, Terms of Use, EmailOctopus newsletter, socials, Google Partner badge per its usage rules, one canonical numbers line (780+, $48M+, 60+, as of month/year) so the 750/780 inconsistency dies here.",
+  "imagery": "No stock photography, no Corporate Memphis, no hands, hearts, globes or coins. Three systems. (1) Real screens: Google Ads Grant account views redrawn as account cards (the hero card is the template: client, month, one outcome figure as bars, spend vs cap, CTR vs the 5% floor, policy checks, signed note, source footnote); every case study leads with one, and every card carries a client name, a month and a source line, because an unlabelled '$9,940 / $10,000' reads as a spend promise. (2) Real people: the team shot eye-level in black and white on one seamless, cut out with a 2px ink outline so they sit in the sticker system, plus the cabin-retreat candid unretouched; Amber Snow's portrait beside the guarantee. (3) A ten-piece sticker set, not thirty, drawn on one 24px grid at 2px stroke (megaphone, sound arc, bar stack, check, calendar, llama, 5% floor sign, dollar tag, letter, hand-wave) in four fills (white, yellow, coral, mint) and reused across values, steps and empty states. Data visualisation is bars and meters only, Bricolage numbers, Geist Mono units, blue for the account, coral for the single 'before' bar or a threshold, mint for passing; the 5% floor is always drawn as a coral tick; never pies, never gradients. The sound-arc motif (concentric deep-blue circles at 2px) is the only pattern, and it lives only inside blue stages.",
+  "motion": "Physical and short, CSS transforms plus GSAP in Webflow, nothing ambient and no Lottie. (1) Buttons: hover lifts 2px with the shadow growing to 6px, press pushes 2px with the shadow collapsing to 0, 120ms. (2) On load the six hero bars rise from zero over 600ms with a 70ms stagger and the '7,000' label counts up in tabular mono; the spend meter fills last. (3) The Google sticker settles from -6deg and 0.96 scale to its resting -2deg over 320ms with a back-out ease, once. (4) Sound arcs inside blue stages drift outward at 0.5px/s by CSS animation. (5) Outcomes-table rows lift 2px on hover; the eligibility checker's verdict card stamps down from 1.04 to 1. Everything is opacity and transform only, every duration under 700ms, and prefers-reduced-motion collapses all of it to instant states with opacity fades and stops the arc drift.",
+  "mobile": "The 390px hero is its own layout, not the desktop squeezed. Compact nav (60px): mark plus wordmark, a 38px coral 'Book a call' pill (the one permitted short form of the CTA label, with the full label as its accessible name) and a 40px bordered menu button. The blue stage runs full width inside 16px gutters with a 5px shadow and stacks: eyebrow, 44px three-line H1 with the highlighter on 'volume.', 16px lead, full-width coral CTA at y=396, full-width ghost 'Am I eligible? 2 min' at y=456, the guarantee line, then a three-figure proof row on blue (780+, $48M+, 1 of 9) at y=593, all above a 760px fold. The account card follows inside the stage, square, full width, with the same rows; the Google sticker sits un-rotated beneath it with a 10px overlap and a 22px inset; below 1024px nothing rotates and shadows drop one step (4/3/5px). Under the stage the client roll is a single horizontal scroll-snap row between hairlines. Sections below reflow to one column; the rules table becomes stacked definition rows; the outcomes table becomes a list of account cards; the services grid becomes a vertical stack with the Ad Grant card first; team portraits become a 3-up grid; the eligibility checker is one question per screen with a progress row. Body stays 16px, mono never drops below 11px, the two hero CTAs are 50px tall and full width, and the 38px nav pill and 40px menu button clear the 24px WCAG 2.2 target minimum.",
+  "a11y": "Target WCAG 2.2 AA. Measured contrast on actual backgrounds: ink #0E1240 on paper 17:1 and on white 18:1; off-white #FFF9EE on stage blue #2A2AFF 7.0:1 and on deep blue 11:1; the soft on-blue #D9DAF7 used for lead and guarantee copy 5.3:1; ink on coral CTA 5.8:1 (so 14px labels pass; white on coral was rejected at 3.1:1); ink on yellow 12.4:1; ink on mint 14:1; muted #4B4F7A on paper 7.4:1 and on white 8.2:1; client-roll #33376A on paper 10.6:1. Yellow and mint are fill-only, never text colours. Smallest text is 11px (mono labels and the card footnote), body 16 to 18px. Focus: a 3px solid outline with 3px offset, blue on paper and yellow on blue stages, on every link and button, never removed. Motion: every animation is opacity and transform, under 700ms, and prefers-reduced-motion collapses to instant states and stops the arc drift. Text equivalents: the sound arcs are aria-hidden decoration; the bars carry role=img with a sentence stating 80 to 7,000 visitors; meters are aria-hidden because the adjacent mono value carries the number; the account card is a figure with a figcaption naming the source; the Google endorsement is a blockquote with the attribution in text, and the four-colour dot is aria-hidden. Touch targets: hero CTAs 52px on desktop and 50px full-width on phones; the phone nav pill is 38px and the menu button 40px, and desktop nav links are 29px tall with 28px gaps, all above the 24px minimum of WCAG 2.2 target size (2.5.8). The stage's 2px ink border and hard shadows give every object a non-colour boundary, so the system survives colour-blind viewing without relying on hue.",
+  "heroCopy": {
+    "eyebrow": "$10,000 a month in free Google Ads, fully handled",
+    "headline": "Your mission, at full volume.",
+    "sub": "Google gives eligible nonprofits $10,000 a month in free search ads. We win the grant (100% guaranteed), run it every day against Google's 5% click-through floor, and show you what it did each month. 780+ nonprofits trust us with it.",
+    "cta": "Book a free call"
+  },
+  "signatureMoments": [
+    "The stage: the brand's electric blue kept as the first impression but turned into a bordered, hard-shadowed object on paper, which is the one move that makes the same colour read as designed rather than default and separates NPM from the three competitors who paint it edge to edge.",
+    "The account card as a prop: a named client, a month, the visitors figure the client reported drawn as six ascending bars that trace the megaphone's cone, spend against the $10,000 cap, CTR against Google's 5% floor with the floor marked in coral, 14/14 policy checks in mint and a signed one-sentence note; policy literacy and the buyer's biggest fear answered before a word of body copy.",
+    "One hand-placed sticker: Google's endorsement rotated -2 degrees on the card's corner, the only rotated element on the page, so the pop is a single gesture rather than a costume.",
+    "The highlighter word: a yellow block rotated -1.5 degrees with ink type on it under exactly one word per headline, the direction's only kinetic-looking device, rendered with isolation so it actually paints.",
+    "'Am I eligible? 2 min': the ghost button with a mono tag beside the coral CTA, leading to a checker whose honest end state tells hospitals, schools and governments they are not eligible and why."
+  ],
+  "dependencies": [
+    "Leadership decision to publish flat monthly fees (or, at minimum, the 'flat monthly fee, no percentage of spend' line) for the What it costs section.",
+    "Written consent from Kennel to Couch, or another named client, to show a real account export with spend, CTR and policy checks; until then the hero card's rows stay labelled illustrative.",
+    "Named account leads on the team page and an operational commitment to a signed one-sentence monthly note per client, which the account card and section 02 depend on.",
+    "A one-day eye-level black-and-white portrait session for the 60-person team plus permission to use the cabin-retreat candid at hero scale.",
+    "A funded motion sprint (GSAP in Webflow) for the bar rise, sticker settle and pressed-button states, with reduced-motion fallbacks.",
+    "Redraw of the npm mark as true vector and confirmation of its blue against #2A2AFF; Google Partner and Certified Professional badge placements checked against Google's clear-space and background rules.",
+    "A canonical numbers sheet (780+, $48M+, 60+, 54 case studies, $10,000 cap) with an 'as of' date owned by marketing, so the site never shows two versions again.",
+    "A Webflow style-guide page and locked class set implementing the two-token sticker system, so editors cannot add a full-bleed blue section or a third rotated object."
+  ],
+  "risks": [
+    "Tone: the buyer wants relief, and a saturated blue stage with stickers can still read as a launch page. Mitigation in this round: two objects only, sentence-case 64px headline, no exclamation marks outside the verbatim Google quote, the 5% floor and the $25 person-guarantee stated in the hero, and a plain hairline rules table immediately after it.",
+    "Ageing: bordered cards with hard offset shadows are a 2021-2024 fintech and creator vocabulary. Mitigation: the system is two tokens (border width, shadow size) plus a no-rotation-below-1024px rule, so it can be flattened to 1px rules in an afternoon without relayout.",
+    "Overclaiming: a '$9,940 / $10,000' card without a named account is exactly the spend promise buyers are taught to screen for; if consent for a real export is refused, the hero must switch to the visitors-only card rather than keep illustrative rows.",
+    "Continuity cuts both ways: keeping the blue makes the redesign easy to sell internally but means less visible distance from the category's saturated-blue uniform; the containment, the objects and the type do the differentiating, so if a Webflow editor bleeds the blue the direction collapses into the current site.",
+    "Photography and consent burden: 60 portraits, one candid release, one client consent and one named-lead policy are required for the page to look finished; without them the team and receipts sections fall back to the existing mismatched headshots and stat tiles.",
+    "Font weight: three variable Google families (Bricolage with three axes, Instrument Sans, Geist Mono) need subsetting and a font-display strategy in Webflow, or the 64px headline will flash."
+  ],
+  "references": [
+    "Gumroad 2021 rebrand: flat fills, ink outlines and hard shadows used with restraint",
+    "Klarna brand system: one saturated colour on a neutral ground with grown-up type and real product objects",
+    "Figma marketing 2023-25: rigorous grid under playful, physical objects",
+    "Notion marketing: paper ground with one large rounded stage containing the product",
+    "Stripe Press and Linear changelog pages: a single hero object doing the talking",
+    "Duolingo Super pages: oversized wide grotesk for a serious outcome",
+    "Bricolage Grotesque specimen (Mathieu Triay): the display voice at full width",
+    "PostHog: bordered cards and sticker iconography on warm paper, minus the clutter"
+  ]
+}

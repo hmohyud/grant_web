@@ -1,0 +1,15 @@
+# Local tooling
+.claude/launch.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Node, if a build step is added later
+node_modules/
+dist/

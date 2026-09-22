@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390"><title>Public Works — phone hero</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap');
+:root{--white:#FFFFFF;--band:#F1F2F4;--rule:#D8DBE0;--ink:#141412;--muted:#4E5360;--blue:#0A23A2;--tint:#E6EAF8;--onblue:#C9D2F7;--red:#D0261B;--sans:'Public Sans',Helvetica,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#C9CCD2;font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px}
+.bar a:focus-visible,.bar button:focus-visible,.rec a:focus-visible{outline-color:#fff}
+.frame{width:390px;min-height:760px;margin:0 auto;background:var(--white);overflow:hidden}
+.lab{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;line-height:1.4}
+.lab12{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.4}
+.sq{display:inline-block;width:8px;height:8px;background:var(--red);flex:none}
+/* compact nav: wordmark, CTA, menu */
+.bar{height:56px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:10px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.logo svg{display:block}
+.bar .right{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 20px;font-weight:600;font-size:16px;border:2px solid var(--red);border-radius:2px;background:var(--red);color:#fff;white-space:nowrap}
+.btn .tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-left:2px solid #fff;padding-left:12px;line-height:1}
+.bar .btn{height:36px;padding:0 12px;font-size:13px}
+.menu{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;color:#fff;cursor:pointer}
+.menu svg{display:block}
+/* hero as a civic form */
+.hero{padding:22px 16px 24px}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+h1{font-size:40px;line-height:1;letter-spacing:-.03em;font-weight:800}
+h1 .k{color:var(--blue)}
+h1 .mark{display:inline-block;width:11px;height:11px;background:var(--red);margin-left:8px}
+.sub{font-size:16px;line-height:1.45;color:var(--muted);margin:14px 0 18px}
+.sub b{color:var(--ink);font-weight:600}
+/* three-box eligibility check: real inputs, CSS-only state */
+.elig{border:0;border-top:3px solid var(--ink);padding-top:12px;min-width:0}
+.elig legend{display:flex;align-items:center;gap:10px;color:var(--muted);padding:0;margin-bottom:6px;float:left;width:100%}
+.elig legend b{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:0;text-transform:none}
+.elig input{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden}
+.q{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 4px;border-bottom:2px solid var(--rule);font-size:15px;font-weight:500;cursor:pointer;clear:both}
+.q i{width:22px;height:22px;border:2px solid var(--ink);border-radius:2px;flex:none;position:relative;background:#fff}
+.q .no{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.06em;width:18px;flex:none}
+input:checked+.q{color:var(--blue);font-weight:600;background:var(--tint)}
+input:checked+.q i{background:var(--blue);border-color:var(--blue)}
+input:checked+.q i:after{content:"";position:absolute;left:6px;top:2px;width:5px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.check{display:flex;justify-content:space-between;align-items:center;padding:10px 4px 0;color:var(--muted)}
+.check a{color:var(--ink);font-weight:600;font-size:14px;border-bottom:2px solid var(--ink)}
+.ctas{margin-top:16px;display:flex;flex-direction:column;gap:12px}
+.ctas .btn{width:100%}
+.ghost{align-self:flex-start;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--ink);padding-bottom:1px}
+.ghost svg{width:16px;height:16px}
+/* figures as a ledger row */
+.ledger{display:flex;margin-top:18px;border-top:2px solid var(--rule);padding-top:10px}
+.ledger div{flex:1;padding-right:10px;border-right:2px solid var(--rule)}
+.ledger div+div{padding-left:10px}
+.ledger div:last-child{border-right:0}
+.ledger .n{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.ledger .n em{font-style:normal;color:var(--blue)}
+.ledger .l{margin-top:4px;color:var(--muted)}
+/* exhibit block */
+.rec{background:var(--blue);padding:16px;display:flex;flex-direction:column;gap:14px}
+.card{background:#fff;border:2px solid var(--ink);position:relative;margin-top:24px}
+.tab{position:absolute;left:-2px;top:-26px;height:26px;display:inline-flex;align-items:center;gap:10px;padding:0 10px;background:#fff;border:2px solid var(--ink);border-bottom:0;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;line-height:1}
+.tab:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#fff}
+.formno{position:absolute;right:0;top:-24px;color:var(--onblue);line-height:1}
+.card .hd{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:2px solid var(--ink);gap:10px}
+.card .hd .t{font-weight:700;font-size:14px;white-space:nowrap}
+.card .hd .m{color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.card .hd .red{background:var(--ink);color:#fff;padding:3px 6px;font-weight:600}
+.card .big{padding:12px 14px 10px;border-bottom:2px solid var(--rule)}
+.card .big .l{color:var(--muted);display:flex;justify-content:space-between;margin-bottom:6px}
+.card .big .n{font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.card .big .n small{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:6px}
+.meter{margin-top:10px;height:12px;background:var(--tint);position:relative;border:2px solid var(--ink)}
+.meter i{position:absolute;left:0;top:0;bottom:0;width:89.4%;background:var(--blue)}
+.meterlab{margin-top:6px;color:var(--muted)}
+.meterlab b{color:var(--ink);font-weight:700}
+.req{list-style:none}
+.req li{display:flex;align-items:center;justify-content:space-between;min-height:38px;padding:0 14px;border-bottom:2px solid var(--rule);font-size:14px;gap:10px}
+.req li:last-child{border-bottom:0}
+.req .k{display:flex;align-items:center;gap:10px;font-weight:500}
+.req .k .no{color:var(--muted);font-size:11px;font-weight:600;width:18px;letter-spacing:.04em}
+.req .ck{width:16px;height:16px;background:var(--blue);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.req .ck svg{width:10px;height:10px}
+.req .v{font-size:12px;font-weight:600;white-space:nowrap}
+.req .v span{color:var(--muted);font-weight:500}
+.req .v .floor{color:var(--ink);font-weight:700}
+.card .ft{padding:9px 14px 10px;border-top:2px solid var(--ink);background:var(--band);font-size:12.5px;line-height:1.4}
+.card .ft b{display:block;color:var(--muted);margin-bottom:2px}
+.note{display:flex;gap:12px;align-items:flex-start;color:#fff}
+.note .pic{width:40px;height:50px;flex:none;border:2px solid #fff;background:#3D51B8;display:block;overflow:hidden}
+.note .pic svg{display:block}
+.note p{font-size:14px;line-height:1.45;font-weight:500}
+.note .who{margin-top:5px;color:var(--onblue);display:flex;flex-direction:column;gap:3px}
+.note .who b{color:#fff;font-weight:600}
+/* one trust element */
+.trust{border-top:3px solid var(--ink);background:var(--band);padding:18px 16px 22px}
+.trust .eyebrow{margin-bottom:10px}
+.trust p{font-size:17px;line-height:1.35;font-weight:600;letter-spacing:-.01em}
+.trust .who{margin-top:8px;color:var(--muted);font-size:12.5px}
+.trust .who b{color:var(--ink);font-weight:600}
+.person{margin-top:16px;padding-top:14px;border-top:2px solid var(--rule);display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.45;color:var(--muted)}
+.person .pic{width:40px;height:50px;flex:none;border:2px solid var(--ink);background:var(--rule);display:block;overflow:hidden}
+.person .pic svg{display:block}
+.person b{color:var(--ink);font-weight:600}
+.person a{color:var(--blue);font-weight:600;border-bottom:2px solid currentColor}
+/* hover: 160ms, colour only, never movement */
+.btn:hover{background:#B01F15;border-color:#B01F15}
+.ghost:hover,.person a:hover,.check a:hover{color:var(--blue);border-color:var(--blue)}
+.q:hover{background:var(--band)}
+@media (prefers-reduced-motion:no-preference){
+  .btn,.ghost,.q,.person a,.check a{transition:background-color 160ms ease-out,border-color 160ms ease-out,color 160ms ease-out}
+  .meter i{animation:fill 900ms cubic-bezier(.2,.8,.2,1) 1}@keyframes fill{from{width:0}}
+}
+</style></head><body>
+<div class="frame">
+
+  <nav class="bar" aria-label="Primary">
+    <a class="logo" href="#" aria-label="Nonprofit Megaphone, home">
+      <svg width="26" height="22" viewBox="0 0 30 26" aria-hidden="true">
+        <polygon points="0,9 15,3.5 15,22.5 0,17" fill="#fff"/>
+        <polygon points="18,2.5 30,0 30,26 18,23.5" fill="#fff"/>
+        <rect x="3" y="17" width="6" height="7" fill="#fff"/>
+      </svg>
+      <span>Nonprofit&nbsp;Megaphone</span>
+    </a>
+    <div class="right">
+      <a class="btn" href="#">Book a call</a>
+      <button class="menu" type="button" aria-label="Open menu"><svg width="24" height="18" viewBox="0 0 24 18" aria-hidden="true"><rect y="0" width="24" height="2" fill="#fff"/><rect y="8" width="24" height="2" fill="#fff"/><rect y="16" width="24" height="2" fill="#fff"/></svg></button>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="h">
+    <div class="eyebrow lab12"><span class="sq" aria-hidden="true"></span>01 &mdash; Google Ad Grant management</div>
+    <h1 id="h">$10,000 a month from&nbsp;Google.<br><span class="k">Kept.</span><i class="mark" aria-hidden="true"></i></h1>
+    <p class="sub">We acquire the Google Ad Grant, keep it inside Google's rules every month, and put it to work for your mission.</p>
+
+    <fieldset class="elig">
+      <legend class="lab12"><b>Am I eligible?</b> Three checks &middot; no rep, no form</legend>
+      <input type="checkbox" id="q1"><label class="q" for="q1"><span class="no" aria-hidden="true">01</span><i aria-hidden="true"></i>We are a 501(c)(3)</label>
+      <input type="checkbox" id="q2"><label class="q" for="q2"><span class="no" aria-hidden="true">02</span><i aria-hidden="true"></i>Not a hospital, school or government</label>
+      <input type="checkbox" id="q3"><label class="q" for="q3"><span class="no" aria-hidden="true">03</span><i aria-hidden="true"></i>We have a website</label>
+      <div class="check lab"><span>Three ticks = eligible</span><a href="#">Check my answers <span aria-hidden="true">&rarr;</span></a></div>
+    </fieldset>
+
+    <div class="ctas">
+      <a class="btn" href="#">Book a free call <span class="tag">15 min</span></a>
+      <a class="ghost" href="#">See a real account report <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+
+    <div class="ledger" role="group" aria-label="Figures">
+      <div><div class="n">780<em>+</em></div><div class="l lab">Nonprofits</div></div>
+      <div><div class="n">$48M<em>+</em></div><div class="l lab">Managed</div></div>
+      <div><div class="n">100<em>%</em></div><div class="l lab">Guaranteed</div></div>
+    </div>
+  </section>
+
+  <section class="rec" aria-label="Exhibit A">
+    <figure class="card" aria-label="Exhibit A: a sample grant account record, one anonymised Nonprofit Megaphone client, August 2026. Monthly credit in use $8,940 of $10,000, 89.4 percent, the client median over twelve months. All four Google requirements met: click-through rate 7.9 percent against a 5 percent floor, conversion tracking active, four sitelinks against a minimum of two, geo-targeting set.">
+      <span class="tab"><span class="sq" aria-hidden="true"></span>Exhibit A</span>
+      <span class="formno lab" aria-hidden="true">Form NPM-01 &middot; Sample</span>
+      <div class="hd"><span class="t">Grant account record</span><span class="m lab"><span class="red">Redacted</span>Aug 2026</span></div>
+      <div class="big">
+        <div class="l lab"><span>Monthly credit in use</span><span>With permission</span></div>
+        <div class="n">$8,940<small>of $10,000</small></div>
+        <div class="meter" aria-hidden="true"><i></i></div>
+        <div class="meterlab lab"><b>89.4%</b> used &middot; NPM client median, 12 mo</div>
+      </div>
+      <ul class="req" aria-label="Google requirements, checked">
+        <li><span class="k"><span class="no">01</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true"><path d="M2 6.5l2.6 2.5L10 3"/></svg></span>Click-through rate</span><span class="v">7.9% <span class="floor">/ 5% floor</span></span></li>
+        <li><span class="k"><span class="no">02</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true"><path d="M2 6.5l2.6 2.5L10 3"/></svg></span>Conversion tracking</span><span class="v">Active <span>/ required</span></span></li>
+        <li><span class="k"><span class="no">03</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true"><path d="M2 6.5l2.6 2.5L10 3"/></svg></span>Sitelinks</span><span class="v">4 <span>/ 2 minimum</span></span></li>
+        <li><span class="k"><span class="no">04</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true"><path d="M2 6.5l2.6 2.5L10 3"/></svg></span>Geo-targeting</span><span class="v">Set <span>/ required</span></span></li>
+      </ul>
+      <figcaption class="ft"><b class="lab">Google's rule, in plain language</b>Google requires a 5% click-through rate every month. Two months below it and the account can be deactivated. We check every account, every day.</figcaption>
+    </figure>
+    <div class="note">
+      <span class="pic" aria-hidden="true"><svg viewBox="0 0 40 50" width="100%" height="100%" aria-hidden="true"><circle cx="20" cy="17" r="8" fill="#C9D2F7"/><path d="M4 50c0-11 7-17 16-17s16 6 16 17z" fill="#C9D2F7"/></svg></span>
+      <div>
+        <p>&ldquo;August: we moved budget from the awareness campaign into volunteer sign-ups after CTR dipped for two weeks. Nothing for you to do.&rdquo;</p>
+        <div class="who lab"><b>Maya R. &middot; Account lead</b><span>Replies within 1 business day</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Endorsement">
+    <div class="eyebrow lab12"><span class="sq" aria-hidden="true"></span>02 &mdash; Endorsement &middot; Google</div>
+    <p>&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;</p>
+    <div class="who"><b>Michelle Hurtado</b> &middot; Head of Google Ad Grants</div>
+    <div class="person">
+      <span class="pic" aria-hidden="true"><svg viewBox="0 0 40 50" width="100%" height="100%" aria-hidden="true"><circle cx="20" cy="17" r="8" fill="#8B909B"/><path d="M4 50c0-11 7-17 16-17s16 6 16 17z" fill="#8B909B"/></svg></span>
+      <span><b>Our guarantee is a person, not a policy.</b> Unhappy at any point? Meet our CEO, Amber Snow, and we'll give you $25. <a href="#">Email Amber directly</a></span>
+    </div>
+  </section>
+</div>
+</body></html>

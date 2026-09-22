@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broadsheet</title>
+<meta name="description" content="Nonprofit Megaphone homepage hero, Broadsheet direction: cool newsprint, black ink, one deep blue.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap');
+
+:root{
+  --ground:#FAFAF8; --card:#FFFFFF; --ink:#111111; --ink-2:#56565A;
+  --rule:#D9D9D6; --rule-soft:#ECECE9; --blue:#0A23A2; --blue-dark:#071A7C; --tint:#EEF1FA;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Schibsted Grotesk',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E6E6E3}
+body{background:#E6E6E3;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;font-optical-sizing:auto;font-size:16px}
+.page{width:1200px;min-height:800px;margin:0 auto;background:var(--ground);padding:0 48px;overflow:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:1px}
+svg{display:block}
+
+/* label roles: small caps in the serif for section labels, tracked grotesk caps for metadata */
+.sc{font-family:var(--serif);font-variant-caps:all-small-caps;font-variant-numeric:tabular-nums;letter-spacing:.08em;font-size:16px;font-weight:500;line-height:1;color:var(--ink)}
+.label{font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:500;line-height:1.3}
+
+/* ear strip: a true dateline and the edition marker, both CMS-driven */
+.ear{display:flex;justify-content:space-between;align-items:center;height:32px;border-bottom:1px solid var(--rule);white-space:nowrap;gap:12px;overflow:hidden}
+.ear .label{color:var(--ink-2);letter-spacing:.07em}
+.ear .mid{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.ear .date{color:var(--ink)}
+.ear .edition{display:flex;align-items:center;gap:18px}
+.ear .edition .sq{display:inline-block;width:7px;height:7px;background:var(--blue);margin-right:8px;position:relative;top:-1px}
+.ear .edition a{color:var(--blue);letter-spacing:.06em;border-bottom:1px solid transparent;padding:8px 0}
+.ear .edition a:hover{border-bottom-color:var(--blue)}
+
+/* masthead with an Oxford rule beneath: thick over thin */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:70px;position:relative}
+.nav:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand .name{font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.012em;line-height:1;white-space:nowrap;font-variation-settings:'opsz' 28}
+.brand .name em{font-style:italic;font-weight:400}
+.links{display:flex;gap:28px;font-size:14.5px;font-weight:500;white-space:nowrap}
+.links a{position:relative;padding:6px 0;color:var(--ink)}
+.links a:hover{color:var(--blue)}
+.links a.on{color:var(--blue)}
+.links a.on:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--blue)}
+.navcta{display:flex;align-items:center;gap:22px;white-space:nowrap;flex:none}
+.navcta .phone{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--blue);color:#fff;font-family:var(--sans);font-weight:600;font-size:15px;line-height:1;padding:16.5px 20px;border-radius:2px;letter-spacing:.005em;white-space:nowrap;transition:background .15s ease}
+.btn:hover{background:var(--blue-dark)}
+.btn.sm{font-size:14px;padding:12px 16px}
+.btn .tag{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;opacity:.9;padding-left:12px;border-left:1px solid rgba(255,255,255,.4)}
+.ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);color:var(--ink);font-weight:600;font-size:15px;line-height:1;padding:15.5px 18px;border-radius:2px;white-space:nowrap;background:transparent;transition:border-color .15s ease,color .15s ease}
+.ghost:hover{border-color:var(--blue);color:var(--blue)}
+.ghost .tag{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
+
+/* hero: 12 columns, lead 7 / ledger 5, one column rule between */
+.hero{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:24px 0 17px;border-bottom:1px solid var(--ink)}
+.lead{grid-column:1/8;padding-right:34px;border-right:1px solid var(--rule);display:flex;flex-direction:column;min-width:0}
+.kicker{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;white-space:nowrap}
+.kicker .sc{color:var(--blue)}
+.kicker .label{padding-left:14px;border-left:1px solid var(--rule)}
+h1{font-family:var(--serif);font-weight:400;font-size:72px;line-height:.98;letter-spacing:-.025em;color:var(--ink);text-wrap:balance;font-variation-settings:'opsz' 72;margin-left:-3px}
+h1 em{font-style:italic;font-weight:400;color:var(--blue)}
+.deck{font-family:var(--sans);font-size:17px;line-height:1.5;color:var(--ink);max-width:596px;margin:16px 0 20px}
+.deck b{font-weight:600}
+.actions{display:flex;align-items:center;gap:14px}
+.exits{margin-top:14px;display:flex;align-items:baseline;gap:18px;white-space:nowrap;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+.guarantee{margin-top:9px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+.guarantee b{font-weight:600;color:var(--ink)}
+.exits .elig{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--blue);border-bottom:1.5px solid var(--blue);padding-bottom:1px;transition:color .15s ease}
+.exits .elig:hover{color:var(--blue-dark)}
+.exits .label{margin-left:8px}
+.exits .fine{padding-left:18px;border-left:1px solid var(--rule);display:inline-flex;gap:10px;align-items:baseline}
+.exits .fine i{width:3px;height:3px;background:var(--rule);display:inline-block;flex:none;position:relative;top:-3px}
+.exits .fine b{font-weight:600;color:var(--ink)}
+
+/* the foot of the lead column splits into two ruled cells: three columns across the bottom of the hero */
+.human{margin-top:auto;padding-top:18px;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
+.human .cell{padding-top:14px;border-top:1px solid var(--rule)}
+.human .cell:first-child{padding-right:20px}
+.human .cell+.cell{padding-left:22px;border-left:1px solid var(--rule)}
+.endorse{display:grid;grid-template-columns:20px 1fr;column-gap:8px}
+.endorse .q{font-family:var(--serif);font-size:44px;line-height:.6;color:var(--blue);padding-top:12px;font-variation-settings:'opsz' 72}
+.endorse p{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.28;color:var(--ink);font-variation-settings:'opsz' 18}
+.endorse figcaption{grid-column:2;margin-top:9px}
+.endorse figcaption b{color:var(--blue);font-weight:500}
+.note{display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:start}
+.plate{width:62px;height:76px;position:relative;overflow:hidden;background:var(--tint);outline:1px solid var(--rule)}
+.plate svg{position:absolute;inset:0;width:100%;height:100%}
+.note p{font-family:var(--serif);font-size:18px;line-height:1.24;color:var(--ink);letter-spacing:-.005em;font-variation-settings:'opsz' 18}
+.note p em{font-style:italic;color:var(--blue)}
+.note .sig{margin:6px 0 4px}
+.note .who{line-height:1.6}
+.note .who a{color:var(--blue);text-transform:none;letter-spacing:.02em;font-size:12.5px;font-weight:500;border-bottom:1px solid var(--blue)}
+
+/* ledger: white card, hairline frame, the page's single block of brand blue on top */
+.ledger{grid-column:8/13;padding-left:10px;display:flex;flex-direction:column;min-width:0}
+.card{background:var(--card);border:1px solid var(--rule);display:flex;flex-direction:column;flex:1}
+.head{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;background:var(--blue);color:#fff;padding:9px 14px;gap:12px}
+.head .sc{color:#fff;font-size:17px}
+.head .label{color:#fff;opacity:.92}
+.head .badge{position:relative;display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;background:rgba(255,255,255,.1);padding:5px 8px 4px;border:1px solid rgba(255,255,255,.35);white-space:nowrap}
+.head .badge i{width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;opacity:.9}
+.head .arcs{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:220px;height:220px;pointer-events:none}
+.row{display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:baseline;padding:10px 14px 9px;border-bottom:1px solid var(--rule)}
+.head+.row{border-top:2px solid var(--ink)}
+.row .l{font-size:14px;color:var(--ink);line-height:1.3}
+.row .l small{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:2px;font-weight:500}
+.row .v{font-family:var(--serif);font-size:34px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;font-weight:400;white-space:nowrap;font-variation-settings:'opsz' 36}
+.row .v sup{font-size:15px;vertical-align:top;position:relative;top:4px;margin-left:2px;color:var(--ink-2)}
+.row .v .of{font-size:19px;color:var(--ink-2);margin:0 3px;font-style:italic}
+.chart{margin-top:auto;padding:16px 14px 0}
+.chart .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+.chart svg{width:100%;height:auto;overflow:visible}
+.chart .grid{stroke:var(--rule-soft);stroke-width:1}
+.chart .lbl{font-family:var(--sans);font-size:13px;fill:var(--ink)}
+.chart .lbl.dim{fill:var(--ink-2)}
+.chart .val{font-family:var(--serif);font-size:15px;fill:var(--ink);font-weight:500}
+.chart .val.dim{fill:var(--ink-2);font-weight:400}
+.chart .tick{font-family:var(--sans);font-size:11px;fill:var(--ink-2);letter-spacing:.04em}
+.chart .floorlbl{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--blue);letter-spacing:.08em}
+.chart .illus{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--ink-2);letter-spacing:.08em}
+.foot{font-size:12.5px;line-height:1.5;color:var(--ink-2);margin:10px 14px 12px;padding-top:9px;border-top:1px solid var(--rule)}
+.foot b{color:var(--blue);font-weight:600}
+
+/* trust strip: a subscriber list, not a badge wall */
+.trust{display:grid;grid-template-columns:318px 1fr;align-items:center;height:70px}
+.trust .lbl{border-right:1px solid var(--rule);height:100%;display:flex;flex-direction:column;justify-content:center;gap:5px;white-space:nowrap}
+.trust .lbl .label{font-size:11px;letter-spacing:.06em}
+.trust .lbl strong{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.01em;color:var(--ink);font-variation-settings:'opsz' 18}
+.marks{display:flex;justify-content:space-between;align-items:center;padding-left:26px;height:100%}
+.marks>span{display:inline-flex;align-items:center;gap:9px;font-family:var(--serif);font-size:14px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.marks>span.it{font-style:italic;text-transform:none;letter-spacing:0;font-size:17px;font-weight:400}
+.marks>span.sans{font-family:var(--sans);font-weight:600;letter-spacing:.12em;font-size:12px}
+.marks>span.logo{text-transform:none;letter-spacing:-.005em;font-size:15px;font-family:var(--sans);font-weight:600}
+.marks .slot{width:22px;height:22px;border:1px solid var(--ink-2);position:relative;flex:none}
+.marks .slot:before,.marks .slot:after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:1px;background:var(--ink-2);transform:rotate(45deg)}
+.marks .slot:after{transform:rotate(-45deg)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="ear" aria-label="Dateline">
+      <span class="label date">Tuesday, September 22, 2026</span>
+      <span class="label mid">Est. 2016 &middot; One of nine inaugural Google-certified agencies &middot; 60+ people</span>
+      <span class="label edition"><span><i class="sq" aria-hidden="true"></i>Figures updated Sep 2026</span><a href="#">Client reports &rarr;</a></span>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#" aria-label="Nonprofit Megaphone, home">
+        <svg width="36" height="30" viewBox="0 0 36 30" aria-hidden="true">
+          <path d="M2 11.5 L19 4 L19 26 L2 18.5 Z" fill="#0A23A2"/>
+          <path d="M19 4 L26 1 L26 29 L19 26 Z" fill="#111111"/>
+          <path d="M28.5 8.5 A 7.5 7.5 0 0 1 28.5 21.5" stroke="#0A23A2" stroke-width="2" fill="none"/>
+          <path d="M31.5 4.5 A 12 12 0 0 1 31.5 25.5" stroke="#111111" stroke-width="1.25" fill="none" opacity=".5"/>
+        </svg>
+        <span class="name">Nonprofit <em>Megaphone</em></span>
+      </a>
+      <div class="links">
+        <a class="on" href="#">Ad Grant</a><a href="#">Services</a><a href="#">Case studies</a><a href="#">Guides</a><a href="#">Team</a><a href="#">Pricing</a>
+      </div>
+      <div class="navcta">
+        <a class="btn sm" href="#">Book a free call
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1l5 5-5 5" stroke="#fff" stroke-width="1.6" fill="none"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="lead">
+      <p class="kicker"><span class="sc">The Google Ad Grant</span><span class="label">$10,000 a month in search ads for every eligible nonprofit</span></p>
+      <h1 id="h1">Ten thousand dollars a&nbsp;month, <em>properly spent.</em></h1>
+      <p class="deck">Most nonprofits never spend the full grant, and a 5% click-through rule can quietly switch it off. <b>Nonprofit Megaphone manages the Ad Grant for 780+ organizations:</b> $48M+ in donated media so far, a written acquisition guarantee, and a named account team that reports every month.</p>
+      <div class="actions">
+        <a class="btn" href="#">Book a free call <span class="tag">15 min</span></a>
+        <a class="ghost" href="#">See a real account report <span class="tag">PDF &middot; redacted</span></a>
+      </div>
+      <p class="exits">
+        <span><a class="elig" href="#">Am I eligible?</a><span class="label">4 questions &middot; no email</span></span>
+        <span class="fine"><span>Flat monthly fee</span><i aria-hidden="true"></i><span>No % of ad spend</span></span>
+      </p>
+      <p class="guarantee">Unhappy with the work? Meet our CEO and <b>we pay you $25.</b></p>
+
+      <div class="human">
+        <div class="cell">
+          <figure class="endorse">
+            <div class="q" aria-hidden="true">&ldquo;</div>
+            <blockquote><p>As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!</p></blockquote>
+            <figcaption class="label">Michelle Hurtado<br><b>Google's first Global Head of Ad Grants</b></figcaption>
+          </figure>
+        </div>
+        <div class="cell">
+          <div class="note">
+            <div class="plate" role="img" aria-label="Amber Snow, CEO. Portrait printed as a blue duotone plate (placeholder).">
+              <svg viewBox="0 0 62 80" aria-hidden="true">
+                <defs>
+                  <pattern id="screen" width="3" height="3" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".55" fill="#0A23A2" opacity=".35"/></pattern>
+                </defs>
+                <rect width="62" height="80" fill="#EEF1FA"/>
+                <rect width="62" height="80" fill="url(#screen)"/>
+                <ellipse cx="32" cy="31" rx="12" ry="13.5" fill="#0A23A2" opacity=".9"/>
+                <path d="M5 80 C7 59 19 53 32 53 C45 53 57 59 59 80 Z" fill="#0A23A2" opacity=".9"/>
+                <path d="M19.5 32 C17.5 18 25 12 33 13 C42 14 46.5 21 44.5 33 C42.5 23.5 37.5 19.5 31.5 20.5 C26 21.5 22 25.5 19.5 32 Z" fill="#071A7C"/>
+              </svg>
+            </div>
+            <div>
+              <p>Our guarantee is <em>a person,</em> not a policy.</p>
+              <svg class="sig" width="100" height="24" viewBox="0 0 98 26" aria-hidden="true"><path d="M3 19 C8 6 14 5 12 14 C10 22 16 20 20 10 C22 6 20 18 26 16 C31 14 30 8 34 9 C38 10 34 20 40 16 C46 12 48 8 52 12 C55 15 50 21 58 15 C64 10 66 6 70 10 C73 13 70 19 76 15 C82 11 88 9 95 13" stroke="#0A23A2" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+              <div class="who label">Amber Snow &middot; CEO<br><a href="#">Email Amber directly</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ledger" aria-label="Figures on the record">
+      <div class="card">
+        <div class="head">
+          <svg class="arcs" viewBox="0 0 220 220" aria-hidden="true">
+            <circle cx="220" cy="110" r="32" stroke="#fff" stroke-width="1" fill="none" opacity=".32"/>
+            <circle cx="220" cy="110" r="62" stroke="#fff" stroke-width="1" fill="none" opacity=".22"/>
+            <circle cx="220" cy="110" r="92" stroke="#fff" stroke-width="1" fill="none" opacity=".14"/>
+            <circle cx="220" cy="110" r="122" stroke="#fff" stroke-width="1" fill="none" opacity=".08"/>
+          </svg>
+          <span class="sc">On the record</span><span class="badge"><i aria-hidden="true"></i>Google Partner</span><span class="label">As of Sep 2026</span>
+        </div>
+        <div class="row"><div class="l">Nonprofits under management<small>Active accounts, all sectors</small></div><div class="v">780<sup>+</sup></div></div>
+        <div class="row"><div class="l">Donated media managed<small>Cumulative, 2016 to 2026</small></div><div class="v">$48M<sup>+</sup></div></div>
+        <div class="row"><div class="l">Grant acquisition rate<small>Guaranteed in writing</small></div><div class="v">100%</div></div>
+        <div class="row"><div class="l">Google Ad Grants Certified Professionals<small>Inaugural cohort, worldwide</small></div><div class="v">1<span class="of">of</span>9</div></div>
+        <div class="chart">
+          <div class="cap"><span class="sc">Account CTR, published case studies</span><span class="label">Scale 0 to 30%</span></div>
+          <!-- Geometry: the viewBox is 406 wide, the SVG's rendered width (card 434 inner minus 14px padding each side), so SVG text renders at its CSS size. Bar area x 128..354 (226 wide), scale max 30%. Floor x = 128 + 226 * (5/30) = 165.67. Bar width = 226 * value / 30. Ticks every 75.33. Row pitch 34. -->
+          <svg viewBox="0 0 406 172" role="img" aria-label="Click-through rate of three published case studies against Google's 5% deactivation floor: Scouting America 25.2%, ACC of New York 14.0%, Spotting Cancer 7.5%; an unmanaged median of 4.3% is shown hatched as illustrative pending a licensed source.">
+            <defs>
+              <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="5" height="5" fill="#FFFFFF"/><line x1="0" y1="0" x2="0" y2="5" stroke="#8A8A8E" stroke-width="1.6"/>
+              </pattern>
+            </defs>
+            <line class="grid" x1="203.33" y1="14" x2="203.33" y2="150"/>
+            <line class="grid" x1="278.67" y1="14" x2="278.67" y2="150"/>
+            <line class="grid" x1="354" y1="14" x2="354" y2="150"/>
+            <rect x="128" y="20" width="226" height="15" fill="#ECECE9"/>
+            <rect x="128" y="54" width="226" height="15" fill="#ECECE9"/>
+            <rect x="128" y="88" width="226" height="15" fill="#ECECE9"/>
+            <rect x="128" y="122" width="226" height="15" fill="#ECECE9"/>
+            <rect x="128" y="20" width="189.84" height="15" fill="#111111"/>
+            <rect x="128" y="54" width="105.47" height="15" fill="#111111"/>
+            <rect x="128" y="88" width="56.5" height="15" fill="#111111"/>
+            <rect x="128" y="122" width="32.39" height="15" fill="url(#hatch)" stroke="#8A8A8E" stroke-width=".75"/>
+            <text class="lbl" x="0" y="32">Scouting America</text>
+            <text class="lbl" x="0" y="66">ACC of New York</text>
+            <text class="lbl" x="0" y="100">Spotting Cancer</text>
+            <text class="lbl dim" x="0" y="131">Unmanaged median</text>
+            <text class="illus" x="0" y="145">ILLUSTRATIVE</text>
+            <text class="val" x="406" y="32" text-anchor="end">25.2%</text>
+            <text class="val" x="406" y="66" text-anchor="end">14.0%</text>
+            <text class="val" x="406" y="100" text-anchor="end">7.5%</text>
+            <text class="val dim" x="406" y="134" text-anchor="end">4.3%</text>
+            <line x1="128" y1="150" x2="354" y2="150" stroke="#D9D9D6" stroke-width="1"/>
+            <text class="tick" x="128" y="165">0</text>
+            <text class="tick" x="203.33" y="165" text-anchor="middle">10%</text>
+            <text class="tick" x="278.67" y="165" text-anchor="middle">20%</text>
+            <text class="tick" x="354" y="165" text-anchor="end">30%</text>
+            <line x1="165.67" y1="12" x2="165.67" y2="150" stroke="#0A23A2" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <circle cx="165.67" cy="12" r="2.2" fill="#0A23A2"/>
+            <text class="floorlbl" x="171.67" y="10">GOOGLE FLOOR 5.0%</text>
+          </svg>
+        </div>
+        <p class="foot">Google deactivates any Ad Grant account below <b>5% CTR</b> for two consecutive months. Figures from published NPM case studies, 2024 to 2026. The hatched bar is illustrative until a licensed M+R benchmark is in the CMS.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="trust" aria-label="Clients">
+    <div class="lbl"><strong>780+ clients on record</strong><span class="label">54 published case studies &middot; updated monthly</span></div>
+    <div class="marks">
+      <span>UNCF</span>
+      <span class="it">COPD Foundation</span>
+      <span class="logo"><i class="slot" role="img" aria-label="Licensed monochrome logo slot (placeholder)"></i>Scouting America</span>
+      <span>YWCA Chicago</span>
+      <span class="it">Earthwatch</span>
+      <span class="sans">Solar Sister</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

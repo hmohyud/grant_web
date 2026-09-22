@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Signed Sentence · phone</title>
+<meta name="viewport" content="width=390">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{
+  --linen:#EDE5D5;--card:#F6F1E7;--oat:#E2D8C3;--rule:#D3C7B0;
+  --forest:#1F3D2B;--forest-2:#16301F;
+  --ochre:#C8912A;--ochre-hover:#B8811F;--ochre-display:#A8761A;--ochre-ink:#86590E;--ochre-light:#E6C874;
+  --ink:#1C1A15;--muted:#5B5347;
+  --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--oat)}
+body{color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.5;padding:24px 0}
+svg{display:block}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--forest);outline-offset:3px;border-radius:4px}
+.bar a:focus-visible{outline-color:var(--linen)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background-color .18s ease}}
+.phone{width:390px;min-height:760px;margin:0 auto;background:var(--linen);overflow:hidden;position:relative;box-shadow:0 0 0 1px rgba(28,26,21,.08)}
+
+/* nav */
+.bar{height:60px;background:var(--forest);color:var(--linen);display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:10px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--linen);min-width:0}
+.brand svg{width:26px;height:26px;flex:none}
+.brand b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:-.012em;font-variation-settings:"opsz" 24,"SOFT" 10;white-space:nowrap}
+.brand b span{font-weight:400;font-style:italic}
+.navr{display:flex;align-items:center;gap:4px;flex:none;margin-right:-8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ochre);color:var(--ink);font-weight:700;font-size:16px;height:52px;padding:0 20px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:inset 0 -2px 0 rgba(28,26,21,.18)}
+.btn:hover{background:var(--ochre-hover)}
+.btn .tag{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;background:rgba(28,26,21,.14);padding:5px 8px;border-radius:999px;line-height:1}
+.btn.sm{height:36px;font-size:14px;padding:0 14px}
+.menu{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none}
+.menu svg{width:22px;height:22px}
+
+/* hero copy */
+.hero{padding:22px 16px 0}
+.eyebrow{display:flex;align-items:flex-start;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);font-weight:500;line-height:1.45}
+.eyebrow i{width:7px;height:7px;background:var(--forest);flex:none;margin-top:4px;border-radius:1px}
+h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.04;letter-spacing:-.025em;margin:14px 0 14px;font-variation-settings:"opsz" 144,"SOFT" 12}
+h1 em{font-style:italic;font-weight:500;color:var(--ochre-display);position:relative;white-space:nowrap}
+h1 em svg{position:absolute;left:-1px;bottom:-7px;width:calc(100% + 4px);height:10px;overflow:visible}
+.lede{font-size:17px;line-height:1.5;color:var(--muted)}
+.lede strong{color:var(--ink);font-weight:600}
+.ctas{margin-top:18px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.link{font-weight:600;font-size:16px;color:var(--forest);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px}
+.link u{text-decoration:none;border-bottom:2px solid var(--ochre);padding-bottom:1px}
+.link .t{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.link svg{width:16px;height:16px}
+.fine{margin-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted);line-height:1.6;text-align:center}
+.promise{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px;align-items:start;font-size:14.5px;line-height:1.4;color:var(--muted)}
+.promise b{color:var(--ink);font-weight:700}
+.promise .photo .img{width:54px;height:66px}
+.promise .photo figcaption{font-size:11px;padding-top:4px;line-height:1.3;white-space:nowrap}
+.promise .photo figcaption b{font-size:11px;font-weight:600}
+
+/* photo frames */
+.photo{margin:0}
+.photo .img{position:relative;overflow:hidden;border-radius:3px;
+  background:radial-gradient(90% 90% at 14% 10%,rgba(230,200,116,.62),rgba(230,200,116,0) 58%),linear-gradient(160deg,#3C5C41 0%,#264832 42%,#1F3D2B 66%,#5A4A22 100%);
+  box-shadow:inset 0 0 70px rgba(12,24,16,.55)}
+.photo .img::before{content:"";position:absolute;left:5%;top:5%;width:30%;height:60%;background:linear-gradient(180deg,rgba(237,229,213,.42),rgba(237,229,213,.04));filter:blur(14px);border-radius:8px}
+.photo .img::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 1px,transparent 1px 2px);mix-blend-mode:overlay}
+.photo .fig{position:absolute;inset:0;width:100%;height:100%;filter:blur(7px);opacity:.95}
+.photo .tag{position:absolute;left:10px;top:10px;z-index:1;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--linen);background:rgba(31,61,43,.82);border:1px solid rgba(237,229,213,.35);border-radius:2px;padding:5px 8px;line-height:1}
+.photo figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--muted);line-height:1.45;padding-top:8px}
+.photo figcaption b{display:block;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:0;color:var(--ink);margin-bottom:2px}
+
+/* people plate, stacked */
+.people{padding:26px 16px 0}
+.portrait .img{height:212px}
+
+.note{margin-top:18px;background:var(--forest);border-radius:5px;padding:0 8px 8px}
+.note .card{background:var(--card);border-radius:3px;padding:14px 16px 16px}
+.note .mat{display:flex;align-items:center;justify-content:space-between;gap:12px;height:30px;padding:0 6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ochre-light);white-space:nowrap}
+.note .mat .dots{display:inline-flex;gap:5px}
+.note .mat .dots i{width:6px;height:6px;border-radius:50%;background:rgba(237,229,213,.35);display:inline-block}
+.note .mat .dots i.on{background:var(--ochre)}
+.card .hd{display:flex;justify-content:space-between;align-items:baseline;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:9px}
+.card .hd .no{color:var(--forest);font-weight:500}
+.card p.s{font-family:var(--serif);font-style:italic;font-weight:400;font-size:19.5px;line-height:1.32;letter-spacing:-.006em;margin:12px 0 12px;text-wrap:pretty;font-variation-settings:"opsz" 36,"SOFT" 12;color:var(--ink)}
+.card p.s mark{background:linear-gradient(transparent 60%,rgba(200,145,42,.42) 60%);color:inherit}
+.ledger{display:grid;grid-template-columns:1fr 1fr 1.08fr;border-top:1px solid var(--rule);padding:10px 0}
+.ledger>div{padding-right:6px}
+.ledger>div+div{border-left:1px solid var(--rule);padding-left:9px}
+.k{font-family:var(--mono);font-size:11px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;white-space:nowrap}
+.ledger .v{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-.01em;line-height:1;font-variation-settings:"opsz" 36,"SOFT" 12;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:4px}
+.ledger .v small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em;font-weight:400}
+.ledger .v.ok{color:var(--forest)}
+.ledger .v svg{width:12px;height:12px;align-self:center}
+.spark{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0}
+.spark svg{width:100%;height:30px;overflow:visible}
+.spark .k{margin:0 0 4px}
+.spark .n{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--muted);display:flex;justify-content:space-between;gap:10px;margin-top:6px;white-space:nowrap}
+.spark .n i{display:inline-block;width:14px;border-top:1.5px dashed var(--ochre-ink);vertical-align:middle;margin-right:5px}
+.sig{margin-top:12px}
+.sig .scr{width:118px;height:26px;margin:0 0 2px -3px;color:var(--ochre)}
+.sig b{display:block;font-weight:700;font-size:14.5px;line-height:1.3}
+.sig span{color:var(--muted);font-size:13.5px;display:block}
+.stamp{margin-top:12px;display:flex;align-items:center;gap:10px;border:1.5px solid var(--forest);border-radius:4px;padding:8px 10px;color:var(--forest);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.3}
+.stamp b{font-family:var(--serif);font-weight:600;font-size:13px;letter-spacing:-.005em;text-transform:none;font-variation-settings:"opsz" 24,"SOFT" 12;display:block;letter-spacing:0}
+.stamp svg{width:18px;height:18px;flex:none}
+
+/* trust */
+.trust{margin:26px 16px 0;border-top:1px solid var(--rule)}
+.figs{display:grid;grid-template-columns:1fr 1fr 1fr;padding:14px 0;border-bottom:1px solid var(--rule)}
+.figs div{display:flex;flex-direction:column;gap:5px}
+.figs div+div{border-left:1px solid var(--rule);padding-left:12px}
+.figs b{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:-.015em;font-variation-settings:"opsz" 36,"SOFT" 12;line-height:1;color:var(--forest)}
+.figs span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.badge{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0 22px}
+.gp{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;height:34px;padding:0 12px 0 9px;border:1.5px solid var(--forest);color:var(--forest);border-radius:3px;font-size:12.5px;font-weight:700;background:var(--card)}
+.gp svg{width:16px;height:16px}
+.quote{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--muted);line-height:1.35;font-variation-settings:"opsz" 18,"SOFT" 12;min-width:0}
+.quote b{display:block;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:3px;font-weight:500}
+</style></head><body>
+<div class="phone">
+
+<nav class="bar" aria-label="Primary">
+  <a class="brand" href="#">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 12.5h7L22.5 4.5v23L10 19.5H3z" fill="#EDE5D5"/><path d="M26 11.4c2.5 2.7 2.5 6.5 0 9.2" stroke="#C8912A" stroke-width="2.4" stroke-linecap="round"/><path d="M7.5 20v6c0 1 .7 1.5 1.5 1.5h2.2" stroke="#EDE5D5" stroke-width="2.3" stroke-linecap="round"/></svg>
+    <b>Nonprofit <span>Megaphone</span></b>
+  </a>
+  <div class="navr">
+    <a class="btn sm" href="#">Book a call</a>
+    <a class="menu" href="#" aria-label="Open menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="#EDE5D5" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="eyebrow"><i></i><span>One of nine inaugural Google-certified Ad Grant agencies &middot; 2019</span></span>
+  <h1>You run the mission. We&rsquo;ll run <em>the Grant.<svg viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9c40-5 78 4 118 1s60-7 96-2 58 3 80-2" stroke="#C8912A" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg></em></h1>
+  <p class="lede"><strong>780+ nonprofits</strong> hand us their $10,000-a-month Google Ad Grant so a named person keeps it compliant and spent well. <strong>$48M+</strong> managed. Every month, one sentence on what changed, signed by the lead who did it.</p>
+  <div class="ctas">
+    <a class="btn" href="#">Book a free call <span class="tag">30 MIN</span></a>
+    <a class="link" href="#"><u>Am I eligible?</u> <span class="t">2 MIN</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" stroke="#1F3D2B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <p class="fine">Flat monthly fee &middot; No % of spend<br>100% grant-acquisition guarantee</p>
+  <div class="promise">
+    <figure class="photo">
+      <div class="img" aria-hidden="true"><svg class="fig" viewBox="0 0 54 66" preserveAspectRatio="xMidYMid slice"><ellipse cx="27" cy="26" rx="10" ry="11.5" fill="#7C8F62"/><path d="M4 74c1-18 11-27 23-27s22 9 23 27z" fill="#6E8358"/></svg></div>
+      <figcaption><b>Amber Snow</b>CEO</figcaption>
+    </figure>
+    <div><b>Our guarantee is a person, not a policy.</b> Ever unhappy? You meet our CEO, Amber Snow, and we pay you $25 for the conversation.</div>
+  </div>
+</section>
+
+<section class="people">
+  <figure class="photo portrait">
+    <div class="img" aria-hidden="true">
+      <span class="tag">Shoot pending</span>
+      <svg class="fig" viewBox="0 0 358 212" preserveAspectRatio="xMidYMid slice"><rect x="190" y="70" width="168" height="142" fill="#3F4F35" opacity=".55"/><ellipse cx="120" cy="92" rx="34" ry="40" fill="#8C9A6C"/><path d="M40 212c4-56 34-84 80-84s76 28 80 84z" fill="#7B8B5E"/><path d="M100 192c8 12 18 20 34 22" stroke="#A8AE84" stroke-width="8" stroke-linecap="round" fill="none" opacity=".7"/></svg>
+    </div>
+    <figcaption><b>Kristen B., account lead for COPD Foundation</b>Portland office, mid-call &middot; natural light, eye level &middot; her August sentence, below</figcaption>
+  </figure>
+
+  <div class="note">
+    <div class="mat"><span>Client-approved</span><span class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></span><span>1 of 3</span></div>
+    <div class="card">
+      <div class="hd"><span>Your month, in one sentence</span><span class="no">No. 14</span></div>
+      <p class="s">We rewrote 14 ads, kept click-through at <mark>11.2%</mark> against Google&rsquo;s 5% floor, and sent <mark>312 people</mark> to the free lung-screening tool.</p>
+      <div class="ledger">
+        <div><span class="k">CTR &middot; floor 5%</span><div class="v ok">11.2<small>%</small></div></div>
+        <div><span class="k">Spent of $10k</span><div class="v">9,640<small>USD</small></div></div>
+        <div><span class="k">Policy checks</span><div class="v ok"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.5l2.6 2.5L10 3.5" stroke="#1F3D2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>14<small>/14</small></div></div>
+      </div>
+      <div class="spark">
+        <span class="k">Click-through, last 12 months</span>
+        <svg viewBox="0 0 240 30" preserveAspectRatio="none" fill="none" role="img" aria-label="Twelve-month click-through rate line, rising from about 8% to 11.2%, always above Google's 5% floor"><path d="M0 23H240" stroke="#86590E" stroke-width="1" stroke-dasharray="3 3"/><path d="M0 22l20-3 20 2 20-5 20 2 20-6 20 2 20-4 20 3 20-5 20 2 20-3 20-1" stroke="#1F3D2B" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="240" cy="6" r="2.6" fill="#C8912A"/></svg>
+        <div class="n"><span><i></i>Google&rsquo;s 5% floor</span><span>Google Ads &middot; Sep 2026</span></div>
+      </div>
+      <div class="sig">
+        <svg class="scr" viewBox="0 0 104 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17c3-9 7-13 9-12 2 2-4 12-6 14 3-6 8-9 12-9 3 0-1 5 2 5 4 0 6-7 8-8-1 4-2 8 1 8 3 0 5-6 7-6 1 0 0 4 2 4 3 0 8-10 10-10 2 0-6 12-3 12 3 0 6-4 9-4 1 0-1 3 1 3 3 0 6-6 8-6 1 0-2 4 0 4 4 0 9-3 12-3M60 4c4 8 6 14 8 20"/></svg>
+        <b>Kristen B., account lead</b><span>COPD Foundation &middot; Aug 2026 &middot; replies in 1 day</span>
+      </div>
+      <div class="stamp"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.5" stroke="#1F3D2B" stroke-width="1.5"/><path d="M5.5 9.5l2.4 2.3L12.5 7" stroke="#1F3D2B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Recommended by<b>Google&rsquo;s first Head of Ad Grants</b></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="figs">
+    <div><b>780+</b><span>nonprofits</span></div>
+    <div><b>$48M+</b><span>Grant managed</span></div>
+    <div><b>60+</b><span>on staff</span></div>
+  </div>
+  <div class="badge">
+    <span class="gp"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#1F3D2B" stroke-width="1.5"/><path d="M8 4.5a3.5 3.5 0 1 0 3.4 4.3H8V7.5h5" fill="none" stroke="#1F3D2B" stroke-width="1.5"/></svg>Google Partner</span>
+    <p class="quote">&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;<b>Michelle Hurtado &middot; Google</b></p>
+  </div>
+</div>
+
+</div>
+</body></html>

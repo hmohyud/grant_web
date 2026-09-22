@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Signal Room</title>
+<style>
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=switzer@400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap');
+:root{--bg:#0A0E16;--surface:#111725;--raised:#182033;--line:#263049;--text:#F3F5F9;--muted:#98A2B8;--dim:#5C6680;--coral:#FF6A45;--ice:#8FD3FF;--green:#5BE49B;--blue:#4C6FFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#05070C}
+body{font-family:'Switzer',Inter,system-ui,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+.frame{width:1200px;min-height:720px;margin:0 auto;background:var(--bg);position:relative;overflow:hidden;isolation:isolate}
+.grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 80% at 60% 40%,#000 30%,transparent 100%)}
+.glow{position:absolute;z-index:0;border-radius:50%;filter:blur(90px);pointer-events:none}
+.glow.a{width:620px;height:520px;right:-120px;top:60px;background:radial-gradient(circle,rgba(255,106,69,.28),transparent 65%)}
+.glow.b{width:520px;height:520px;right:160px;top:-80px;background:radial-gradient(circle,rgba(143,211,255,.16),transparent 65%)}
+.cone{position:absolute;z-index:0;right:-40px;top:-60px;width:820px;height:760px;opacity:.55}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:26px 64px 0}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.logo .word{font-family:'Clash Display',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em}
+.logo .word span{font-weight:500;color:var(--muted)}
+.links{display:flex;gap:34px;font-size:14.5px;font-weight:500;color:#C7CDDA}
+.links a{color:inherit;text-decoration:none}
+.links a.has:after{content:"";display:inline-block;width:5px;height:5px;border-right:1.5px solid var(--dim);border-bottom:1.5px solid var(--dim);transform:rotate(45deg) translateY(-3px);margin-left:7px}
+.navr{display:flex;align-items:center;gap:22px}
+.navr .login{font-size:14px;color:var(--muted);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;letter-spacing:-.005em}
+.btn.coral{background:var(--coral);color:#1A0B06;box-shadow:0 0 0 1px rgba(255,106,69,.35),0 10px 40px -8px rgba(255,106,69,.6),inset 0 1px 0 rgba(255,255,255,.35)}
+.btn.sm{padding:10px 16px;font-size:14px;border-radius:9px}
+.btn.ghost{color:var(--text);border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.btn.ghost .k{color:var(--ice)}
+.hero{position:relative;z-index:2;display:grid;grid-template-columns:600px 1fr;gap:56px;padding:56px 64px 48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 12px 7px 9px;background:rgba(17,23,37,.7)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(91,228,155,.18);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(91,228,155,.18)}50%{box-shadow:0 0 0 7px rgba(91,228,155,.05)}}
+h1{font-family:'Clash Display',sans-serif;font-weight:600;font-size:60px;line-height:1.02;letter-spacing:-.025em;margin:24px 0 20px}
+h1 .lit{color:#fff;text-shadow:0 0 28px rgba(255,106,69,.55),0 0 2px rgba(255,255,255,.6)}
+h1 em{font-style:normal;color:var(--muted);font-weight:500}
+.sub{font-size:18px;line-height:1.5;color:var(--muted);max-width:500px}
+.sub b{color:var(--text);font-weight:500}
+.ctas{display:flex;align-items:center;gap:14px;margin:34px 0 38px}
+.proof{display:flex;gap:0;border-top:1px solid var(--line);padding-top:20px;max-width:560px}
+.proof div{flex:1;padding-right:20px}
+.proof div+div{border-left:1px solid var(--line);padding-left:20px}
+.proof .n{font-family:'Clash Display',sans-serif;font-weight:600;font-size:24px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.proof .l{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.35}
+.panelwrap{position:relative}
+.panel{position:relative;background:linear-gradient(180deg,rgba(24,32,51,.92),rgba(17,23,37,.92));border:1px solid var(--line);border-radius:18px;padding:22px 24px 20px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.ph{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.ph .org{color:var(--text);font-weight:500}
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.08em;color:var(--green);border:1px solid rgba(91,228,155,.3);background:rgba(91,228,155,.08);padding:5px 9px;border-radius:999px}
+.badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+.big{margin-top:18px;display:flex;align-items:baseline;gap:10px}
+.big .v{font-family:'Clash Display',sans-serif;font-weight:600;font-size:46px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:#fff}
+.big .of{font-size:13px;color:var(--muted)}
+.chart{margin:10px -6px 0;position:relative}
+.bar{height:6px;border-radius:999px;background:var(--line);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;width:98.8%;background:linear-gradient(90deg,var(--ice),#C9EBFF);box-shadow:0 0 14px rgba(143,211,255,.7)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.kpi{background:rgba(10,14,22,.55);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
+.kpi .l{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.kpi .v{font-family:'Clash Display',sans-serif;font-weight:600;font-size:22px;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi .d{font-size:11px;color:var(--dim);margin-top:3px}
+.kpi .d.ok{color:var(--green)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:12.5px;color:#C7CDDA}
+.checks span:before{content:"✓";color:var(--green);margin-right:8px;font-weight:600}
+.foot{margin-top:12px;font-size:10.5px;color:var(--dim);display:flex;justify-content:flex-end;padding-right:6px}
+.tag{position:absolute;left:-28px;bottom:-14px;background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:12.5px;box-shadow:0 20px 40px -12px rgba(0,0,0,.7);display:flex;gap:10px;align-items:center}
+.tag .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#F2C6A0,#B77A55);border:2px solid var(--bg)}
+.tag b{display:block;font-weight:500;color:var(--text)}
+.tag span{color:var(--muted)}
+.trust{position:relative;z-index:2;border-top:1px solid var(--line);margin:0 64px;padding:22px 0 26px;display:grid;grid-template-columns:360px 1fr;gap:48px;align-items:center}
+.quote{font-size:14px;line-height:1.45;color:#C7CDDA}
+.quote q{font-style:italic}
+.quote small{display:block;margin-top:5px;font-size:12px;color:var(--muted)}
+.quote small b{color:var(--text);font-weight:500}
+.marks{display:flex;justify-content:space-between;align-items:center;gap:28px;color:var(--dim);white-space:nowrap}
+.marks span{font-family:'Clash Display',sans-serif;font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.marks span.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:.02em;text-transform:none;font-size:16px}
+.marks span.thin{font-weight:500;letter-spacing:.14em;font-size:12.5px}
+</style></head><body>
+<div class="frame">
+  <div class="grid"></div>
+  <div class="glow a"></div><div class="glow b"></div>
+  <svg class="cone" viewBox="0 0 820 760" fill="none" aria-hidden="true">
+    <g stroke="#8FD3FF" stroke-opacity=".09" stroke-width="1">
+      <path d="M120 720 C 300 520, 560 330, 900 160"/><path d="M120 720 C 330 560, 600 420, 940 300"/><path d="M120 720 C 350 610, 640 520, 960 440"/><path d="M120 720 C 260 470, 500 240, 820 20"/>
+    </g>
+    <g stroke="#8FD3FF" stroke-opacity=".14" stroke-width="1.2"><circle cx="120" cy="720" r="160"/><circle cx="120" cy="720" r="300"/><circle cx="120" cy="720" r="450"/><circle cx="120" cy="720" r="610"/></g>
+  </svg>
+
+  <nav>
+    <a class="logo" href="#">
+      <svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M2 16 L18 6 L18 22 Z" fill="#4C6FFF"/><path d="M18 3 L27 0 L27 26 L18 24 Z" fill="#4C6FFF" opacity=".55"/><rect x="2" y="16" width="8" height="8" rx="1.5" fill="#4C6FFF" opacity=".8"/></svg>
+      <span class="word">Nonprofit<span>Megaphone</span></span>
+    </a>
+    <div class="links"><a class="has" href="#">About</a><a class="has" href="#">Services</a><a href="#">Our Work</a><a href="#">Resources</a><a href="#">Contact</a></div>
+    <div class="navr"><a class="login" href="#">Client reports</a><a class="btn coral sm" href="#">Book a free call</a></div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow"><i class="dot"></i>780+ grants under management · Google-certified</span>
+      <h1>Every dollar of your <span class="lit">$10,000</span> grant, accounted for. <em>Every month.</em></h1>
+      <p class="sub">We acquire, run and protect the Google Ad Grant so your team never has to think about a 5% CTR floor again. <b>$48M+ in ad spend managed</b>, a 100% grant-acquisition guarantee, and a live report you can forward to your board.</p>
+      <div class="ctas"><a class="btn coral" href="#">Book a free call</a><a class="btn ghost" href="#">See a live account <span class="k">↗</span></a></div>
+      <div class="proof">
+        <div><div class="n mono">$48M+</div><div class="l">Grant ad spend managed for nonprofits</div></div>
+        <div><div class="n mono">100%</div><div class="l">Grant acquisition guarantee, in writing</div></div>
+        <div><div class="n mono">1 of 9</div><div class="l">Inaugural Google Ad Grants Certified Professional agencies</div></div>
+      </div>
+    </div>
+
+    <div class="panelwrap">
+      <div class="panel">
+        <div class="ph mono"><span><span class="org">COPD Foundation</span> · Ad Grant · Sep 2026</span><span class="badge">Compliant</span></div>
+        <div class="big"><span class="v">$9,884</span><span class="of mono">of $10,000 utilized this month</span></div>
+        <div class="bar"><i></i></div>
+        <svg class="chart" viewBox="0 0 470 120" width="100%" height="120" aria-hidden="true">
+          <defs><linearGradient id="f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FD3FF" stop-opacity=".35"/><stop offset="1" stop-color="#8FD3FF" stop-opacity="0"/></linearGradient>
+          <filter id="g"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g stroke="#263049" stroke-width="1"><line x1="0" y1="30" x2="470" y2="30"/><line x1="0" y1="60" x2="470" y2="60"/><line x1="0" y1="90" x2="470" y2="90"/></g>
+          <line x1="0" y1="78" x2="470" y2="78" stroke="#FF6A45" stroke-opacity=".6" stroke-dasharray="3 5"/>
+          <text x="4" y="74" fill="#FF6A45" font-size="9" font-family="Geist Mono,monospace" opacity=".9">5% CTR FLOOR</text>
+          <path d="M0 96 L40 90 L80 84 L120 86 L160 70 L200 62 L240 66 L280 48 L320 42 L360 36 L400 30 L440 22 L470 18 L470 120 L0 120 Z" fill="url(#f)"/>
+          <path d="M0 96 L40 90 L80 84 L120 86 L160 70 L200 62 L240 66 L280 48 L320 42 L360 36 L400 30 L440 22 L470 18" stroke="#8FD3FF" stroke-width="2" fill="none" filter="url(#g)"/>
+          <circle cx="470" cy="18" r="4" fill="#fff"/><circle cx="470" cy="18" r="8" fill="#8FD3FF" opacity=".25"/>
+          <text x="0" y="114" fill="#5C6680" font-size="9" font-family="Geist Mono,monospace">JAN</text><text x="452" y="114" fill="#5C6680" font-size="9" font-family="Geist Mono,monospace">SEP</text>
+        </svg>
+        <div class="kpis">
+          <div class="kpi"><div class="l">Click-through</div><div class="v">9.4%</div><div class="d ok">▲ 4.4 pts over floor</div></div>
+          <div class="kpi"><div class="l">Conv. rate</div><div class="v">11.20%</div><div class="d">tracked · 30 days</div></div>
+          <div class="kpi"><div class="l">Screenings</div><div class="v">300+</div><div class="d">per month, from ads</div></div>
+        </div>
+        <div class="checks"><span>Monthly 5% CTR floor</span><span>Conversion tracking live</span><span>2+ sitelinks on every ad</span><span>Geo-targeting set</span></div>
+        </div>
+      <div class="foot mono"><span>Illustrative account view · report auto-sent to ED &amp; board on the 1st</span></div>
+      <div class="tag"><div class="av"></div><div><b>Your named account lead</b><span>replies within 1 business day</span></div></div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="quote"><q>As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone.</q><small><b>Michelle Hurtado</b> · First Global Head of Ad Grants, Google</small></div>
+    <div class="marks"><span>UNCF</span><span class="serif">Scouting America</span><span class="thin">COPD Foundation</span><span>YWCA</span><span class="serif">Earthwatch</span><span class="thin">AAU</span></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broadsheet Mobile</title>
+<meta name="description" content="Nonprofit Megaphone phone hero, Broadsheet direction: cool newsprint, black ink, one deep blue.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap');
+
+:root{
+  --ground:#FAFAF8; --card:#FFFFFF; --ink:#111111; --ink-2:#56565A;
+  --rule:#D9D9D6; --rule-soft:#ECECE9; --blue:#0A23A2; --blue-dark:#071A7C; --tint:#EEF1FA;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Schibsted Grotesk',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E6E6E3}
+body{background:#E6E6E3;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;font-optical-sizing:auto;font-size:16px}
+.page{width:390px;min-height:760px;margin:0 auto;background:var(--ground);padding:0 16px 18px;overflow:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:1px}
+svg{display:block}
+
+.sc{font-family:var(--serif);font-variant-caps:all-small-caps;letter-spacing:.08em;font-size:15px;font-weight:500;line-height:1;color:var(--ink)}
+.label{font-family:var(--sans);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);font-weight:500;line-height:1.3}
+
+/* ear strip: dateline left, edition marker right */
+.ear{display:flex;justify-content:space-between;align-items:center;height:28px;border-bottom:1px solid var(--rule);white-space:nowrap;gap:12px}
+.ear .date{color:var(--ink)}
+.ear .edition .sq{display:inline-block;width:6px;height:6px;background:var(--blue);margin-right:7px;position:relative;top:-1px}
+
+/* compact masthead: wordmark, CTA, menu. Oxford rule beneath. */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;height:58px;position:relative}
+.nav:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:8px;flex:none}
+.brand .name{font-family:var(--serif);font-size:19px;font-weight:500;letter-spacing:-.012em;line-height:1;white-space:nowrap;font-variation-settings:'opsz' 20}
+.brand .name em{font-style:italic;font-weight:400}
+.navr{display:flex;align-items:center;gap:6px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--blue);color:#fff;font-family:var(--sans);font-weight:600;font-size:16px;line-height:1;padding:17px 20px;border-radius:2px;letter-spacing:.005em;white-space:nowrap;transition:background .15s ease;min-height:48px}
+.btn:hover{background:var(--blue-dark)}
+.btn.sm{font-size:13.5px;padding:0 12px;min-height:40px}
+.btn .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;opacity:.9;padding-left:12px;border-left:1px solid rgba(255,255,255,.4)}
+/* 44px target; the bars end flush with the 16px gutter and the touch box hangs 10px into it */
+.menu{width:44px;height:44px;display:inline-flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;padding-right:10px;margin-right:-10px}
+.menu i{display:block;height:1.5px;background:var(--ink);width:22px}
+.menu i:nth-child(2){width:16px}
+
+/* hero: single column, the lead first, then the ledger, then the client roll */
+.hero{padding:22px 0 0}
+.kicker{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.kicker .sc{color:var(--blue)}
+h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;letter-spacing:-.022em;color:var(--ink);text-wrap:balance;font-variation-settings:'opsz' 44;margin-left:-1px}
+h1 em{font-style:italic;font-weight:400;color:var(--blue)}
+.deck{font-size:16.5px;line-height:1.48;color:var(--ink);margin:14px 0 18px}
+.deck b{font-weight:600}
+.btn.full{width:100%}
+.exits{margin-top:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13.5px;line-height:1.4}
+.exits .elig{font-size:15px;font-weight:600;color:var(--blue);border-bottom:1.5px solid var(--blue);padding-bottom:1px;display:inline-block;min-height:24px}
+.fine{margin-top:8px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+.fine b{font-weight:600;color:var(--ink)}
+.fine i{display:inline-block;width:3px;height:3px;background:var(--rule);margin:0 8px;position:relative;top:-3px}
+
+/* ledger, condensed to a 2 x 2 ruled grid */
+.ledger{margin-top:22px;background:var(--card);border:1px solid var(--rule)}
+.head{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;background:var(--blue);color:#fff;padding:9px 12px;gap:10px}
+.head .sc{color:#fff;font-size:15px}
+.head .label{color:#fff;opacity:.92}
+.head .arcs{position:absolute;right:-6px;top:50%;transform:translateY(-50%);width:160px;height:160px;pointer-events:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.cell{padding:12px 12px 11px;border-bottom:1px solid var(--rule)}
+.cell:nth-child(odd){border-right:1px solid var(--rule)}
+.cell:nth-child(n+3){border-bottom:0}
+.cell .v{font-family:var(--serif);font-size:32px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap;font-variation-settings:'opsz' 32}
+.cell .v sup{font-size:14px;vertical-align:top;position:relative;top:3px;margin-left:1px;color:var(--ink-2)}
+.cell .v .of{font-size:17px;color:var(--ink-2);margin:0 2px;font-style:italic}
+.cell .l{font-size:13px;line-height:1.3;color:var(--ink);margin-top:6px}
+.cell .l small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:2px;font-weight:500}
+.floor{display:flex;align-items:center;gap:10px;padding:9px 12px;border-top:1px solid var(--rule);font-size:12.5px;line-height:1.4;color:var(--ink-2)}
+.floor b{color:var(--blue);font-weight:600}
+.floor .dash{flex:none;width:22px;border-top:1.5px dashed var(--blue)}
+
+/* one trust element: the client roll with its count */
+.trust{margin-top:18px;padding-top:12px;border-top:1px solid var(--ink)}
+.trust .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:10px;white-space:nowrap}
+.trust .lbl strong{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:-.01em;font-variation-settings:'opsz' 18}
+.marks{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:10px}
+.marks>span{display:inline-flex;align-items:center;gap:7px;font-family:var(--serif);font-size:13.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.marks>span.it{font-style:italic;text-transform:none;letter-spacing:0;font-size:16px;font-weight:400}
+.marks>span.sans{font-family:var(--sans);font-weight:600;letter-spacing:.12em;font-size:11.5px}
+.marks>span.logo{text-transform:none;letter-spacing:-.005em;font-size:14.5px;font-family:var(--sans);font-weight:600}
+.marks .slot{width:18px;height:18px;border:1px solid var(--ink-2);position:relative;flex:none}
+.marks .slot:before,.marks .slot:after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:1px;background:var(--ink-2);transform:rotate(45deg)}
+.marks .slot:after{transform:rotate(-45deg)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="ear" aria-label="Dateline">
+      <span class="label date">Tue, Sep 22, 2026</span>
+      <span class="label edition"><i class="sq" aria-hidden="true"></i>Figures updated Sep 2026</span>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#" aria-label="Nonprofit Megaphone, home">
+        <svg width="28" height="24" viewBox="0 0 36 30" aria-hidden="true">
+          <path d="M2 11.5 L19 4 L19 26 L2 18.5 Z" fill="#0A23A2"/>
+          <path d="M19 4 L26 1 L26 29 L19 26 Z" fill="#111111"/>
+          <path d="M28.5 8.5 A 7.5 7.5 0 0 1 28.5 21.5" stroke="#0A23A2" stroke-width="2" fill="none"/>
+          <path d="M31.5 4.5 A 12 12 0 0 1 31.5 25.5" stroke="#111111" stroke-width="1.25" fill="none" opacity=".5"/>
+        </svg>
+        <span class="name">Nonprofit <em>Megaphone</em></span>
+      </a>
+      <div class="navr">
+        <a class="btn sm" href="#">Book a call</a>
+        <a class="menu" href="#" aria-label="Open menu"><i></i><i></i><i></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <p class="kicker"><span class="sc">The Google Ad Grant</span><span class="label">$10,000 a month in search ads</span></p>
+    <h1 id="h1">Ten thousand dollars a&nbsp;month, <em>properly spent.</em></h1>
+    <p class="deck">Most nonprofits never spend the full grant, and a 5% click-through rule can quietly switch it off. <b>We manage the Ad Grant for 780+ organizations</b> and report every month.</p>
+    <a class="btn full" href="#">Book a free call <span class="tag">15 min</span></a>
+    <p class="exits"><a class="elig" href="#">Am I eligible?</a><span class="label">4 questions &middot; no email</span></p>
+    <p class="fine">Flat monthly fee<i aria-hidden="true"></i>No % of ad spend<i aria-hidden="true"></i>Unhappy? Meet our CEO and <b>we pay you $25.</b></p>
+
+    <aside class="ledger" aria-label="Figures on the record">
+      <div class="head">
+        <svg class="arcs" viewBox="0 0 160 160" aria-hidden="true">
+          <circle cx="160" cy="80" r="24" stroke="#fff" stroke-width="1" fill="none" opacity=".32"/>
+          <circle cx="160" cy="80" r="46" stroke="#fff" stroke-width="1" fill="none" opacity=".22"/>
+          <circle cx="160" cy="80" r="68" stroke="#fff" stroke-width="1" fill="none" opacity=".14"/>
+          <circle cx="160" cy="80" r="90" stroke="#fff" stroke-width="1" fill="none" opacity=".08"/>
+        </svg>
+        <span class="sc">On the record</span><span class="label">As of Sep 2026</span>
+      </div>
+      <div class="grid">
+        <div class="cell"><div class="v">780<sup>+</sup></div><div class="l">Nonprofits managed<small>Active accounts</small></div></div>
+        <div class="cell"><div class="v">$48M<sup>+</sup></div><div class="l">Donated media<small>2016 to 2026</small></div></div>
+        <div class="cell"><div class="v">100%</div><div class="l">Grant acquisition rate<small>In writing</small></div></div>
+        <div class="cell"><div class="v">1<span class="of">of</span>9</div><div class="l">Certified agencies<small>Inaugural cohort</small></div></div>
+      </div>
+      <p class="floor"><span class="dash" aria-hidden="true"></span><span>Google's floor is <b>5% CTR</b>. Published case studies run 7.5% to 25.2%.</span></p>
+    </aside>
+
+    <section class="trust" aria-label="Clients">
+      <div class="lbl"><strong>780+ clients on record</strong><span class="label">54 case studies</span></div>
+      <div class="marks">
+        <span>UNCF</span>
+        <span class="it">COPD Foundation</span>
+        <span class="logo"><i class="slot" role="img" aria-label="Licensed monochrome logo slot (placeholder)"></i>Scouting America</span>
+        <span>YWCA Chicago</span>
+        <span class="it">Earthwatch</span>
+        <span class="sans">Solar Sister</span>
+      </div>
+    </section>
+  </section>
+
+</div>
+</body>
+</html>

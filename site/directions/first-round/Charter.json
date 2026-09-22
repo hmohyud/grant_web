@@ -1,0 +1,67 @@
+{
+ "name": "Charter",
+ "oneLiner": "Nonprofit Megaphone as the chartered, Google-certified steward of the Ad Grant: ivory paper, Oxford navy, a hairline of old gold, and every claim rendered as a record you could hand to a board.",
+ "concept": "The research says the same thing three ways: the buyer is a tired executive director or comms lead who wants one less thing to worry about; the category uniform is saturated blue plus one warm accent; and NPM's genuinely rare assets (one of nine inaugural Google-certified agencies, the endorsement from Google's first Head of Ad Grants, $48M stewarded, a $25 meet-the-CEO guarantee) are buried under template blocks. \"Charter\" answers all three. It positions NPM not as the loudest agency but as the chartered institution of the category: the firm that was there when Google wrote the certification, that keeps the grant in good order, and that puts its guarantee in writing. The emotional register is relief and confidence, the feeling of a university press catalogue or a well-run foundation's annual report rather than a SaaS launch page.\n\nVisually, the system borrows heritage cues (a crest built from the megaphone mark, a serif and grotesk pairing, ivory paper, fine rules, engraved hatching, roman numerals, a wax-seal red used only as a signal) and reinterprets them with modern spacing, tabular numerals, and a ledger logic borrowed from Mercury and Stripe. The hero's central object is the Charter Card: a certificate-like record of the credential and the numbers, stacked on two ghost records behind it, with concentric hairline arcs (the megaphone's carry, not its shout) radiating across the page. Nothing in the set of fourteen competitors touches this territory; the nearest neighbours (Cosmic's dark serif, Elevation's plum-neon) are studio aesthetics, not institutional ones, and no blue-SaaS competitor can follow without abandoning their look.\n\nIt fits Nonprofit Megaphone specifically because the brand already has the two halves and only renders one. Every claim reaches for category leader; every human detail (No Drama Llama, the cabin retreat, the CEO's direct email) is warm and modest. Charter lets the institutional half carry the visual weight so the warm half can be the surprise: the guarantee written like a bond's fine print but signed by Amber Snow, the team candid printed full-bleed in navy duotone, the core values set as a numbered charter. It also corrects the audit's weaknesses directly: the contested \"#1\" is replaced by a verifiable scarcity fact, the seven CTA variants collapse to one, and the numbers are shown once, dated, and consistent.",
+ "palette": [
+  {
+   "role": "bg (Ivory)",
+   "hex": "#F3EDE0",
+   "note": "Page ground. Unbleached paper, never #FFF. A 7px repeating hairline at 1.8% navy gives a laid-paper texture."
+  },
+  {
+   "role": "surface (Paper)",
+   "hex": "#FAF6EC",
+   "note": "Cards, the Charter Card, badges, nav on scroll. One step lighter than the ground so surfaces read as sheets placed on the desk."
+  },
+  {
+   "role": "text (Ink)",
+   "hex": "#0E1B33",
+   "note": "Headlines and body. Keeps the brand's navy lineage while replacing #17204B with a deeper, warmer ink. 14.9:1 on ivory."
+  },
+  {
+   "role": "primary (Oxford Navy)",
+   "hex": "#14295C",
+   "note": "Buttons, italic headline emphasis, engraving strokes, duotone shadow for photography. Replaces #0000FF as the brand's blue voice; never used as a full-bleed ground."
+  },
+  {
+   "role": "mark blue (legacy)",
+   "hex": "#0A23A2",
+   "note": "Reserved for the redrawn vector npm mark in contexts that require the original colour (partner listings, favicon). Not used elsewhere."
+  },
+  {
+   "role": "accent (Old Gold)",
+   "hex": "#B8892E",
+   "note": "Hairlines, crest, eyebrows, sound-wave strokes, link underlines, the plus signs after numbers. Lines and type only, never fills, so it reads as engraving rather than luxury."
+  },
+  {
+   "role": "accent tint (Vellum)",
+   "hex": "#E9D9B0",
+   "note": "Hover states, selected filter chips, seal backgrounds, table row highlight."
+  },
+  {
+   "role": "muted text (Slate)",
+   "hex": "#5B6478",
+   "note": "Subheads, captions, ledger labels, secondary nav. 5.9:1 on ivory."
+  },
+  {
+   "role": "rule (Hairline)",
+   "hex": "#D8CFBB",
+   "note": "All 1px borders, dividers, ghost-record outlines. Cards have rules, not shadows, except the single hero object."
+  },
+  {
+   "role": "signal (Lacquer)",
+   "hex": "#9E2F1F",
+   "note": "The megaphone's one loud colour, rationed: the live 'as of' dot, compliance warnings, CTA hover fill, seal wax on the guarantee page. Descends from the coral #DA6343 CTA without its SaaS brightness."
+  }
+ ],
+ "typography": {
+  "display": "Fraunces (Google Fonts), variable: opsz 144, wght 400 for h1/h2, 500 for h3; italic at wght 400 for emphasis and pull quotes; SOFT 0 and WONK 0 so it reads as a modern Caslon, not a Cooper. Small-caps eyebrows use Switzer, not Fraunces.",
+  "body": "Switzer (Fontshare), 400 body, 500 UI labels and buttons, 600 small-caps eyebrows and wordmark-style client names. Fallback stack: system-ui.",
+  "mono": "IBM Plex Mono (Google Fonts) 400/500 with tabular-nums for every number in a ledger, stat, table, date stamp and record number. Numbers in running prose stay in Switzer.",
+  "scaleNotes": "Base 16px, line-height 1.5. h1 66px/1.03, tracking -0.018em, opsz 144, max 12 words, text-wrap balance. h2 44px/1.08, tracking -0.012em. h3 26px/1.2 Fraunces 500. Lead paragraph 19px/1.55 Switzer 400 in Slate. Eyebrow 11.5px Switzer 600, uppercase, tracking 0.2em, Old Gold, always preceded by a 36px gold rule. Ledger labels 12.5px uppercase tracking 0.08em Slate; ledger values 22px Plex Mono 500. Pull quotes Fraunces italic 24px opsz 72. Captions and stamps 10.5px Plex Mono uppercase tracking 0.12\u20130.16em. Section numbering uses Roman numerals in Fraunces (I, II, III) at 14px Old Gold. Radius: 2px on buttons and badges, 0 on cards; no pills anywhere."
+ },
+ "mean": 38.8,
+ "panel": {
+  "mean": 38.8
+ }
+}
