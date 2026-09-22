@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — desktop hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --ground:#E6EDF1;    /* page ground: the only cool steel blue-gray in the set */
+  --surface:#FFFFFF;   /* label cards, legend, letter stamp */
+  --ink:#12203A;       /* deep navy: all headlines, UI, neatline, CTA text (4.78:1 on coral) */
+  --ink-2:#2E3D57;     /* body copy: 9.2:1 on ground */
+  --muted:#4E6079;     /* small caps and mono readouts: 5.4:1 on ground, 6.4:1 on white */
+  --hair:#C9D5DE;      /* hairline card edges and rules */
+  --hair-2:#DEE6EC;    /* rules inside white cards */
+  --contour:#9DB3C4;   /* contour lines only, never text */
+  --coral:#E4643B;     /* the one accent: pins and the CTA fill; never text */
+  --coral-hi:#EC7A55;  /* CTA hover; navy text 5.8:1 */
+  --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body:'Source Sans 3',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono',ui-monospace,SFMono-Regular,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#D8E1E7}
+body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* two label voices: serif letterspaced small caps for names of things, mono for readouts (dates, grid refs) */
+.sc{font-family:var(--display);font-variant-caps:all-small-caps;font-weight:600;font-size:13px;letter-spacing:.14em;line-height:1;color:var(--muted)}
+.ro{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1;color:var(--muted)}
+.ro b{color:var(--ink);font-weight:500}
+
+/* one frame: 1200 wide, nav 72 + hero 600 + trust ~140 = ~812 */
+.page{width:1200px;min-height:800px;max-height:860px;margin:0 auto;background:var(--ground);position:relative;overflow:hidden}
+
+/* ---------- 00 nav: the neatline ---------- */
+.nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 48px;border-bottom:1px solid var(--ink)}
+.logo{display:flex;align-items:center;gap:12px}
+.mark{width:36px;height:36px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.word{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.005em;line-height:1;color:var(--ink)}
+.word small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px;line-height:1}
+.links{display:flex;gap:30px;font-size:15px;font-weight:500;color:var(--ink)}
+.links a{position:relative;padding:6px 0}
+.links a.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink)}
+.navr{display:flex;align-items:center;gap:26px}
+.quiet{display:inline-flex;align-items:center;gap:6px}
+.quiet svg{width:10px;height:10px}
+
+/* buttons: coral fill with navy text (white on coral fails AA at 3.4:1; navy clears it at 4.78:1) */
+.btn{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 16px;background:var(--coral);color:var(--ink);font-weight:600;font-size:15px;line-height:1;border-radius:4px;border:1px solid transparent;white-space:nowrap}
+.btn:hover{background:var(--coral-hi)}
+.btn:active{border-color:var(--ink)}
+.btn .pin-g{width:12px;height:16px;flex:none}
+.btn.big{height:52px;padding:0 18px 0 16px;font-size:16px}
+.tag{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;padding:4px 6px 3px;border:1px solid rgba(18,32,58,.45);border-radius:3px;line-height:1;margin-left:2px}
+.outline{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 16px;border:1.5px solid var(--ink);border-radius:4px;font-weight:600;font-size:16px;line-height:1;white-space:nowrap;background:transparent}
+.outline:hover{background:var(--surface)}
+.outline .tag{border-color:var(--hair);color:var(--muted)}
+
+/* ---------- 01 hero ---------- */
+.hero{position:relative;z-index:2;display:grid;grid-template-columns:540px 660px;min-height:600px}
+.copy{padding:54px 28px 36px 48px}
+.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:24px}
+.eyebrow svg{width:10px;height:14px;flex:none}
+h1{font-family:var(--display);font-optical-sizing:auto;font-weight:600;font-size:58px;line-height:1.02;letter-spacing:-.015em;color:var(--ink);max-width:464px;text-wrap:balance;font-variant-numeric:normal}
+.sub{font-size:18px;line-height:1.5;color:var(--ink-2);max-width:452px;margin:22px 0 28px}
+.sub strong{color:var(--ink);font-weight:600}
+.ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fine{margin-top:14px;line-height:1.5;letter-spacing:.05em;white-space:nowrap}
+.guar{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:18px;border-top:1px solid var(--hair);max-width:452px}
+.portrait{width:44px;height:52px;border-radius:3px;flex:none;background:#C9D5DE;position:relative;overflow:hidden;border:1px solid var(--hair)}
+.portrait svg{position:absolute;left:0;bottom:-2px}
+.guar p{font-size:15px;line-height:1.45;color:var(--ink-2)}
+.guar p b{font-weight:600;color:var(--ink)}
+.guar p small{display:block;margin-top:5px}
+.guar p small a{color:var(--ink);font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--hair)}
+
+/* ---------- the reach map ----------
+   Decorative (one aria-hidden SVG): the contour field, hypsometric tints, graticule ticks, compass rose.
+   Informational (real DOM text): the sheet label, the date readout, the floor label, every pin's card,
+   the legend, and a visually hidden figcaption that states the whole argument. */
+.map{position:relative;overflow:hidden;min-height:600px;border-left:1px solid var(--ink)}
+.topo{position:absolute;inset:0;width:100%;height:100%}
+.topo .c{stroke-linejoin:round}
+/* furniture sits on a 32px inset from the seam and the right edge, 18px from top and bottom; labels that cross only the dashed floor
+   carry a ground backing (the fill on both sides of that line is the ground), anything over the tints is a white plate */
+.sheet{position:absolute;left:32px;top:37px;background:var(--ground);padding:3px 4px 3px 0}
+.rose{position:absolute;right:32px;top:18px;width:56px;height:56px}
+.asof{position:absolute;right:32px;bottom:18px;background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:5px 8px 4px}
+.floorlab{position:absolute;left:344px;top:510px;display:flex;align-items:center;gap:8px;background:var(--ground);padding:3px 5px 3px 2px;color:var(--ink);font-weight:500}
+.floorlab i{width:16px;height:0;border-top:1.5px dashed var(--ink);opacity:.7}
+
+/* pins: coral markers with a navy hairline so they clear non-text contrast on the ground */
+.pin{position:absolute;width:0;height:0}
+.pin > svg{position:absolute;left:-9px;top:-24px;width:18px;height:24px}
+.pin.main > svg{left:-13px;top:-34px;width:26px;height:34px}
+.card{position:absolute;top:-19px;background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:8px 10px 8px;white-space:nowrap;line-height:1.2}
+.card::before{content:"";position:absolute;top:18px;width:10px;border-top:1px solid var(--ink);opacity:.6}
+.card.r{left:16px}
+.card.r::before{left:-11px}
+.card.l{right:16px}
+.card.l::before{right:-11px}
+.card b{display:block;font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.005em}
+.card .ro{display:flex;align-items:center;gap:8px;margin-top:6px}
+.card .ro em{font-style:normal;color:var(--ink);font-weight:500;border:1px solid var(--hair);padding:2px 4px 1px;border-radius:2px}
+.card.hq{top:-24px;padding:10px 12px 9px}
+.card.hq b{font-family:var(--display);font-size:16px;letter-spacing:-.01em}
+.card.hq i{display:block;font-style:normal;font-size:13px;color:var(--ink-2);margin-top:3px}
+.card.hq .ro{margin-top:7px}
+
+/* legend: real text, doubles as the key for the figcaption */
+.legend{position:absolute;left:32px;bottom:18px;background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:9px 12px 9px 10px;display:grid;gap:7px}
+.legend div{display:flex;align-items:center;gap:9px;font-size:12px;line-height:1.2;color:var(--ink);white-space:nowrap}
+.legend .sw{width:18px;display:grid;place-items:center;flex:none}
+.legend .sw svg{display:block}
+.legend .sw i{display:block;width:18px;height:0;border-top:1.5px dashed var(--ink);opacity:.7}
+.legend span{color:var(--muted)}
+
+/* ---------- motion: CSS only; reduced-motion users get the final state with no keyframes ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .topo .c{animation:rise .55s ease-out both;animation-delay:var(--d,0s)}
+  .pin{animation:drop .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  .card,.legend,.floorlab,.rose,.sheet,.asof{animation:fade .5s ease-out both;animation-delay:var(--d,0s)}
+  .card{animation-delay:calc(var(--d,0s) + .12s)}
+  @keyframes rise{from{opacity:0}to{opacity:1}}
+  @keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- 02 trust: attestation + scale bar + index of clients ---------- */
+.trust{position:relative;z-index:3;margin:0 48px;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair)}
+.row1{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;padding:14px 0 12px;border-bottom:1px solid var(--hair)}
+.stampline{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.stamp{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:1px solid var(--ink);border-radius:2px;padding:4px 8px 3px;color:var(--ink);background:var(--surface)}
+.stamp svg{width:10px;height:13px}
+.letter blockquote p{font-family:var(--display);font-style:italic;font-weight:400;font-size:20px;line-height:1.25;color:var(--ink);letter-spacing:-.005em;white-space:nowrap}
+/* the scale bar: three figures set as the divisions of a map scale bar; the figure columns and the bar share one grid */
+.scale{display:grid;grid-template-columns:132px 126px 166px;row-gap:7px}
+.figs{display:contents;margin:0}
+.figs div{display:flex;flex-direction:column-reverse;padding:0 0 4px 9px;border-left:1px solid var(--ink)}
+.figs dt{margin-top:5px;white-space:nowrap;letter-spacing:.04em}
+.figs dd{font-family:var(--display);font-optical-sizing:auto;font-weight:600;font-size:26px;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.bar{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;height:7px;border:1px solid var(--ink);background:var(--surface)}
+.bar span{display:flex}
+.bar i{flex:1}
+.bar i:first-child{background:var(--ink)}
+.scale > .ro{grid-column:1 / -1}
+.roll{display:flex;align-items:center;height:46px;white-space:nowrap;overflow:hidden}
+.roll .lab{padding-right:22px;flex:none}
+.roll ul{display:flex;flex:1;justify-content:space-between;list-style:none;align-items:center}
+.roll li{font-family:var(--display);font-variant-caps:all-small-caps;font-weight:600;font-size:15px;letter-spacing:.08em;color:var(--ink-2);padding:0 14px;border-left:1px solid var(--hair);line-height:1}
+.roll li:first-child{border-left:0;padding-left:0}
+.roll li:last-child{padding-right:0}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="#" aria-label="Nonprofit Megaphone, home">
+      <span class="mark"><svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M2 13.5 11 7.5V19L2 16.5Z" fill="#fff"/><rect x="3.5" y="16" width="4" height="3.5" rx=".8" fill="#fff"/>
+        <path d="M13.5 8.5a5.2 5.2 0 0 1 0 10.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M15.6 5a9.4 9.4 0 0 1 0 17.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round" opacity=".5"/></svg></span>
+      <span class="word">Nonprofit Megaphone<small>Google Ad Grant management</small></span>
+    </a>
+    <div class="links"><a class="on" href="#" aria-current="page">Services</a><a href="#">Our work</a><a href="#">Happy clients</a><a href="#">Team</a><a href="#">Blog</a></div>
+    <div class="navr">
+      <a class="quiet sc" href="#">Get a free quote <svg viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 9 9 1M3 1h6v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn" href="#"><svg class="pin-g" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#E4643B"/></svg>Book a free call</a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="copy">
+      <p class="eyebrow sc"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".55"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>One of Google&rsquo;s first nine certified agencies</p>
+      <h1 id="h1">Put your cause on the map.</h1>
+      <p class="sub">Google gives eligible nonprofits <strong>$10,000 a month</strong> in search ads. We acquire the grant, keep it above Google&rsquo;s 5% click-through floor, and chart where your supporters are searching, month by month.</p>
+      <div class="ctas">
+        <a class="btn big" href="#"><svg class="pin-g" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#E4643B"/></svg>Book a free call <span class="tag">15 MIN</span></a>
+        <a class="outline" href="#">Am I eligible? <span class="tag">2 MIN</span></a>
+      </div>
+      <p class="fine ro"><b>100% grant-acquisition guarantee</b> &middot; Google-certified &middot; <b>60+ team</b></p>
+      <div class="guar">
+        <div class="portrait" role="img" aria-label="Portrait of Amber Snow, CEO (photograph placeholder)"><svg width="44" height="44" viewBox="0 0 44 44" fill="#12203A" opacity=".45" aria-hidden="true"><circle cx="22" cy="16" r="9"/><path d="M4 46c0-11 8-17 18-17s18 6 18 17z"/></svg></div>
+        <p><b>Our guarantee is a person, not a policy.</b> Not satisfied? Meet our CEO, Amber Snow, and we&rsquo;ll pay you $25.<small class="ro">Amber Snow &middot; CEO &middot; <a href="#">Read the guarantee &rarr;</a></small></p>
+      </div>
+    </div>
+
+    <figure class="map" aria-labelledby="mapcap">
+      <figcaption class="sr-only" id="mapcap">Reach map, sheet 01, as of 22 September 2026. A topographic contour map. At the summit, a coral pin marks your nonprofit with its $10,000 per month Google Ad Grant. Three smaller pins on surrounding hills mark where supporters were found, each with a sample outcome from our case files rather than a client name: 2,300 new visitors a month; 300+ screenings a month; $38,000 a month in donations. The dashed outermost line is Google&rsquo;s 5% click-through floor; every hill on the map sits above it. Contour lines and tints are decorative and show reach, not scale.</figcaption>
+
+      <svg class="topo" viewBox="0 0 680 600" preserveAspectRatio="xMinYMid slice" aria-hidden="true" focusable="false">
+        <!-- contour field: generated by marching squares over a summit and three knolls; every loop is closed and carries a stepped hypsometric tint -->
+        <g stroke="#9DB3C4">
+          <path class="c floor" style="--d:0.62s" fill="#E6EDF1" stroke="#12203A" stroke-width="1" stroke-dasharray="3 4" opacity=".55" d="M32.8 32L52 29.1L72 31.2L92 36.2L148 54.2L184 61.2L220 62.8L284 59.6L312 61.8L340 68.4L392 86.2L408 89L420 88.4L436 83.5L500 46.8L520 38.6L536 34.5L556 32.7L572 34.2L588 39L604 48L616.7 60L627 76L632.5 92L634.6 108L633.6 124L629.7 140L606.4 192L605.3 200L608 207.5L616 213L628 215.8L644 216.8L692 216.3L712 219.8L721.3 224L728 229.3L733.1 236L737.5 248L738.5 264L736.2 284L730.9 308L724.4 328L718.7 340L711.1 352L684.4 384L680 396L680.3 412L693.8 468L697 496L696.4 508L694.3 520L689.6 532L684.5 540L677.1 548L668 554.9L648 564.1L636 567.3L620 569.7L592 569.8L564 565.7L536 558.4L512 550L456 527.6L424 517.6L382 508L315.5 496L272 490L248 489.7L228 494L184 510.8L168 514.3L148 515.5L128 513.6L108 508.3L88 499.4L72 489L57.6 476L45.2 460L37 444L32.4 428L30.9 412L32.7 396L37.5 380L49.1 352L51.5 336L48 312.9L36 270.4L28 247L17.3 224L4 203.6L-18.9 176L-27.4 164L-33.1 152L-35.4 140L-34.3 128L-28.8 112L-2.4 64L5.9 52L13.1 44L23.7 36L32.8 32Z"/>
+          <path class="c" style="--d:0.57s" fill="#E8EEF2" stroke-width="1" d="M536.5 52L552 51.1L564 52.3L576 55.5L585.7 60L596 67.3L604 76L609 84L613.5 96L615.3 108L614.8 120L610.9 136L605.8 148L598.8 160L588 174.6L546.8 220L541.5 232L541.4 240L544 248.6L551.5 260L560 268.1L568 273.5L584 279.3L616 283L628 285.8L639.4 292L644.9 300L645.7 304L644.5 312L640.1 320L627.3 336L624.5 344L624.6 352L626.7 360L631.9 372L653.9 412L666.8 440L674.2 464L676.8 484L675.9 500L672.8 512L666.7 524L656 535.7L640 545.4L620 551.2L596 552.7L568 548.7L544 541.3L520 530.2L452 487.9L436 481.7L416 477.9L340 474L268 464.4L248 463.4L240 464.4L228 467.9L192 487.2L176 493.8L160 497.7L140 498.9L120 496.1L100 489.1L84 479.6L70.9 468L61.7 456L55.7 444L52.3 432L51.2 420L53.5 404L58.1 392L65.1 380L82.3 356L86.2 348L88.1 340L86.8 324L73.6 280L67.4 252L62 216L57 168L56.4 148L58.2 132L64 116.2L72 106.1L80 100.4L88 97L100 94.1L112 93L272 94.5L300 96.6L320 99.6L344 104.9L388 117.2L408 119L420 116.4L432 110.4L472.6 80L496 65.5L516 56.9L536.5 52Z"/>
+          <path class="c" style="--d:0.52s" fill="#E9EFF3" stroke-width="1" d="M532.8 64L548 63L560 64.3L572 68.1L585 76L592.7 84L599.2 96L601.9 108L601.2 124L597.9 136L592.2 148L584.2 160L573.8 172L552 190.5L511.9 216L504.4 224L500.6 236L502.6 252L522.8 308L528.7 320L536 330.7L550.7 344L592 368.9L612 384.3L632 405.5L649.3 432L655 444L660.3 460L662.7 472L663.4 484L662.1 496L658.2 508L653.6 516L646.6 524L640 529.2L628 535.4L608 540.2L584 539.8L560 534.5L540 526.6L516 512.8L498.7 500L468 474.4L456 466.2L440 458.9L424 455.4L404 454.3L360 455.4L332 454.7L304 451.9L260 444.9L240 444.6L232 446.4L224 449.9L192.7 472L178.3 480L160 486.2L144 488.1L124 486.3L108 481.4L92 472.5L78.4 460L70.4 448L65.8 436L64.4 420L66.5 408L69.6 400L77 388L107.2 356L111.8 348L113.5 340L112 326.3L99.9 288L94.7 264L92.5 236L94.4 208L98.2 188L104.7 168L113.4 152L124 140.2L132 134.3L144 128.2L168 121.1L204 116.2L248 114.7L280 116.2L308 119.6L340 126.5L392 141.8L404 143.6L416 142.7L424 139.6L432 134L465.1 100L488 82L512 69.6L532.8 64Z"/>
+          <path class="c idx" style="--d:0.47s" fill="#EBF0F4" stroke-width="1.5" d="M520.2 76L536 72.8L552 73.2L564 76.3L576 83.1L584.4 92L589.9 104L591.4 116L589.9 128L585.6 140L576 155.4L564.3 168L552 177.8L528 190.8L486.3 204L476 209.9L472.2 216L471.4 220L471.5 228L474.1 240L501.3 320L508 334.6L514.5 344L523 352L532 357.8L576 377.1L600 391.2L620 408.6L629.8 420L637.9 432L644.2 444L648.8 456L651.6 468L652.5 480L651.1 492L648.6 500L644 508.6L636 517.5L628 523L620 526.7L600 530.7L580 529.8L556 523.3L536 513.9L515.5 500L497.4 484L472 458.3L460 448.5L444 440.5L428 437.2L408 436.7L356 439.5L328 439.3L300 436.6L252 427.9L240 427.1L232 427.9L224 430.5L216 435.6L195.5 456L180 468L164 475.5L144 479.3L128 478.4L112 473.8L100 467.4L87 456L79.2 444L75.4 432L75 420L77.9 408L84 396.9L91.5 388L100 380.4L127.7 360L132 354.6L134.8 348L135.2 340L133.8 332L121.6 296L116.5 276L114.3 260L114.1 240L117.6 216L125.4 192L136 172.9L148 159.3L157.3 152L168 145.9L192 137.3L224 132.1L260 131L292 133.5L320 138.4L348 146L404 165.5L416 167.9L424 167.9L432 165L436 161.6L458 124L467.1 112L476 102.6L496 87L508 80.6L520.2 76Z"/>
+          <path class="c" style="--d:0.42s" fill="#ECF2F5" stroke-width="1" d="M520.9 84L536 81.2L548 81.6L560 84.9L570.9 92L577.2 100L581.3 112L581.3 124L577.8 136L571.1 148L560.8 160L548 170.1L536 176.8L520 182.7L504 185.5L488 185.1L476 181.8L467.5 176L464 171.3L461.1 164L460.2 156L460.8 148L465.7 132L475.3 116L488 102.5L504 91.2L520.9 84Z"/>
+          <path class="c" style="--d:0.42s" fill="#ECF2F5" stroke-width="1" d="M218.7 148L244 145L268 144.9L296 147.6L324 153.2L352 161.9L380 173.5L408.8 188L426.9 200L434.9 208L440.8 216L455.4 244L470.2 280L488.8 340L494.6 352L500 359.2L508 365.7L516 369.8L564 384.4L588 395.4L600 403.2L610.6 412L620 421.8L627.8 432L638.2 452L642.8 472L642.4 484L640.6 492L637 500L632 506.7L624 513.6L616 517.8L608 520.4L596 522.2L576 520.7L552 513L532 501.7L514.9 488L499.7 472L476 442L464 430.2L452 423.8L436 420.8L416 420.9L356 425.9L324 425.9L292 422.2L240 410.9L224 410.1L216 412.4L211.1 416L192.1 444L181 456L172 462.5L160.4 468L144 471.4L128 470.5L112 465.3L100 457.5L91.4 448L85.7 436L84.2 428L84.5 420L88.3 408L96 397L104 389.7L116 381.9L146.6 368L152.1 364L156.7 356L156.8 348L154.9 340L138.2 296L132.8 272L131.6 256L132.5 240L135.6 224L139.3 212L144.6 200L151.7 188L160 177.6L168 170L180 161.7L191.4 156L204 151.5L218.7 148Z"/>
+          <path class="c" style="--d:0.37s" fill="#EEF3F6" stroke-width="1" d="M520.6 92L532 89.6L544 89.7L552 91.6L560.5 96L568 103.9L571.5 112L572.4 120L570.2 132L564.2 144L557.7 152L548 160.5L536 167.6L524 172.1L512 174.3L500 174L492 172L484.3 168L480 164.1L475.4 156L474 144L476.7 132L483 120L493.3 108L508 97.4L520.6 92Z"/>
+          <path class="c" style="--d:0.37s" fill="#EEF3F6" stroke-width="1" d="M228.6 160L252 157.1L276 157.3L300 160.1L324 165.4L348 173.2L372 183.8L393.4 196L409.7 208L421.9 220L431.2 232L441 248L450.7 268L461.9 300L476 365.9L481.6 380L485.7 384L492 386.4L536 388.8L560 393.4L584 403L603.1 416L612 424.6L621.1 436L627.9 448L632.2 460L634 472L633 484L630.2 492L625 500L616 507.5L608 511.2L600 513.3L588 514.2L576 512.9L564 509.8L543.1 500L524 485.5L508.1 468L495.2 448L476 408L472 403.7L468 401.6L460 400.6L448 401.4L392 409.7L360 413.3L336 414.3L316 413.5L292 410.3L264 403.5L212 386.5L196 379.1L189.8 372L184 361.5L163 320L154.6 300L150.1 284L148.1 272L147.4 256L148.4 244L151.8 228L158 212L164.8 200L174.4 188L184 179.3L196 171.4L212 164.4L228.6 160Z"/>
+          <path class="c" style="--d:0.37s" fill="#EEF3F6" stroke-width="1" d="M141.9 384L164 383L176 385.1L182.2 388L186.2 392L189.4 400L190.4 416L187.9 428L184.7 436L179.7 444L172 452.1L164 457.6L152 462.4L144 463.8L132 463.6L116 458.9L104 450.4L96 439L93.8 432L93.2 424L96.4 412L101.7 404L108 397.9L124 388.8L141.9 384Z"/>
+          <path class="c" style="--d:0.32s" fill="#F0F4F6" stroke-width="1" d="M521.3 100L536 97.7L544 98.8L552 102.2L556 105.4L560.7 112L562.6 120L562 128L559.1 136L554 144L548 150.2L540 156.2L532 160.3L520 163.8L512 164.4L504 163.4L495.8 160L488.3 152L485.9 144L487.3 132L493.5 120L500.7 112L511.9 104L521.3 100Z"/>
+          <path class="c" style="--d:0.32s" fill="#F0F4F6" stroke-width="1" d="M232.8 172L252 168.9L276 168.4L300 171L324 176.5L348 184.9L368 194.4L388 206.9L404 220.2L418.2 236L431.2 256L440.8 276L448.8 300L453.6 324L454.8 348L452.1 364L445 376L436 383.1L428 387.1L398.3 396L356 402.2L320 402.6L288 398.2L256 388.6L228 375.6L216.2 368L206.7 360L196 348.2L187.2 336L177.7 320L170.3 304L165.1 288L162.7 276L161.8 260L162.8 248L165.3 236L169.5 224L175.6 212L184.4 200L192.4 192L204 183.6L216 177.5L232.8 172Z"/>
+          <path class="c" style="--d:0.32s" fill="#F0F4F6" stroke-width="1" d="M132.7 396L148 395L160 397.9L169.1 404L172.3 408L175.6 416L175.6 428L170.4 440L160 450L148 455.1L140 456.2L132 455.8L120 452L109.5 444L106.5 440L103.2 432L103.4 420L108 410.8L112 406.4L120 400.7L132.7 396Z"/>
+          <path class="c" style="--d:0.32s" fill="#F0F4F6" stroke-width="1" d="M517.3 404L524 401.9L536 400.3L548 400.7L560 402.7L580 409.9L592 417L600.8 424L608.7 432L617.2 444L621.2 452L624.7 464L625.4 472L624 481.9L621.6 488L616 495.7L608 501.6L600 504.7L588 506.3L576 505.4L564 502.2L552 496.9L532 482.7L521.8 472L513.3 460L507.2 448L503.4 436L502.4 424L504.3 416L510.4 408L517.3 404Z"/>
+          <path class="c idx" style="--d:0.27s" fill="#F1F5F7" stroke-width="1.5" d="M526.9 108L537.4 108L546 112L551 120L551.5 124L549.9 132L544 141.3L532 150.1L520 153.4L508 151.8L502.5 148L499.7 144L498.4 136L500.5 128L505.8 120L512 114.4L520 110L526.9 108Z"/>
+          <path class="c idx" style="--d:0.27s" fill="#F1F5F7" stroke-width="1.5" d="M253.7 180L272 178.9L292 180.1L312 183.7L332 189.5L352 197.8L370.5 208L387.1 220L400 232.1L413 248L424.9 268L433.2 288L438.4 308L440.6 328L439.3 344L435.5 356L426.8 368L420 373.3L408 379.6L380 387.8L344 392.2L312 391.4L280 385.2L252 374.7L228 360.6L209.5 344L199.7 332L191.8 320L185.6 308L179.5 292L176.2 276L175.5 264L176.4 252L179 240L188 219.5L196 208.5L204.7 200L216 192.1L228 186.4L240 182.6L253.7 180Z"/>
+          <path class="c idx" style="--d:0.27s" fill="#F1F5F7" stroke-width="1.5" d="M128.3 408L140 405.9L148 407L156 411.1L160 415.4L162.2 420L162.8 428L160 435.5L156 440.3L148 445.2L136 447L128 445.3L119.4 440L114.3 432L113.8 424L117.4 416L121.4 412L128.3 408Z"/>
+          <path class="c idx" style="--d:0.27s" fill="#F1F5F7" stroke-width="1.5" d="M535.8 412L552 410.7L568 413.8L584 420.9L600 433.5L610.7 448L616.2 464L616.4 472L614.7 480L608 490L600 495.3L592 497.7L584 498.3L572 496.9L560 492.8L550.9 488L540.1 480L532.1 472L526.1 464L519.7 452L516.5 440L516.5 432L519 424L521.8 420L528 415.1L535.8 412Z"/>
+          <path class="c" style="--d:0.22s" fill="#F3F6F8" stroke-width="1" d="M527.8 124L532.4 128L531.2 132L525 136L520 134.9L518.5 132L519.7 128L524 124.9L527.8 124Z"/>
+          <path class="c" style="--d:0.22s" fill="#F3F6F8" stroke-width="1" d="M250.2 192L268 189.5L284 189.5L304 191.9L324 197L344 204.7L360 213.1L375.9 224L389.4 236L402.9 252L412.9 268L420.1 284L425.8 304L427.6 320L426.2 336L422 348L412.8 360L404 366.5L396 370.6L372 378L340 381.9L312 381L284 375.6L260 366.6L240 355.1L220 338L204 317.2L193.9 296L190.6 284L189 272L190.2 252L196.9 232L204 220.4L211.5 212L228.1 200L240 194.9L250.2 192Z"/>
+          <path class="c" style="--d:0.22s" fill="#F3F6F8" stroke-width="1" d="M539.5 424L552 420.8L564 421.9L580 427.9L592 436.7L601.2 448L606.2 460L606.4 472L604 478.3L600 483.3L596 486.1L588 489.1L580 489.6L572 488.6L556 482L544 472.8L534.2 460L530.6 452L528.9 444L529.6 436L531.2 432L534.1 428L539.5 424Z"/>
+          <path class="c" style="--d:0.17s" fill="#F4F8F9" stroke-width="1" d="M270.5 200L288 199.8L304 201.8L320 205.7L336 211.5L352 219.5L365 228L376 236.9L388 249.3L398.7 264L405.2 276L411.3 292L414.6 308L415 320L413 332L407.4 344L400 352.4L384 362.2L360 369.2L336 371.7L308 370.2L284 364.8L262.5 356L243.4 344L226.2 328L212.4 308L204.5 288L202.4 276L202.2 264L206.5 244L216 227L224 218.5L232 212.4L249.9 204L270.5 200Z"/>
+          <path class="c" style="--d:0.17s" fill="#F4F8F9" stroke-width="1" d="M547.9 436L556 432.7L564 432.7L574.7 436L584 442.1L592 451.8L595 460L594.7 468L592 473.3L588 476.7L584 478.4L576 479.1L564.3 476L556 470.8L548 462.4L543.1 452L542.9 444L544.4 440L547.9 436Z"/>
+          <path class="c" style="--d:0.12s" fill="#F6F9FA" stroke-width="1" d="M265.4 212L280 210.2L292 210.4L308 212.7L324 217.2L340 223.9L352 230.8L364.6 240L376 250.9L386.4 264L393.4 276L399.6 292L402 304L402.2 316L399.6 328L395.5 336L388.6 344L376 352.2L356 358.7L336 361.2L312 360.2L291.2 356L270.5 348L252 336.6L238.1 324L226.2 308L219 292L215.5 272L217.2 256L223.8 240L233.4 228L248 217.9L265.4 212Z"/>
+          <path class="c idx" style="--d:0.07s" fill="#F7FAFB" stroke-width="1.5" d="M267.5 224L280 221.6L292 221.3L316 225.2L328 229.4L341.3 236L352 243L362.7 252L372 262.3L378.7 272L384.6 284L388.1 296L389.1 308L388.2 316L385.4 324L380 332.1L368 341.4L352 347.5L336 350L316 349.7L296 346L280 340.2L265.4 332L252 321.1L241.1 308L233 292L229.7 276L230.3 264L233.9 252L241.5 240L252 231L267.5 224Z"/>
+          <path class="c" style="--d:0.02s" fill="#F9FBFC" stroke-width="1" d="M274.8 236L284 234L296 233.5L316 236.9L336 245.6L345.6 252L354.7 260L367 276L372 287.1L374.1 296L374.5 304L373.1 312L366.1 324L356 331.5L344 335.9L332 337.8L316 337.7L300 334.7L288 330.4L275.9 324L264 314.7L254.9 304L248.5 292L245.4 280L245.7 268L249.6 256L255.3 248L264 240.9L274.8 236Z"/>
+        </g>
+        <!-- graticule: ticks along the neatline (top) and the seam (left), grid numbers in mono -->
+        <g stroke="#12203A" stroke-opacity=".45" stroke-width="1">
+          <path d="M30 0v5M60 0v8M90 0v5M120 0v5M150 0v5M180 0v8M210 0v5M240 0v5M270 0v5M300 0v8M330 0v5M360 0v5M390 0v5M420 0v8M450 0v5M480 0v5M510 0v5M540 0v8M570 0v5M600 0v5M630 0v5"/>
+          <path d="M0 30h5M0 60h8M0 90h5M0 120h5M0 150h5M0 180h8M0 210h5M0 240h5M0 270h5M0 300h8M0 330h5M0 360h5M0 390h5M0 420h8M0 450h5M0 480h5M0 510h5M0 540h8M0 570h5"/>
+        </g>
+        <g font-family="DM Mono, ui-monospace, monospace" font-size="11" fill="#4E6079" text-anchor="middle">
+          <text x="60" y="21">41</text><text x="180" y="21">42</text><text x="300" y="21">43</text><text x="420" y="21">44</text><text x="540" y="21">45</text>
+        </g>
+        <g font-family="DM Mono, ui-monospace, monospace" font-size="11" fill="#4E6079" text-anchor="start">
+          <text x="12" y="184">72</text><text x="12" y="304">71</text><text x="12" y="424">70</text><text x="12" y="544">69</text>
+        </g>
+      </svg>
+
+      <p class="sheet sc" style="--d:1.05s">Sheet 01 &middot; Reach survey</p>
+
+      <svg class="rose" viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="--d:1.1s">
+        <circle cx="32" cy="32" r="30" fill="#FFFFFF" fill-opacity=".55" stroke="#12203A" stroke-opacity=".5"/>
+        <circle cx="32" cy="32" r="21" fill="none" stroke="#12203A" stroke-opacity=".25"/>
+        <g stroke="#12203A" stroke-opacity=".35" stroke-width="1"><path d="M32 32 47 17M32 32 47 47M32 32 17 47M32 32 17 17"/></g>
+        <g stroke="#12203A" stroke-width=".8" stroke-linejoin="round">
+          <path d="M60 32 36 36 32 32Z" fill="#12203A"/><path d="M60 32 36 28 32 32Z" fill="#FFFFFF"/>
+          <path d="M32 60 28 36 32 32Z" fill="#12203A"/><path d="M32 60 36 36 32 32Z" fill="#FFFFFF"/>
+          <path d="M4 32 28 28 32 32Z" fill="#12203A"/><path d="M4 32 28 36 32 32Z" fill="#FFFFFF"/>
+          <path d="M32 4 36 28 32 32 28 28Z" fill="#E4643B"/>
+        </g>
+        <circle cx="32" cy="32" r="2" fill="#12203A"/>
+      </svg>
+      <p class="asof ro" style="--d:1.1s">As of <b>22 Sep 2026</b></p>
+
+      <p class="floorlab ro" style="--d:.95s"><i aria-hidden="true"></i>Google&rsquo;s 5% CTR floor</p>
+
+      <!-- pins in reading order: the summit first, then supporters by distance -->
+      <div class="pin main" style="left:300px;top:285px;--d:.55s">
+        <svg viewBox="0 0 18 24" aria-hidden="true"><ellipse cx="9" cy="23" rx="4" ry="1.4" fill="#12203A" opacity=".3"/><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6" stroke-width=".8"/><circle cx="9" cy="9" r="3.2" fill="#fff"/></svg>
+        <div class="card r hq"><b>Your nonprofit</b><i>$10,000 / mo Google Ad Grant</i><span class="ro"><b>Summit</b> &middot; grid 43 &middot; 71</span></div>
+      </div>
+      <div class="pin" style="left:528px;top:128px;--d:.78s">
+        <svg viewBox="0 0 18 24" aria-hidden="true"><ellipse cx="9" cy="23" rx="4" ry="1.4" fill="#12203A" opacity=".3"/><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6" stroke-width=".8"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>
+        <div class="card l"><b>2,300 new visitors / mo</b><span class="ro"><em>Sample</em> 12-mo outcome</span></div>
+      </div>
+      <div class="pin" style="left:576px;top:460px;--d:.88s">
+        <svg viewBox="0 0 18 24" aria-hidden="true"><ellipse cx="9" cy="23" rx="4" ry="1.4" fill="#12203A" opacity=".3"/><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6" stroke-width=".8"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>
+        <div class="card l"><b>300+ screenings / mo</b><span class="ro"><em>Sample</em> 12-mo outcome</span></div>
+      </div>
+      <div class="pin" style="left:134px;top:430px;--d:.98s">
+        <svg viewBox="0 0 18 24" aria-hidden="true"><ellipse cx="9" cy="23" rx="4" ry="1.4" fill="#12203A" opacity=".3"/><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6" stroke-width=".8"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>
+        <div class="card r"><b>$38,000 / mo in donations</b><span class="ro"><em>Sample</em> 12-mo outcome</span></div>
+      </div>
+
+      <div class="legend" style="--d:1.15s" role="list" aria-label="Map legend">
+        <div role="listitem"><span class="sw"><svg width="12" height="16" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg></span>Your nonprofit <span>&middot; the summit</span></div>
+        <div role="listitem"><span class="sw"><svg width="9" height="12" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg></span>Supporters found <span>&middot; sample outcomes</span></div>
+        <div role="listitem"><span class="sw"><i aria-hidden="true"></i></span>Google&rsquo;s 5% CTR floor <span>&middot; below it, the grant is lost</span></div>
+      </div>
+    </figure>
+  </section>
+
+  <section class="trust" aria-label="Trust">
+    <div class="row1">
+      <div class="letter">
+        <div class="stampline"><span class="stamp sc"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>Letter from Google</span><span class="ro">Michelle Hurtado &middot; Google&rsquo;s first Head of Ad Grants</span></div>
+        <blockquote><p>&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;</p></blockquote>
+      </div>
+      <div class="scale">
+        <dl class="figs">
+          <div><dt class="ro">Nonprofits served</dt><dd>780+</dd></div>
+          <div><dt class="ro">Ad spend managed</dt><dd>$48M+</dd></div>
+          <div><dt class="ro">Acquisition guaranteed</dt><dd>100%</dd></div>
+        </dl>
+        <div class="bar" aria-hidden="true"><span><i></i><i></i></span><span><i></i><i></i></span><span><i></i><i></i></span></div>
+        <p class="ro">Scale of operations &middot; <b>as of Sep 2026</b></p>
+      </div>
+    </div>
+    <div class="roll">
+      <span class="lab sc">Among 780+ clients</span>
+      <ul>
+        <li>UNCF</li><li>Scouting America</li><li>COPD Foundation</li><li>YWCA Chicago</li><li>Earthwatch</li><li>Solar Sister</li><li>AAU</li><li>JFCS</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

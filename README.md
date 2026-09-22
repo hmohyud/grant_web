@@ -11,9 +11,10 @@ Live: **https://hmohyud.github.io/grant_web/**
 | `site/` | Everything that gets deployed to GitHub Pages. |
 | `site/index.html` | Style explorer: toggle through the design directions at desktop and phone width. |
 | `site/pitch/` | The full pitch page: research brief, five finalist directions with live mockups, panel scores, recommendation. |
-| `site/directions/` | The finalist hero mockups, one desktop and one phone file per direction, plus each direction's spec as JSON. |
+| `site/directions/` | The hero mockups, one desktop and one phone file per direction, plus each direction's spec as JSON. |
 | `site/directions/first-round/` | The three directions cut after the first judging round, desktop hero only. |
 | `reference/` | A saved export of the current live site, kept for reference. Not deployed. |
+| `tools/` | `build_pitch.py` and `pitch_data.json`, which generate the pitch page. |
 | `.github/workflows/deploy.yml` | Deploys `site/` to GitHub Pages on every push to `main`. |
 
 ## Directions
@@ -23,6 +24,12 @@ Live: **https://hmohyud.github.io/grant_web/**
 3. **Public Works**: white, civic-blue blocks, signal-red CTA, Public Sans, a grant account record as the hero object.
 4. **Full Volume**: keeps the electric blue as a bordered stage with stickers and a highlighter; the evolutionary option.
 5. **Signed Sentence**: linen, forest green and ochre, Fraunces, a signed monthly note beside documentary photography.
+6. **Placard** (added later): mid-century civic poster fields of mustard and teal, Archivo Black, a geometric megaphone.
+7. **Itemized** (added later): the monthly receipt for $10,000 of donated ads as the hero object, ink green stamp, JetBrains Mono.
+8. **Atlas** (added later): reach drawn as a contour map on pale steel blue, Source Serif 4, coral pins.
+9. **Open Air** (added later): a calm pale-sky ground, light Manrope type, proof as floating chips.
+
+Directions 6 to 9 were added as alternatives after the first judging round and have not been scored by the panel. `tools/build_pitch.py` rebuilds `site/pitch/index.html` from the direction files and `tools/pitch_data.json`.
 
 ## Deploying
 

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Open Air · phone</title>
+<meta name="viewport" content="width=390">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+:root{
+  --sky:#CFE3FF;--white:#FFFFFF;
+  --ink:#0B1F4D;--muted:#3F5480;--quiet:#55679A;
+  --cta:#1E4FD8;--cta-hover:#1743BD;--sun:#FFC46B;
+  --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#EEF3FA}
+body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px 0}
+svg{display:block}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--cta);outline-offset:3px;border-radius:999px}
+.phone{width:390px;min-height:760px;margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--sky) 0,var(--white) 520px);outline:1px solid rgba(11,31,77,.08)}
+
+/* nav: wordmark, pill, menu */
+.bar{height:60px;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 10px 0 20px;flex:none}
+.brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);min-width:0}
+.brand svg{width:22px;height:22px;flex:none}
+.brand b{font-weight:500;font-size:15px;letter-spacing:.01em;white-space:nowrap}
+.navr{display:flex;align-items:center;gap:2px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--cta);color:#fff;font-weight:600;font-size:16px;height:52px;padding:0 24px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--cta-hover)}
+.btn.sm{height:36px;font-size:13.5px;padding:0 14px}
+.menu{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px}
+.menu svg{width:22px;height:22px}
+
+/* hero copy */
+.hero{padding:16px 20px 0;flex:none}
+.eyebrow{display:flex;align-items:flex-start;gap:10px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.eyebrow i{display:inline-block;width:16px;height:1px;background:var(--muted);opacity:.7;flex:none;margin-top:8px}
+h1{font-weight:300;font-size:48px;line-height:1.04;letter-spacing:0;margin:14px 0 16px;color:var(--ink);white-space:nowrap}
+h1 span{display:block;color:var(--muted)}
+.lede{font-size:16px;line-height:1.5;color:var(--muted)}
+.lede strong{font-weight:600;color:var(--ink)}
+.ctas{margin-top:20px;display:flex;flex-direction:column;gap:4px;align-items:stretch}
+.link{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;font-weight:600;font-size:16px;color:var(--cta);text-decoration:none}
+.link u{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;text-decoration-color:rgba(30,79,216,.45)}
+.link .t{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.link svg{width:15px;height:15px}
+
+/* the air: horizon, rising line, sun, two chips */
+.air{position:relative;height:270px;margin:18px 20px 0;flex:none}
+.air svg{position:absolute;left:0;top:0;width:350px;height:270px;overflow:visible}
+.chip{position:absolute;z-index:2;display:flex;flex-direction:column;gap:2px;padding:9px 14px 10px;border-radius:14px;background:rgba(255,255,255,.78);box-shadow:0 12px 28px -16px rgba(11,31,77,.28);white-space:nowrap;line-height:1.3;color:var(--ink)}
+.chip b{font-weight:500;font-size:14px;letter-spacing:-.005em;font-variant-numeric:tabular-nums}
+.chip span{font-size:12px;color:var(--muted)}
+.c1{right:80px;top:36px}
+.c3{left:40px;top:208px}
+
+/* trust: figures, the sentence from Google, the names */
+.trust{margin-top:auto;padding:22px 20px 28px;color:var(--quiet)}
+.figs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.figs b{display:block;font-size:22px;font-weight:400;letter-spacing:-.01em;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.figs span{display:block;margin-top:4px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.guar{margin-top:14px;font-size:12.5px;line-height:1.5}
+.guar span{display:block}
+.guar b{font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+.quote{margin-top:18px;font-size:13.5px;line-height:1.5}
+.quote q{quotes:"\201C" "\201D"}
+.quote .by{display:block;margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.roll{margin-top:14px;font-size:12px;line-height:1.75;font-weight:500;letter-spacing:.03em}
+.roll .lbl{font-weight:400;letter-spacing:0}
+.roll span{white-space:nowrap}
+.roll i{display:inline-block;width:3px;height:3px;border-radius:50%;background:var(--quiet);opacity:.55;margin:0 4px 0 8px;vertical-align:middle;position:relative;top:-1px}
+
+@media (prefers-reduced-motion:no-preference){
+  .btn,.link{transition:background-color .18s ease,color .18s ease}
+  .path{stroke-dasharray:380;stroke-dashoffset:380;animation:draw 1.6s cubic-bezier(.4,0,.2,1) .25s forwards}
+  .dot,.sun{opacity:0;animation:fade .5s ease-out forwards}
+  .d1{animation-delay:.3s}.d3{animation-delay:1.55s}.sun{animation-delay:1.85s}
+  .chip{opacity:0;transform:translateY(8px);animation:rise .7s ease-out forwards}
+  .c3{animation-delay:.45s}.c1{animation-delay:1.6s}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes rise{to{opacity:1;transform:none}}
+</style></head><body>
+<div class="phone">
+
+<nav class="bar" aria-label="Primary">
+  <a class="brand" href="#">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 9.5h5L16.5 4v16l-9-5.5h-5z" stroke="#0B1F4D" stroke-width="1.4" stroke-linejoin="round"/><path d="M19.5 8.5c1.9 2 1.9 5 0 7" stroke="#0B1F4D" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <b>Nonprofit Megaphone</b>
+  </a>
+  <div class="navr">
+    <a class="btn sm" href="#">Book a call</a>
+    <a class="menu" href="#" aria-label="Open menu"><svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 7h16M3 15h16" stroke="#0B1F4D" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="eyebrow"><i></i><span>$10,000 a month in Google Ads &middot; One of nine inaugural Google-certified agencies</span></span>
+  <h1>Carry further.<span>Worry less.</span></h1>
+  <p class="lede">Google gives eligible nonprofits <strong>$10,000 a month</strong> in search ads. <strong>780+</strong> of them let us run it: a named person, compliant every month, one calm report.</p>
+  <div class="ctas">
+    <a class="btn" href="#">Book a free call</a>
+    <a class="link" href="#"><u>Am I eligible?</u><span class="t">2 min</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" stroke="#1E4FD8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<div class="air">
+  <svg viewBox="0 0 350 270" fill="none" aria-hidden="true">
+    <line x1="0" y1="196" x2="350" y2="196" stroke="#0B1F4D" stroke-opacity=".12" stroke-width="1"/>
+    <path class="path" d="M40 196C170 196 250 150 322 36" stroke="#0B1F4D" stroke-opacity=".38" stroke-width="1.2" stroke-linecap="round"/>
+    <circle class="dot d1" cx="40" cy="196" r="3" fill="#0B1F4D" fill-opacity=".7"/>
+    <circle class="dot d3" cx="300" cy="68" r="3" fill="#0B1F4D" fill-opacity=".7"/>
+    <g class="sun"><circle cx="322" cy="36" r="5" fill="#FFC46B"/><circle cx="322" cy="36" r="9" stroke="#FFC46B" stroke-opacity=".6" stroke-width="1"/></g>
+  </svg>
+  <div class="chip c1"><b>+3,000% search traffic</b><span>12 months &middot; sample account</span></div>
+  <div class="chip c3"><b>5% click-through floor</b><span>Google&rsquo;s rule &middot; two misses and it&rsquo;s off</span></div>
+</div>
+
+<div class="trust">
+  <div class="figs">
+    <div><b>780+</b><span>nonprofits</span></div>
+    <div><b>$48M+</b><span>managed</span></div>
+    <div><b>60+</b><span>people</span></div>
+  </div>
+  <p class="guar"><span><b>100%</b> grant-acquisition guarantee</span><span>Unhappy? Meet our CEO, Amber Snow, and we pay you $25</span></p>
+  <p class="quote"><q>As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!</q><span class="by">Michelle Hurtado<br>Google&rsquo;s first Head of Ad Grants</span></p>
+  <p class="roll"><span class="lbl">Trusted by</span> <span>UNCF<i aria-hidden="true"></i></span> <span>Scouting America<i aria-hidden="true"></i></span> <span>COPD Foundation<i aria-hidden="true"></i></span> <span>YWCA Chicago<i aria-hidden="true"></i></span> <span>Earthwatch<i aria-hidden="true"></i></span> <span>Solar Sister<i aria-hidden="true"></i></span> <span>AAU<i aria-hidden="true"></i></span> <span>JFCS</span></p>
+</div>
+
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+{
+  "name": "Open Air",
+  "oneLiner": "The anti-loud option: a pale-sky page, one thin rising line, and proof floating quietly at altitude.",
+  "concept": "Every other direction in the set raises its voice: rays, ledgers, stamps, stickers, a signed note. Open Air is the one that lowers it. The buyer is a tired executive director who has been told that a missed 5% click-through floor can switch off $10,000 a month of free advertising; the page answers with room rather than volume. The ground is a single vertical gradient from pale sky (#CFE3FF) at the top to white by 632px, so the brand's blue becomes weather instead of paint. The hero is two short sentences in Manrope 300 at 88px, 'Carry further.' in night-blue ink and 'Worry less.' one shade quieter, then a three-line paragraph that leads with the $10,000 a month, one deep-blue pill, the two-minute eligibility link, and Michelle Hurtado's sentence set small enough to be a footnote and true enough to forward.\n\nThe only drawing on the page is a hairline: a faint horizon at the foot of the hero and one thin line that lifts off it and rises to a small warm sun in the top-right corner, the page's single warm pixel. Evidence hangs off that line as three white chips at three altitudes: Google's 5% floor tagged just under the horizon (with its consequence stated plainly), the 100% acquisition guarantee mid-climb, and a labelled sample result (+3,000% search traffic over 12 months) near the top. No cards, no borders, no dashboard, no shadow except the one soft one under the chips, and a trust strip in a quieter blue that only becomes 780+, $48M+, 60+ and eight client names once you look at it. The register is relief: a page that has done this 780 times and does not need to raise its voice.",
+  "distinctFrom": "It is the only direction on a light-blue ground, the only one with a 300-weight display face, and the only one whose entire drawing is a single rising hairline with evidence hung on it as floating chips rather than cards, ledgers, stamps or stickers.",
+  "bullets": [
+    "Pale-sky-to-white ground: the brand's blue as weather, not paint.",
+    "One thin rising line, three evidence chips hung at altitudes.",
+    "Manrope 300 at 88px, the calmest voice in the set."
+  ],
+  "rightFor": "A leadership team that wants the category leader to feel calm and premium, and buyers exhausted by loud agency websites and dashboards.",
+  "needs": [
+    "Approve the pale-sky ground and night-blue mark",
+    "Clear one verified sample result to publish",
+    "Accept Manrope as the single typeface",
+    "Decide whether below-the-fold photography exists"
+  ],
+  "palette": [
+    {
+      "role": "page ground / sky top",
+      "hex": "#CFE3FF",
+      "note": "Top of the one linear gradient (180deg, #CFE3FF at 0 to #FFFFFF at 632px). Behind the nav and the upper hero; the darkest point of the ground, so every contrast figure below is measured here as the worst case: ink 12.2:1, muted 5.8:1, CTA blue as text 5.1:1. No mesh, no second stop, no blobs."
+    },
+    {
+      "role": "page ground / white and chip surface",
+      "hex": "#FFFFFF",
+      "note": "The lower ground from 632px down (the floor chip and trust strip sit on it), the chip surface at 78% opacity over the sky, and the CTA label colour (6.6:1 on the CTA blue, 8.1:1 on hover)."
+    },
+    {
+      "role": "ink / night blue",
+      "hex": "#0B1F4D",
+      "note": "Headline line one, wordmark, active nav link, chip figures, trust figures, the drawing at reduced opacity (horizon 12%, rising line 38%, altitude dots 70%). 12.2:1 on the sky top, 15.9:1 on white."
+    },
+    {
+      "role": "ink-muted",
+      "hex": "#3F5480",
+      "note": "Headline line two ('Worry less.'), lede, eyebrow, inactive nav links, chip labels, quote and attribution, the '2 min' tag. 5.8:1 on the sky top and 7.5:1 on white, so the 11.5px tracked labels pass AA everywhere on the page."
+    },
+    {
+      "role": "ink-quiet",
+      "hex": "#55679A",
+      "note": "The trust strip only, which sits entirely in the white zone: 5.5:1 on white. Not permitted on the sky, where it drops to 4.2:1; the token sheet ties it to the strip."
+    },
+    {
+      "role": "accent / CTA blue",
+      "hex": "#1E4FD8",
+      "note": "The one saturated colour: the 52px hero pill and the 40px nav pill with white labels (6.6:1), the eligibility link and its arrow (5.1:1 on the sky top, 6.6:1 on white), and the 3px focus ring (5.1:1 against the darkest ground, clearing the 3:1 non-text minimum). Hover #1743BD. Never a block, never a band."
+    },
+    {
+      "role": "accent / sun",
+      "hex": "#FFC46B",
+      "note": "Appears exactly once per page: a 12px dot with a thin 60% ring at the end of the rising line (10px on phones). Never text, never a fill behind text, never a block; decorative, no contrast target."
+    },
+    {
+      "role": "hairline / horizon",
+      "hex": "#E2E4EA",
+      "note": "How ink at 12% renders where the horizon crosses the near-white ground; the same rule is the only divider used below the fold. The rising line is ink at 38% (about #93A1BB over the mid sky), 1.2px, round caps. No rule anywhere is heavier than 1.2px."
+    }
+  ],
+  "typography": {
+    "display": "Manrope (Google Fonts) at weight 300 for every headline: H1 88px / 1.02 / +0.01em at 1200 (48px / 1.04 on phones), H2 56px / 1.06, never bolder than 300 at display size and never lighter than 400 below 40px. Two-tone H1: line one in ink, line two in ink-muted. No italics, no small caps, no condensed cut.",
+    "body": "Manrope (Google Fonts) 400 for paragraphs (18px lede, 17px body, 16px on phones, line-height 1.55), 500 for UI labels, nav, chip figures, trust figures and the wordmark, 600 only for the CTA label, the eligibility link and the 11.5px tracked eyebrow and attribution. Inter Tight 400/500 is the named alternate if leadership wants a more neutral body voice; the metrics are close enough that no layout changes.",
+    "mono": "",
+    "scaleNotes": "One family, weight and size carry the whole hierarchy. H1 88px / 1.02 / +0.01em, two set lines ('Carry further.' / 'Worry less.'), 48px on phones. H2 56px / 1.06 / 0. H3 28px / 1.2 at weight 400. Lede 18px / 1.55 at max-width 560px; body 17px; phone body 16px. Chip figure 15px / 500 (14px on phones), chip label 12.5px / 400 (12px on phones). Trust strip 13px / 400 and 500 (phone guarantee line 12.5px). Eyebrow and attribution 11.5px / 600 / +0.12 to +0.14em caps (11px on phones); nothing anywhere below 11px. Tabular numerals on every figure. Radii: 999px for pills and desktop chips, 14px for the two-line phone chips, nothing else. Spacing on an 8px base: nav 76px (60 on phones), 56px gutters at 1200, 20px on phones, hero air 568px tall on desktop (page 840px) and 270px on phones."
+  },
+  "layout": "- 01 Nav (76px, no band, no rule): thin-line megaphone mark and 'Nonprofit Megaphone' wordmark in night blue; links in ink-muted (Ad Grant management active in ink with a hairline underline, Services, Results, Team, Pricing, Blog); right: 'Client reports' and a 40px blue pill 'Book a free call'. Sticky after 200px on a 92% white ground, no blur.\n- 02 Hero (568px of air, 44px below the nav): the copy column on the left (eyebrow '$10,000 a month in Google Ads · One of nine inaugural Google-certified agencies', the two-line 88px H1, a three-line lede leading with the $10,000 a month and the 780+, a 52px pill and the 'Am I eligible? · 2 min' link, and Michelle Hurtado's sentence with her attribution at 11.5px). The right two-fifths is open sky: a faint horizon at y 508, one thin line lifting off it at x 600 and rising to a 12px sun at the top-right corner, three altitude dots, and three chips hung beside them: '5% click-through · Google's floor · two misses and the account is off' just under the horizon, '100% · grant-acquisition guarantee' mid-climb, '+3,000% search traffic · 12 months · sample' near the top.\n- 03 Trust strip (two quiet rows in ink-quiet on the white zone, no rule above it; the horizon is the separator): 780+ nonprofits, $48M+ in Grant spend managed, 60+ people, 100% grant acquisition guaranteed, with 'Unhappy? Meet our CEO, Amber Snow, and we pay you $25' at the right; then 'Trusted by' UNCF, Scouting America, COPD Foundation, YWCA Chicago, Earthwatch, Solar Sister, AAU, JFCS, with 'as of Sep 2026' at the right.\n- 04 'Three ways the money stops': Google's three deactivation rules as three short paragraphs on white, each under its own faint horizon, the 5% click-through rule quoted in Google's words with a plain link to the policy, and one sentence per rule on what the named account lead does about it.\n- 05 'One calm report a month': the monthly report as the page's one object below the fold, a plain white sheet with no frame, showing the fixed three readings (click-through against the 5% floor, spend of the $10,000, policy checks) with labelled REDACTED tags over client data; the sheet on the site is the sheet in the inbox.\n- 06 'Results, at altitude': a short ledger of client-approved outcomes (organisation, vertical, what changed, outcome, period), each row a hairline apart; any figure without written consent is labelled 'sample' and unattributed, exactly as the hero chip is.\n- 07 'Who answers': the account leads as a quiet roster (name, role, nonprofits supported) in a four-column grid with generous air; if photography is funded it is high-key and sky-lit, otherwise the roster ships as type.\n- 08 'A person, not a policy': Amber Snow's guarantee in her own words, the $25 clause set as fine print, a direct contact link (address to be confirmed with the client), the 100% acquisition promise stated with its conditions.\n- 09 Services: seven hairline rows with a 'good fit / not a fit' column; a fee-range column if pricing is published.\n- 10 Eligibility: four questions on white, one question per screen on phones, one thin line rising a step per answer; end states include the honest 'not eligible, here's why' for hospitals, schools and government entities.\n- 11 Closing: the sky returns. The ground fades from white back to #CFE3FF over the last 480px so the page ends in air; 'Thirty minutes, no deck.' in Manrope 300, the pill, the eligibility link, the guarantee line.\n- 12 Footer on pale sky: four columns of ink-muted links (services, company incl. Team, Pricing, Blog, Client reports; resources; contact), the Google Partner badge on a white tile per Google's badge rules, the Certified Professional wordmark, a plain newsletter input with a hairline underline.",
+  "imagery": "Above the fold there is no photography and no illustration; the drawing is a horizon, one rising line and a sun, all inline SVG, all aria-hidden. That restraint is the identity, so the system below the fold is mostly typographic and the objects that appear are proof objects: the monthly report as a plain white sheet with labelled REDACTED tags (a labelled redaction reads as honesty; a blur reads as hiding), a real 12-month click-through line drawn in the same 1.2px hairline against the dashed 5% floor, and screenshots of the Ads console cropped to the number that matters. Every figure carries a source and a date in ink-quiet.\n\nIf the client funds photography it is designed to sit in this air rather than fight it: high-key, sky-lit, shot outdoors or beside large windows, subjects small in the frame with the top third left empty, colour graded cool-neutral so the pale ground continues into the picture; no duotones, no warm grades, no coloured backdrops, no stock. Beneficiary imagery from flagship clients is used only with written consent and only below the fold. Illustration is forbidden beyond the line system itself, which may be reused as a section device (a section may own one faint horizon and one rising step). Icons are a 1.25px line set for UI only. Clouds, gradients meshes, glass panels, glows and drop shadows on anything but the chips are outside the system.",
+  "motion": "One quiet sequence on load, then stillness. Under prefers-reduced-motion: no-preference the rising line draws from the horizon to the sun over 1.8s (stroke-dashoffset, ease-out), the three altitude dots fade in as the line passes them, the three chips fade up 8px in the same order (floor, mid, top) and the sun appears last at 2.05s; the whole thing is 2.5s and CSS-only, no JavaScript in the pitch. Hover: the pills darken to #1743BD; chips lift 1px; every figure shows a source-and-date tooltip. Scroll reveals below the fold are opacity 0 to 1 with an 8px rise, 500ms, once, via a 2kB IntersectionObserver or Webflow's native interactions; the eligibility line rises one step per answer (300ms). No parallax, no drifting clouds, no cursor followers, no kinetic type, no smooth-scroll library, no looping animation anywhere. Under prefers-reduced-motion: reduce every element renders in its final state and nothing moves, including the load sequence and hover lifts.",
+  "mobile": "The 390px page is a designed state, not the desktop squeezed. Nav is 60px on the sky: mark and wordmark, a 36px blue 'Book a call' pill and a 44px menu target. Then the eyebrow on two 11px lines, the H1 at 48px on two set lines with the second line in ink-muted, a four-line 16px lede, a full-width 52px blue pill 'Book a free call' (y about 356 to 408) and the centred 'Am I eligible? · 2 min' link with a 44px target (y about 412 to 456), both above the 760px fold. Below the copy the air stacks at 270px tall: the horizon, the same rising line from the lower-left to a 10px sun at the upper-right, two chips instead of three (the sample result near the sun, the 5% floor hung under the horizon) set as two-line 14px chips so nothing exceeds the 350px width; the guarantee chip is dropped here and its promise appears in the trust block. One trust element follows: 780+, $48M+ and 60+ in three columns with 11.5px labels, a 12.5px guarantee line (the 100% grant-acquisition guarantee and the $25 meet-the-CEO promise), Michelle Hurtado's sentence at 13.5px with her attribution, and the eight client names as a wrapped 12px line with every name kept whole and a 3px dot between names. Below the fold the sections stack single-column: the three rules as three paragraphs, the report sheet at full width, the ledger as two-line rows, the roster in two columns, the eligibility checker one question per screen. Targets 44px minimum; focus ring 3px CTA blue with 3px offset.",
+  "a11y": "WCAG 2.2 AA is the acceptance target on every element, measured against the darkest ground point that can sit behind it (the sky top, #CFE3FF), so every figure only improves lower on the page: ink 12.2:1 on the sky top and 15.9:1 on white; ink-muted 5.8:1 on the sky top and 7.5:1 on white, so the 11.5px eyebrow, attribution and chip labels clear AA with margin; ink-quiet 5.5:1 on white and restricted to the white zone (trust strip) because it falls to 4.2:1 on the sky; CTA blue as link text 5.1:1 on the sky top; white on the CTA blue 6.6:1 and 8.1:1 on hover; the 3px focus ring in CTA blue 5.1:1 against the darkest ground, clearing the 3:1 non-text minimum; chip surfaces are white at 78% over the sky, which only raises the chip text's contrast. The sun, horizon, rising line and dots are decorative and aria-hidden, carry no information that is not also in text (each chip is plain text, the floor rule is written out), and have no contrast target. Minimum text size 11px (phone eyebrow and attribution), body 16 to 18px, headline weight 300 only at 48px and above. The two-tone headline does not depend on colour: both lines are the same size and weight and read as one sentence. Focus: every link and pill has a visible 3px CTA-blue outline with 3px offset; no outline: none anywhere. Targets 44px+ on phones, 40px+ pills on desktop. Motion is gated behind prefers-reduced-motion: no-preference; the load sequence, hover lifts and scroll reveals all render final under reduce. Headings are a single H1 then H2s per section; the nav is a labelled landmark; the menu button has an accessible name.",
+  "heroCopy": {
+    "eyebrow": "$10,000 a month in Google Ads · One of nine inaugural Google-certified agencies",
+    "headline": "Carry further. Worry less.",
+    "sub": "Google gives eligible nonprofits $10,000 a month in search ads. 780+ of them let us run it: a named person keeps the account compliant and sends you one calm report a month.",
+    "cta": "Book a free call"
+  },
+  "signatureMoments": [
+    "The rising line: a 1.2px hairline that lifts off a faint horizon and climbs to the top-right corner, drawn once on load, with three white chips hung beside it at three altitudes so the proof reads as height rather than as a dashboard. The 5% floor sits under the horizon; the sample result is the highest thing on the page.",
+    "One warm pixel: a 12px sun at the end of the line, the only non-blue colour on the page, which is what makes the rest of the page read as sky rather than as a grey-blue template.",
+    "The two-tone headline: 'Carry further.' in night blue and 'Worry less.' one shade quieter, Manrope 300 at 88px, so the promise of relief is literally softer than the promise of reach.",
+    "A trust strip you almost miss: 780+, $48M+, 60+, the guarantee line and eight client names in a quieter blue on the white zone, with no rule above it because the horizon is the divider; it is there for the board member who scrolls, not for the eye.",
+    "The sky returns at the foot of the page: the last 480px fade from white back to pale sky so the site ends in the same air it opened in, which is the closing-CTA background and the footer ground."
+  ],
+  "dependencies": [
+    "Approve the ground: pale sky #CFE3FF fading to white replaces brand blue as a block colour, and the megaphone mark is redrawn as a thin night-blue line; leadership must accept that the brand's blue becomes a tint, not a fill.",
+    "Clear the sample result before build: the hero chip '+3,000% search traffic · 12 months · sample' needs a real account behind it and written consent to publish as an unattributed sample, or it is replaced by a client-approved figure with the client's name; the mockup's number is a placeholder and must not go live unverified.",
+    "Accept Manrope as the single typeface (Google Fonts, free, variable) for display and body, or fund Inter Tight as the body alternate; the 300-weight headline is the direction's voice and has no substitute in the current brand fonts.",
+    "Decide whether photography exists below the fold: if yes, a half-day high-key shoot brief (outdoors or window light, subjects small, top third empty, cool-neutral grade); if no, the roster and report sheet ship as type and the page stays fully typographic, which the direction tolerates.",
+    "Confirm the CEO's public contact address and the Google Partner badge placement on a white tile with the client; neither is in the verified fact list, so the mockups use a text link and the badge is deferred to the footer."
+  ],
+  "risks": [
+    "To a client used to dense agency pages it can read as empty or unfinished. Mitigation: the fold test (every hero fact is present, just quiet), the chips carry the evidence and the trust strip carries the numbers; if leadership wants more, the eligibility line and one client-approved figure can be added to the hero without adding a card.",
+    "Light type on a light ground fails fast in the wrong hands: Manrope 300 below 40px, ink-quiet on the sky, or a 12% hairline used as text would all fail AA. Guardrails ship as tokens: 300 only at 48px and above, ink-quiet only in the white zone, three inks total, the sun once, no shadow but the chip's.",
+    "A pale-blue gradient is a common software-startup look. What keeps Open Air from becoming a template is the discipline, not the palette: one line, one sun, no cards, no glass, no mesh; the style guide shows the failing case (a second gradient, a blurred panel) next to the correct one.",
+    "The gradient can band on cheap monitors and projectors. Mitigation: a 632px run for a small hue change is long enough to avoid visible steps in sRGB; the build is checked on a low-quality projector before launch and the top stop may be nudged to #D2E5FF if banding shows."
+  ],
+  "references": [
+    "Vitsoe (vitsoe.com): hairline rules, light-weight type and empty margins as the whole identity",
+    "Apple's iCloud+ and Weather product pages: one pale vertical gradient as ground, thin type, nothing else in the hero",
+    "Mercury and Stripe Atlas: financial trust delivered through restraint and a single working blue",
+    "Aviation altimeter charts and Eames's 'Powers of Ten': readings pinned to altitudes along one rising line",
+    "Muji: whiteness, quiet labels, and the discipline of one accent used once"
+  ]
+}

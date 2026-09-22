@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — phone hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#E6EDF1; --surface:#FFFFFF; --ink:#12203A; --ink-2:#2E3D57; --muted:#4E6079;
+  --hair:#C9D5DE; --hair-2:#DEE6EC; --contour:#9DB3C4; --coral:#E4643B; --coral-hi:#EC7A55;
+  --display:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body:'Source Sans 3',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono',ui-monospace,SFMono-Regular,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#D8E1E7}
+body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sc{font-family:var(--display);font-variant-caps:all-small-caps;font-weight:600;font-size:13px;letter-spacing:.14em;line-height:1;color:var(--muted)}
+.ro{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1;color:var(--muted)}
+.ro b{color:var(--ink);font-weight:500}
+
+.phone{width:390px;min-height:760px;margin:0 auto;background:var(--ground);position:relative;overflow:hidden}
+
+/* ---------- nav: wordmark + CTA + menu (60px) ---------- */
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 8px 0 16px;border-bottom:1px solid var(--ink)}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:32px;height:32px;border-radius:50%;background:var(--ink);display:grid;place-items:center;flex:none}
+.word{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.005em;line-height:1;white-space:nowrap}
+.navr{display:flex;align-items:center;gap:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 12px;background:var(--coral);color:var(--ink);font-weight:600;font-size:14px;line-height:1;border-radius:4px;border:1px solid transparent;white-space:nowrap}
+.btn:hover{background:var(--coral-hi)}
+.btn:active{border-color:var(--ink)}
+.btn .pin-g{width:11px;height:15px;flex:none}
+.menu{width:44px;height:44px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:var(--ink)}
+.menu span{display:block;width:18px;height:12px;position:relative}
+.menu span::before,.menu span::after,.menu span i{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;border-radius:1px}
+.menu span::before{top:0}.menu span i{top:5px}.menu span::after{bottom:0}
+
+/* ---------- hero ---------- */
+.hero{padding:20px 16px 16px}
+.eyebrow{display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;line-height:1.45}
+.eyebrow svg{width:10px;height:14px;flex:none;margin-top:0}
+h1{font-family:var(--display);font-optical-sizing:auto;font-weight:600;font-size:40px;line-height:1.02;letter-spacing:-.015em;text-wrap:balance;font-variant-numeric:normal}
+
+/* ---------- the inset map: a small sheet with the summit labelled and three numbered supporter pins keyed below ----------
+   Decorative (aria-hidden SVG): contours, tints, compass. Informational (real text): the summit card,
+   the numbered key, the date, and the figcaption. */
+.inset{position:relative;margin:16px 0 0;height:178px;border:1px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--ground)}
+.inset .topo{position:absolute;inset:0;width:100%;height:100%}
+.inset .topo .c{stroke-linejoin:round}
+.inset .sheet{position:absolute;left:8px;top:8px;background:var(--ground);padding:3px 4px}
+.inset .rose{position:absolute;right:8px;top:8px;width:30px;height:30px}
+.inset .asof{position:absolute;right:8px;bottom:7px;background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:4px 6px 3px} /* a white plate: it sits over the knoll tints, where a ground backing would show as a patch */
+.pin{position:absolute;width:0;height:0}
+.pin > svg{position:absolute;left:-10px;top:-27px;width:20px;height:27px}
+.hq{position:absolute;left:14px;top:-17px;background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:6px 8px 5px;white-space:nowrap;line-height:1.2}
+.hq::before{content:"";position:absolute;left:-9px;top:15px;width:8px;border-top:1px solid var(--ink);opacity:.6}
+.hq b{display:block;font-family:var(--display);font-size:14px;font-weight:600;letter-spacing:-.005em}
+.hq i{display:block;font-style:normal;font-size:12px;color:var(--ink-2);margin-top:2px}
+.mk{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--mono);font-size:11px;font-weight:500;line-height:18px;text-align:center;border:1px solid var(--surface)}
+
+/* the key: real text for every numbered pin */
+.key{list-style:none;margin:8px 0 0;border-top:1px solid var(--hair)}
+.key li{display:flex;align-items:center;gap:10px;height:30px;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.2}
+.key li .n{width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--mono);font-size:11px;font-weight:500;line-height:20px;text-align:center;flex:none}
+.key li b{font-weight:600;color:var(--ink);white-space:nowrap}
+.key li .ro{margin-left:auto;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.key li .ro em{font-style:normal;color:var(--ink);font-weight:500;border:1px solid var(--hair);padding:2px 4px 1px;border-radius:2px}
+
+.sub{font-size:16px;line-height:1.5;color:var(--ink-2);margin:14px 0 16px}
+.sub strong{color:var(--ink);font-weight:600}
+
+/* ---------- actions ---------- */
+.ctas{display:grid;gap:10px}
+.btn.big{height:52px;font-size:16px;padding:0 18px}
+.tag{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;padding:4px 6px 3px;border:1px solid rgba(18,32,58,.45);border-radius:3px;line-height:1}
+.outline{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 16px;border:1.5px solid var(--ink);border-radius:4px;font-weight:600;font-size:15px;line-height:1;background:transparent}
+.outline:hover{background:var(--surface)}
+.outline .tag{border-color:var(--hair);color:var(--muted)}
+.fine{margin-top:12px;text-align:center;line-height:1.5;letter-spacing:.03em;white-space:nowrap}
+
+/* ---------- motion: CSS only; static under reduced motion ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .topo .c{animation:rise .5s ease-out both;animation-delay:var(--d,0s)}
+  .pin,.mk{animation:drop .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  .hq{animation:fade .4s ease-out both;animation-delay:.72s}
+  @keyframes rise{from{opacity:0}to{opacity:1}}
+  @keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
+
+/* ---------- one trust element ---------- */
+.trust{margin:0 16px;padding:16px 0 20px;border-top:1px solid var(--ink)}
+.stampline{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.stamp{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;border:1px solid var(--ink);border-radius:2px;padding:4px 7px 3px;color:var(--ink);background:var(--surface)}
+.stamp svg{width:9px;height:12px}
+.trust blockquote p{font-family:var(--display);font-style:italic;font-weight:400;font-size:19px;line-height:1.25;color:var(--ink);letter-spacing:-.005em}
+.who{margin-top:8px;line-height:1.6;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="#" aria-label="Nonprofit Megaphone, home">
+      <span class="mark"><svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M2 13.5 11 7.5V19L2 16.5Z" fill="#fff"/><rect x="3.5" y="16" width="4" height="3.5" rx=".8" fill="#fff"/>
+        <path d="M13.5 8.5a5.2 5.2 0 0 1 0 10.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M15.6 5a9.4 9.4 0 0 1 0 17.4" stroke="#fff" stroke-width="1.7" stroke-linecap="round" opacity=".5"/></svg></span>
+      <span class="word">Nonprofit Megaphone</span>
+    </a>
+    <div class="navr">
+      <a class="btn" href="#"><svg class="pin-g" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#E4643B"/></svg>Book a call</a>
+      <button class="menu" type="button" aria-label="Open menu" aria-expanded="false"><span><i></i></span></button>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow sc"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".55"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>One of Google&rsquo;s first nine certified agencies</p>
+    <h1 id="h1">Put your cause on the map.</h1>
+
+    <figure aria-labelledby="mapcap">
+      <figcaption class="sr-only" id="mapcap">Reach map, sheet 01, as of 22 September 2026. A small topographic contour map. A coral pin at the summit marks your nonprofit with its $10,000 per month Google Ad Grant. Three numbered pins on surrounding hills mark where supporters were found; the key below gives each one&rsquo;s sample outcome from our case files, not a client name. The dashed outermost line is Google&rsquo;s 5% click-through floor; every hill sits above it. Contours are decorative and show reach, not scale.</figcaption>
+      <div class="inset">
+        <svg class="topo" viewBox="0 0 358 176" preserveAspectRatio="xMinYMid slice" aria-hidden="true" focusable="false">
+          <g stroke="#9DB3C4">
+            <path class="c floor" style="--d:0.62s" fill="#E6EDF1" stroke="#12203A" stroke-width="1" stroke-dasharray="3 3" opacity=".55" d="M106.7 -12.5L117.5 -14L130 -14.2L142.5 -13.1L157.5 -10.5L180 -3.6L209.2 10L217.5 12.2L227.5 11.2L255 -0.6L272.5 -4.6L282.5 -4.9L292.5 -3.4L300 -0.7L307.5 4.1L313 10L317 17.5L318.9 25L319 35L315.5 47.5L311.4 55L300.9 70L298.9 75L298.9 77.5L300 80.4L304.6 85L322.5 96.2L335 105.7L343.9 115L350.7 125L356.2 140L357.2 152.5L354.8 165L349.4 175L342.5 182.1L332.5 188.5L320 193.4L307.5 195.7L300 196L290 195L254.6 185L235 182.9L215 184.9L172.5 193.4L155 194.6L135 191.8L107.5 182.3L97.5 179.7L87.5 179L60 179.6L47.5 178.2L32.5 173.4L22.5 167.3L15.2 160L10.5 152.5L7.4 142.5L7 132.5L8.6 125L11.7 117.5L25.3 97.5L28.7 90L29.9 80L30 50L31.6 40L34.4 32.5L41.8 22.5L55 12.8L87.5 -5.8L97.5 -10L106.7 -12.5Z"/>
+            <path class="c" style="--d:0.57s" fill="#E8EFF2" stroke-width="0.9" d="M129.3 2.5L147.5 3.2L165 7L182.5 13.5L205.7 25L215 27.6L220 27.5L225 26L250 11.4L265 5.8L275 4.5L282.5 4.9L290 6.6L297.5 10.5L302.5 15L307 22.5L308.7 30L307.7 40L304.9 47.5L300.3 55L282.8 75L280.7 80L281 82.5L285.7 87.5L305 96.3L317.5 103.2L327.5 111L335.7 120L342.8 132.5L345.6 145L344.2 157.5L340 165.7L335 171L327.5 175.8L317.5 179.1L307.5 180.1L290 177.8L260 167.5L247.5 165.2L227.5 166.5L180 175.4L160 176.5L140 174.2L115 167.1L105 165.2L95 165.7L70 170.6L55 170.8L42.5 168.2L30 161.7L23.1 155L18.7 147.5L16.8 140L17.5 130L20 123.6L24 117.5L42.4 100L45.9 95L48.1 87.5L49.1 67.5L50.5 57.5L52.8 50L56.5 42.5L62.1 35L70 27.6L90 14.4L110 5.8L129.3 2.5Z"/>
+            <path class="c idx" style="--d:0.52s" fill="#EAF0F3" stroke-width="1.4" d="M263.9 12.5L277.5 11L285 12.4L290.8 15L295 18.3L298.4 22.5L300.5 27.5L301.3 35L298.8 45L294.3 52.5L285 62.3L262.3 80L260 85L260.4 87.5L262.5 90.4L267.5 93.2L292.5 98.7L307.5 104.4L317.5 110.5L327.6 120L332.8 127.5L336.1 135L337.7 147.5L335.9 155L333.2 160L325 167.2L320 169.5L312.5 171.2L297.5 170.6L282.5 165.9L257.5 153.6L250 151.4L245 151.1L235 152.3L192.5 162.3L175 164.8L160 165.1L147.5 163.8L115 155.1L105 153.7L95 155.5L72.5 163.7L57.5 165.2L47.5 163.7L38.5 160L31.7 155L26.1 147.5L24.2 142.5L23.8 135L24.9 130L27.5 124.7L35 116.5L55 103.2L59.3 97.5L61 90L62.7 65L64.9 57.5L68.4 50L78.5 37.5L95 25.4L107.5 19.3L120 15.4L132.5 13.5L147.5 13.9L160 16.2L170 19.2L182.5 24.4L207.5 37.3L217.5 39.4L225 37.3L247.5 20L255 15.8L263.9 12.5Z"/>
+            <path class="c" style="--d:0.47s" fill="#ECF2F5" stroke-width="0.9" d="M265.1 17.5L277.5 16.7L282.5 17.9L287.5 20.4L292.1 25L294.4 30L295.1 35L294.4 40L289.5 50L279.2 60L267.5 66.6L250.3 72.5L245 75.2L242.5 78.1L241.3 82.5L242.8 92.5L247.5 101.2L252.5 105.3L260 106.2L280 103.6L292.5 104.8L305 109L317.9 117.5L322.7 122.5L327.6 130L330.4 137.5L331 142.5L330 150L327.6 155L325 158.1L320 161.7L312.5 164.3L305 164.8L297.5 163.9L290 161.7L275 153.9L255 138.9L247.5 136L240 137.2L220 145.3L200 151.4L185 154.6L170 156.2L157.5 156L145 154.3L112.5 144.5L102.5 143L95 145L80 154.6L73.7 157.5L65 159.8L57.5 160.3L50 159.2L42.5 156.4L36.8 152.5L32.6 147.5L30.4 142.5L29.7 137.5L30.5 132.5L32.8 127.5L37.1 122.5L42.5 118.5L62.8 110L69.4 105L71.8 97.5L72.3 72.5L75.6 60L79.6 52.5L85.7 45L92.5 38.9L102.5 32.2L115 26.5L127.5 23.3L140 22.2L152.5 23.2L172.5 28.8L185 34.6L210 48.5L217.5 51.1L222.5 51.2L227.5 48.8L230 46.3L239 35L247.5 26.6L255 21.5L265.1 17.5Z"/>
+            <path class="c" style="--d:0.42s" fill="#EEF3F6" stroke-width="0.9" d="M265.6 22.5L272.5 21.6L277.5 22.3L285 26.3L287.7 30L289 35L288.5 40L286.6 45L283.1 50L277.6 55L267.5 60.4L255 62.7L250 62.2L245 60.4L241.6 57.5L239.9 52.5L240.3 47.5L243.2 40L246.6 35L252.5 29.1L258.9 25L265.6 22.5Z"/>
+            <path class="c" style="--d:0.42s" fill="#EEF3F6" stroke-width="0.9" d="M138.3 30L147.5 30.1L157.5 31.6L167.5 34.4L177.5 38.5L200.8 52.5L220.1 67.5L226.1 77.5L234 105L234.9 112.5L234.4 117.5L230.9 125L223 132.5L212.5 138.3L195 144.3L177.5 147.8L160 148.5L145 146.5L130 142.1L102.5 131.1L95 129.6L90 131.8L83.3 142.5L78.8 147.5L70 153.1L62.5 155.2L55 155.3L47.5 153.4L41.8 150L37.6 145L35.7 137.5L37.5 131L42.5 125.3L47.5 122.2L55 119.6L77.5 117.6L80 117L82.5 114.6L83.4 107.5L81.1 87.5L81.3 75L84.8 62.5L91.2 52.5L100 44.1L112.5 36.5L125 32L138.3 30Z"/>
+            <path class="c" style="--d:0.42s" fill="#EEF3F6" stroke-width="0.9" d="M284.7 110L292.5 110.4L302.5 113.3L310.1 117.5L318.2 125L322.8 132.5L324.7 142.5L322.6 150L318.1 155L312.5 157.7L307.5 158.7L295 157.3L287.5 154.3L280.5 150L270 140L264.5 130L263.9 125L265.3 120L267.5 117.1L272.5 113.3L277.5 111.3L284.7 110Z"/>
+            <path class="c idx" style="--d:0.37s" fill="#F1F5F7" stroke-width="1.4" d="M268.2 27.5L275 27.9L280 31L282.2 35L282.5 37.5L281.3 42.5L277.5 48L270 53.3L262.5 55.3L255 54.5L251.8 52.5L250 50L249.3 45L250.8 40L257.5 32L262.5 29.1L268.2 27.5Z"/>
+            <path class="c idx" style="--d:0.37s" fill="#F1F5F7" stroke-width="1.4" d="M135.2 37.5L152.5 37.6L162.5 39.8L172.5 43.3L190 53.1L207.3 67.5L213.5 75L217.7 82.5L223.1 100L223.6 107.5L222.4 115L220.1 120L216.1 125L205 132.4L190 137.9L172.5 141.1L157.5 141.2L142.5 138.7L127.5 133.5L111.8 125L102.4 117.5L95.4 107.5L90.5 92.5L89.5 80L92.2 67.5L98.1 57.5L108.9 47.5L122.5 40.6L135.2 37.5Z"/>
+            <path class="c idx" style="--d:0.37s" fill="#F1F5F7" stroke-width="1.4" d="M282.6 117.5L290 116.1L297.5 117.1L305 120.3L311.2 125L315.2 130L318 137.5L317.9 142.5L315 148.2L312.5 150.3L307.5 152.3L300 152.4L290 149.1L282.5 143.7L276.1 135L274.6 127.5L276.3 122.5L278.5 120L282.6 117.5Z"/>
+            <path class="c idx" style="--d:0.37s" fill="#F1F5F7" stroke-width="1.4" d="M50.2 127.5L60 125.4L65 126L70 127.9L72.7 130L75.1 135L74.5 140L73.2 142.5L67.9 147.5L62.5 149.7L55 150L48 147.5L43.3 142.5L42.3 137.5L44.1 132.5L50.2 127.5Z"/>
+            <path class="c" style="--d:0.32s" fill="#F3F6F8" stroke-width="0.9" d="M263.3 37.5L267.5 35.9L270 36.2L272 37.5L272.6 40L271.5 42.5L268.8 45L265 46.1L262.5 45.7L260.3 42.5L261.1 40L263.3 37.5Z"/>
+            <path class="c" style="--d:0.32s" fill="#F3F6F8" stroke-width="0.9" d="M133.2 45L142.5 43.8L150 44L165 47.2L182.5 55.6L197.5 67.5L207.4 80L211.1 87.5L213.4 95L214.4 102.5L213.5 110L211.4 115L207.6 120L200 125.7L187.5 131L175 133.8L160 134.6L147.5 133L135 129.3L122.5 123L112 115L104 105L99.6 95L97.8 82.5L99.4 72.5L104.6 62.5L111.9 55L122.5 48.5L133.2 45Z"/>
+            <path class="c" style="--d:0.32s" fill="#F3F6F8" stroke-width="0.9" d="M288 125L292.5 123.6L297.5 124L305 128L309.7 135L309.7 140L308.3 142.5L305 144.7L300 145.2L295 143.9L290 140.8L286.9 137.5L284.7 132.5L285.5 127.5L288 125Z"/>
+            <path class="c" style="--d:0.32s" fill="#F3F6F8" stroke-width="0.9" d="M53.7 137.5L57.5 135L60 135.8L61.5 137.5L60.9 140L57.5 141.3L54.1 140L53.7 137.5Z"/>
+            <path class="c" style="--d:0.27s" fill="#F5F8FA" stroke-width="0.9" d="M132.9 52.5L147.5 50.6L162.5 53L177.5 59.8L190 69.3L195.3 75L200.4 82.5L205 95L204.9 105L203.1 110L199.6 115L192.5 120.4L182.5 124.7L172.5 127L160 127.7L147.5 126.1L137.5 123L127.5 117.9L120 112.2L113.4 105L108.2 95L106.2 85L106.9 77.5L109.8 70L115.5 62.5L122.5 57.1L132.9 52.5Z"/>
+            <path class="c idx" style="--d:0.22s" fill="#F7F9FB" stroke-width="1.4" d="M134.9 60L147.5 57.8L160 59.4L172.5 64.5L182.5 71.7L191.6 82.5L195.6 92.5L196.1 97.5L195.4 102.5L191.1 110L185 114.7L177.5 118L168.7 120L160 120.5L150 119.4L142.5 117.3L132.7 112.5L126.2 107.5L121.6 102.5L117.3 95L115.3 87.5L115.7 80L118.7 72.5L122.5 67.7L127.5 63.7L134.9 60Z"/>
+            <path class="c" style="--d:0.17s" fill="#F9FBFC" stroke-width="0.9" d="M140.7 67.5L150 66.1L160 67.5L170 71.9L177.1 77.5L182.8 85L185.3 92.5L184.3 100L180.9 105L177.5 107.7L170 110.9L157.5 112.1L145 109.4L140 107.1L133.7 102.5L129.4 97.5L126.8 92.5L125.7 87.5L126 82.5L127.9 77.5L131.9 72.5L140.7 67.5Z"/>
+          </g>
+          <g stroke="#12203A" stroke-opacity=".45" stroke-width="1"><path d="M40 0v4M80 0v6M120 0v4M160 0v4M200 0v6M240 0v4M280 0v4M320 0v6"/><path d="M0 40h4M0 80h6M0 120h4M0 160h4"/></g>
+        </svg>
+        <p class="sheet ro">Sheet 01</p>
+        <svg class="rose" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <circle cx="32" cy="32" r="30" fill="#FFFFFF" fill-opacity=".55" stroke="#12203A" stroke-opacity=".5" stroke-width="1.5"/>
+          <g stroke="#12203A" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M60 32 36 36 32 32Z" fill="#12203A"/><path d="M60 32 36 28 32 32Z" fill="#FFFFFF"/>
+            <path d="M32 60 28 36 32 32Z" fill="#12203A"/><path d="M32 60 36 36 32 32Z" fill="#FFFFFF"/>
+            <path d="M4 32 28 28 32 32Z" fill="#12203A"/><path d="M4 32 28 36 32 32Z" fill="#FFFFFF"/>
+            <path d="M32 4 36 28 32 32 28 28Z" fill="#E4643B"/>
+          </g>
+        </svg>
+        <p class="asof ro">As of <b>22 Sep 2026</b></p>
+
+        <div class="pin" style="left:150px;top:90px;--d:.5s">
+          <svg viewBox="0 0 18 24" aria-hidden="true"><ellipse cx="9" cy="23" rx="4" ry="1.4" fill="#12203A" opacity=".3"/><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#E4643B" stroke="#12203A" stroke-opacity=".6" stroke-width=".8"/><circle cx="9" cy="9" r="3.2" fill="#fff"/></svg>
+          <div class="hq"><b>Your nonprofit</b><i>$10,000 / mo Google Ad Grant</i></div>
+        </div>
+        <span class="mk" style="left:268px;top:40px;--d:.7s" aria-hidden="true">1</span>
+        <span class="mk" style="left:300px;top:130px;--d:.8s" aria-hidden="true">2</span>
+        <span class="mk" style="left:54px;top:140px;--d:.9s" aria-hidden="true">3</span>
+      </div>
+      <ol class="key" aria-label="Supporters found, sample outcomes">
+        <li><span class="n" aria-hidden="true">1</span><b>2,300 new visitors / mo</b><span class="ro"><em>Sample</em> 12 mo</span></li>
+        <li><span class="n" aria-hidden="true">2</span><b>300+ screenings / mo</b><span class="ro"><em>Sample</em> 12 mo</span></li>
+        <li><span class="n" aria-hidden="true">3</span><b>$38,000 / mo in donations</b><span class="ro"><em>Sample</em> 12 mo</span></li>
+      </ol>
+    </figure>
+
+    <p class="sub">Google gives eligible nonprofits <strong>$10,000 a month</strong> in search ads. We acquire the grant, keep it above Google&rsquo;s 5% click-through floor, and chart where your supporters are searching.</p>
+
+    <div class="ctas">
+      <a class="btn big" href="#"><svg class="pin-g" viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#E4643B"/></svg>Book a free call <span class="tag">15 MIN</span></a>
+      <a class="outline" href="#">Am I eligible? <span class="tag">2 MIN</span></a>
+    </div>
+    <p class="fine ro"><b>100% acquisition guarantee</b> &middot; 60+ person team</p>
+  </section>
+
+  <section class="trust" aria-label="Trust">
+    <div class="stampline"><span class="stamp sc"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 .75C4.44.75.75 4.44.75 9c0 6 8.25 14.25 8.25 14.25S17.25 15 17.25 9C17.25 4.44 13.56.75 9 .75z" fill="#12203A"/><circle cx="9" cy="9" r="3" fill="#fff"/></svg>Letter from Google</span></div>
+    <blockquote><p>&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;</p></blockquote>
+    <p class="who ro"><b>Michelle Hurtado</b> &middot; Google&rsquo;s first Head of Ad Grants<br>780+ nonprofits served &middot; as of Sep 2026</p>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Itemized Mobile</title>
+<meta name="description" content="Nonprofit Megaphone phone hero, Itemized direction: this month's thermal receipt for $10,000 of donated Google Ads on a cool gray counter, one ink, one green stamp.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --ground:#EFF1F3; --paper:#FFFFFF; --ink:#16181C; --ink-2:#555B64;
+  --rule:#D3D7DC; --rule-soft:#E3E6EA; --green:#0F7B4C; --green-dark:#0B5F3A;
+  --sans:'Geist',Inter,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono','Courier New',Courier,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E2E5E9}
+body{background:#E2E5E9;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;font-size:16px}
+.page{width:390px;min-height:760px;margin:0 auto;background:var(--ground);padding:0 16px 20px;overflow:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+svg{display:block}
+
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500;line-height:1.4}
+.label b{color:var(--ink);font-weight:700}
+
+/* compact nav: wordmark, a 40px button, a 44px menu target */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;height:56px;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:8px;flex:none}
+.brand .name{font-size:16px;font-weight:600;letter-spacing:-.015em;line-height:1;white-space:nowrap}
+.navr{display:flex;align-items:center;gap:6px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--green);color:#fff;font-family:var(--sans);font-weight:600;font-size:16px;line-height:1;padding:0 20px;min-height:48px;white-space:nowrap;transition:background .15s ease}
+.btn:hover{background:var(--green-dark)}
+.btn.sm{font-size:13.5px;padding:0 12px;min-height:40px}
+.btn .tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;opacity:.92;padding-left:12px;border-left:1px solid rgba(255,255,255,.45)}
+/* 44px target; the bars end flush with the gutter and the touch box hangs 10px into it */
+.menu{width:44px;height:44px;display:inline-flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;padding-right:10px;margin-right:-10px}
+.menu i{display:block;height:1.5px;background:var(--ink);width:22px}
+.menu i:nth-child(2){width:16px}
+
+/* hero: copy, then the receipt, then the roll */
+.hero{padding:20px 0 0}
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:500;margin-bottom:14px;white-space:nowrap}
+.eyebrow b{color:var(--green);font-weight:700}
+.eyebrow i{width:6px;height:6px;background:var(--ink);display:inline-block;flex:none}
+h1{font-family:var(--sans);font-weight:600;font-size:40px;line-height:1.02;letter-spacing:-.035em;color:var(--ink);text-wrap:balance;margin-left:-1px}
+.deck{font-size:16px;line-height:1.48;color:var(--ink);margin:14px 0 18px}
+.deck b{font-weight:600}
+.btn.full{width:100%}
+.exits{margin-top:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;line-height:1.4}
+.exits .elig{font-size:15px;font-weight:600;color:var(--green);border-bottom:1.5px solid var(--green);padding-bottom:1px;display:inline-block;min-height:24px}
+.fine{margin-top:8px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+.fine b{font-weight:600;color:var(--ink)}
+.fine i{display:inline-block;width:3px;height:3px;background:var(--rule);margin:0 8px;position:relative;top:-3px}
+
+/* the counter and the paper, full width */
+.counter{position:relative;overflow:hidden;margin:22px -6px 0;padding:0 6px 30px}
+.sheet{filter:drop-shadow(0 12px 18px rgba(22,24,28,.16))}
+.paper{position:relative;width:100%;background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:12px;line-height:1.45;padding:22px 20px 22px;
+  clip-path:polygon(0 7px,1% 0,2% 7px,3% 0,4% 7px,5% 0,6% 7px,7% 0,8% 7px,9% 0,10% 7px,11% 0,12% 7px,13% 0,14% 7px,15% 0,16% 7px,17% 0,18% 7px,19% 0,20% 7px,21% 0,22% 7px,23% 0,24% 7px,25% 0,26% 7px,27% 0,28% 7px,29% 0,30% 7px,31% 0,32% 7px,33% 0,34% 7px,35% 0,36% 7px,37% 0,38% 7px,39% 0,40% 7px,41% 0,42% 7px,43% 0,44% 7px,45% 0,46% 7px,47% 0,48% 7px,49% 0,50% 7px,51% 0,52% 7px,53% 0,54% 7px,55% 0,56% 7px,57% 0,58% 7px,59% 0,60% 7px,61% 0,62% 7px,63% 0,64% 7px,65% 0,66% 7px,67% 0,68% 7px,69% 0,70% 7px,71% 0,72% 7px,73% 0,74% 7px,75% 0,76% 7px,77% 0,78% 7px,79% 0,80% 7px,81% 0,82% 7px,83% 0,84% 7px,85% 0,86% 7px,87% 0,88% 7px,89% 0,90% 7px,91% 0,92% 7px,93% 0,94% 7px,95% 0,96% 7px,97% 0,98% 7px,99% 0,100% 7px,100% calc(100% - 7px),99% 100%,98% calc(100% - 7px),97% 100%,96% calc(100% - 7px),95% 100%,94% calc(100% - 7px),93% 100%,92% calc(100% - 7px),91% 100%,90% calc(100% - 7px),89% 100%,88% calc(100% - 7px),87% 100%,86% calc(100% - 7px),85% 100%,84% calc(100% - 7px),83% 100%,82% calc(100% - 7px),81% 100%,80% calc(100% - 7px),79% 100%,78% calc(100% - 7px),77% 100%,76% calc(100% - 7px),75% 100%,74% calc(100% - 7px),73% 100%,72% calc(100% - 7px),71% 100%,70% calc(100% - 7px),69% 100%,68% calc(100% - 7px),67% 100%,66% calc(100% - 7px),65% 100%,64% calc(100% - 7px),63% 100%,62% calc(100% - 7px),61% 100%,60% calc(100% - 7px),59% 100%,58% calc(100% - 7px),57% 100%,56% calc(100% - 7px),55% 100%,54% calc(100% - 7px),53% 100%,52% calc(100% - 7px),51% 100%,50% calc(100% - 7px),49% 100%,48% calc(100% - 7px),47% 100%,46% calc(100% - 7px),45% 100%,44% calc(100% - 7px),43% 100%,42% calc(100% - 7px),41% 100%,40% calc(100% - 7px),39% 100%,38% calc(100% - 7px),37% 100%,36% calc(100% - 7px),35% 100%,34% calc(100% - 7px),33% 100%,32% calc(100% - 7px),31% 100%,30% calc(100% - 7px),29% 100%,28% calc(100% - 7px),27% 100%,26% calc(100% - 7px),25% 100%,24% calc(100% - 7px),23% 100%,22% calc(100% - 7px),21% 100%,20% calc(100% - 7px),19% 100%,18% calc(100% - 7px),17% 100%,16% calc(100% - 7px),15% 100%,14% calc(100% - 7px),13% 100%,12% calc(100% - 7px),11% 100%,10% calc(100% - 7px),9% 100%,8% calc(100% - 7px),7% 100%,6% calc(100% - 7px),5% 100%,4% calc(100% - 7px),3% 100%,2% calc(100% - 7px),1% 100%,0% calc(100% - 7px))}
+.counter:after{content:"";position:absolute;inset:0;background:var(--ground);pointer-events:none;animation:feed 1.4s steps(26,end) .2s both}
+@keyframes feed{from{transform:translateY(0)}to{transform:translateY(101%)}}
+
+.r-head{text-align:center}
+.r-head .co{font-size:13.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.r-head .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:3px}
+.r-head .sample{display:inline-block;margin-top:9px;border:1.5px solid var(--ink);padding:3px 8px 2px;font-size:11px;letter-spacing:.1em;font-weight:700;text-transform:uppercase}
+.dash{border:0;border-top:1.5px dashed #9AA0A8;margin:9px 0}
+.dash.dbl{border-top:3px double var(--ink);margin:9px 0}
+.paper dl{margin:0}
+.paper .row{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.paper .row dt{flex:none;text-transform:uppercase;letter-spacing:.02em}
+.paper .row::before{content:"";order:1;flex:1;min-width:10px;border-bottom:1.5px dotted var(--rule);position:relative;top:-4px}
+.paper .row dd{flex:none;font-weight:500;order:2}
+.paper .row.note{margin-top:-2px;margin-bottom:2px}
+.paper .row.note dt,.paper .row.note dd{font-size:11px;line-height:1.25;color:var(--ink-2);letter-spacing:.04em}
+.paper .row.note::before{border:0}
+.paper .row .ok{color:var(--green);font-weight:700}
+.paper .row.big{align-items:flex-end;margin-top:6px;margin-bottom:2px}
+.paper .row.big dt{font-weight:700;letter-spacing:.06em;font-size:13px}
+.paper .row.big dd{font-size:24px;font-weight:700;line-height:1;letter-spacing:-.02em}
+.paper .row.big::before{top:-6px}
+.r-sig{position:relative;min-height:78px;padding-right:150px}
+.r-sig p{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);line-height:1.6;white-space:nowrap}
+.r-sig p b{color:var(--ink);font-weight:700}
+.thanks{text-align:center;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:10px}
+
+/* Geometry: rendered at 150px wide (0.85 of the 176 viewBox); 13-unit text prints at 11.1px, the page's floor. */
+.stamp{position:absolute;right:-4px;top:-4px;width:150px;height:75px;transform:rotate(-8deg);mix-blend-mode:multiply;animation:stamp .22s cubic-bezier(.2,.9,.3,1.25) 1.8s both}
+.stamp text{font-family:var(--mono)}
+@keyframes stamp{from{opacity:0;transform:rotate(-8deg) scale(1.3)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+
+/* one trust element: the roll with its count */
+.trust{margin-top:8px;padding-top:12px;border-top:1px solid var(--ink)}
+.trust .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:10px;white-space:nowrap}
+.trust .lbl strong{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.marks{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--ink);white-space:nowrap}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  .counter:after{display:none}
+  .stamp{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#" aria-label="Nonprofit Megaphone, home">
+        <svg width="25" height="20" viewBox="0 0 30 24" aria-hidden="true">
+          <path d="M1 9 L15 3 L15 21 L1 15 Z" fill="#16181C"/>
+          <path d="M15 3 L20.5 0.5 L20.5 23.5 L15 21 Z" fill="#16181C"/>
+          <path d="M23 7 A 6 6 0 0 1 23 17" stroke="#16181C" stroke-width="1.6" fill="none"/>
+          <path d="M26 3.5 A 10 10 0 0 1 26 20.5" stroke="#16181C" stroke-width="1.2" fill="none" opacity=".45"/>
+        </svg>
+        <span class="name">Nonprofit Megaphone</span>
+      </a>
+      <div class="navr">
+        <a class="btn sm" href="#">Book a call</a>
+        <a class="menu" href="#" aria-label="Open menu"><i></i><i></i><i></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow"><span>Free search ads for nonprofits</span><i aria-hidden="true"></i><b>Paid by Google</b></p>
+    <h1 id="h1">$10,000 of Google Ads a&nbsp;month. Here's the&nbsp;receipt.</h1>
+    <p class="deck">Google gives eligible nonprofits $10,000 a month in search ads and switches it off under 5% click-through. <b>We run the account for 780+ nonprofits</b> and itemize every dollar, monthly.</p>
+    <a class="btn full" href="#">Book a free call <span class="tag">15 min</span></a>
+    <p class="exits"><a class="elig" href="#">Am I eligible?</a><span class="label">4 questions &middot; no email</span></p>
+    <p class="fine">Flat monthly fee<i aria-hidden="true"></i>No % of ad spend<i aria-hidden="true"></i>Unhappy? Meet our CEO and <b>we pay you $25.</b></p>
+
+    <aside class="counter" aria-label="Sample monthly receipt">
+      <div class="sheet">
+        <div class="paper">
+          <div class="r-head">
+            <div class="co">Nonprofit Megaphone</div>
+            <div class="t">Donated Google Ads &middot; Monthly receipt</div>
+            <div class="sample">Sample &middot; Aug 2026 &middot; Illustrative</div>
+          </div>
+          <hr class="dash">
+          <dl>
+            <div class="row"><dt>Search ads served</dt><dd>388,412</dd></div>
+            <div class="row"><dt>Clicks</dt><dd>30,102</dd></div>
+            <div class="row"><dt>Click-through rate</dt><dd>7.75%</dd></div>
+            <div class="row note"><dt>Google's floor 5.00%</dt><dd class="ok">Cleared</dd></div>
+            <div class="row"><dt>Conversions</dt><dd>1,214</dd></div>
+            <div class="row"><dt>Policy checks passed</dt><dd>14/14</dd></div>
+          </dl>
+          <hr class="dash">
+          <dl>
+            <div class="row"><dt>Ad spend</dt><dd>$9,986.40</dd></div>
+            <div class="row"><dt>Grant cap</dt><dd>$10,000.00</dd></div>
+            <div class="row"><dt>Paid by Google</dt><dd>&minus;$9,986.40</dd></div>
+            <div class="row big"><dt>Due from you</dt><dd>$0.00</dd></div>
+          </dl>
+          <hr class="dash dbl">
+          <div class="r-sig">
+            <p><b>Paid by Google</b><br>Managed by<br>Nonprofit Megaphone<br>Lead replies in 1 day</p>
+            <svg class="stamp" viewBox="0 0 176 88" role="img" aria-label="Rubber stamp in green ink: Compliant. Policy checks 14 of 14, September 2026.">
+              <defs>
+                <pattern id="skip" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(23)">
+                  <circle cx="1.2" cy="1.2" r=".95" fill="#000" opacity=".62"/>
+                  <circle cx="3.7" cy="3.6" r=".7" fill="#000" opacity=".5"/>
+                </pattern>
+                <mask id="wear"><rect width="176" height="88" fill="#fff"/><rect width="176" height="88" fill="url(#skip)"/></mask>
+              </defs>
+              <g mask="url(#wear)" fill="#0F7B4C">
+                <rect x="3" y="3" width="170" height="82" rx="3" fill="none" stroke="#0F7B4C" stroke-width="3.5"/>
+                <rect x="10" y="10" width="156" height="68" rx="1.5" fill="none" stroke="#0F7B4C" stroke-width="1.4"/>
+                <text x="88" y="27" text-anchor="middle" font-size="13" font-weight="500" letter-spacing=".6">POLICY CHECKS</text>
+                <text x="88" y="53" text-anchor="middle" font-size="23" font-weight="700" letter-spacing="3">COMPLIANT</text>
+                <text x="88" y="71" text-anchor="middle" font-size="13" font-weight="500" letter-spacing=".6">14/14 &middot; SEP 2026</text>
+              </g>
+            </svg>
+          </div>
+          <hr class="dash">
+          <p class="thanks">Please retain for your board.</p>
+        </div>
+      </div>
+    </aside>
+
+    <section class="trust" aria-label="Clients">
+      <div class="lbl"><strong>On file for 780+ nonprofits</strong><span class="label">Each month</span></div>
+      <div class="marks">
+        <span>UNCF</span>
+        <span>Scouting America</span>
+        <span>COPD Foundation</span>
+        <span>YWCA Chicago</span>
+        <span>Earthwatch</span>
+        <span>Solar Sister</span>
+        <span>AAU</span>
+        <span>JFCS</span>
+      </div>
+    </section>
+  </section>
+
+</div>
+</body>
+</html>

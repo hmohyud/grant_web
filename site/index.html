@@ -94,7 +94,7 @@
 <main class="stage" id="stage">
   <div class="meta">
     <h1 id="title">Amplitude <span>· loading</span></h1>
-    <p class="hint"><kbd>←</kbd><kbd>→</kbd> switch direction · <kbd>D</kbd> desktop · <kbd>P</kbd> phone · <kbd>1</kbd>–<kbd>8</kbd> jump</p>
+    <p class="hint"><kbd>←</kbd><kbd>→</kbd> switch direction · <kbd>D</kbd> desktop · <kbd>P</kbd> phone · <kbd>1</kbd>–<kbd>9</kbd> jump</p>
   </div>
   <figure class="frame desktop" id="frame" style="margin:0">
     <div class="chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">nonprofitmegaphone.com</span><span id="chrome-tag"></span></div>
@@ -110,6 +110,10 @@
     { slug:'public-works',    name:'Public Works',    register:'Civic · white, blue blocks, signal red, Public Sans',    ground:'#FFFFFF', accent:'#D0261B', desktop:'directions/Public_Works.html',    phone:'directions/Public_Works-mobile.html' },
     { slug:'full-volume',     name:'Full Volume',     register:'Pop · keeps the electric blue, stickers, highlighter',    ground:'#2A2AFF', accent:'#FFD338', desktop:'directions/Full_Volume.html',     phone:'directions/Full_Volume-mobile.html' },
     { slug:'signed-sentence', name:'Signed Sentence', register:'Warm · linen, forest, ochre, the signed monthly note',    ground:'#EDE5D5', accent:'#C8912A', desktop:'directions/Signed_Sentence.html', phone:'directions/Signed_Sentence-mobile.html' },
+    { slug:'placard',         name:'Placard',         register:'New · mid-century poster fields of mustard and teal',       ground:'#E9B62F', accent:'#1F6F78', desktop:'directions/Poster.html',          phone:'directions/Poster-mobile.html' },
+    { slug:'itemized',        name:'Itemized',        register:'New · the monthly receipt for $10,000 of donated ads',      ground:'#EFF1F3', accent:'#0F7B4C', desktop:'directions/Receipt.html',         phone:'directions/Receipt-mobile.html' },
+    { slug:'open-air',        name:'Open Air',        register:'New · calm pale-sky ground, light type, floating proof',    ground:'#CFE3FF', accent:'#1E4FD8', desktop:'directions/Sky.html',             phone:'directions/Sky-mobile.html' },
+    { slug:'atlas',           name:'Atlas',           register:'New · reach as a contour map on pale steel blue',           ground:'#E6EDF1', accent:'#E4643B', desktop:'directions/Atlas.html',           phone:'directions/Atlas-mobile.html' },
     { slug:'the-ledger',      name:'The Ledger',      register:'First round · statement-as-hero, cut for overlap',       ground:'#F5F2EC', accent:'#C8432B', desktop:'directions/first-round/The_Ledger.html',  phone:null, firstRound:true },
     { slug:'charter',         name:'Charter',         register:'First round · heritage navy, ivory and gold seal',       ground:'#F6F1E7', accent:'#1B2A5B', desktop:'directions/first-round/Charter.html',     phone:null, firstRound:true },
     { slug:'signal-room',     name:'Signal Room',     register:'First round · dark premium dashboard',                    ground:'#0F1117', accent:'#FF6B3D', desktop:'directions/first-round/Signal_Room.html', phone:null, firstRound:true },
@@ -178,7 +182,7 @@
     else if (e.key === 'ArrowLeft') go(index - 1, device);
     else if (e.key === 'd' || e.key === 'D') go(index, 'desktop');
     else if (e.key === 'p' || e.key === 'P') go(index, 'phone');
-    else if (/^[1-8]$/.test(e.key)) go(+e.key - 1, device);
+    else if (/^[1-9]$/.test(e.key)) go(+e.key - 1, device);
   });
   fromHash();
 </script>

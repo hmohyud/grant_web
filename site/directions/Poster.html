@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Placard — desktop hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens: four flat colours, one texture, no gradients, no shadows, no radii except circles ---------- */
+:root{
+  --white:#FFFFFF;        /* page ground outside the poster blocks */
+  --mustard:#E9B62F;      /* field one: object panel, primary button on teal, numbered circles */
+  --teal:#1F6F78;         /* field two: copy panel; kicker colour on white */
+  --tomato:#D9482B;       /* sparingly: three sound bars, the 5% badge, current-page underline; large text only */
+  --tomato-deep:#C43A1F;  /* any tomato text under 24px on white (5.3:1) */
+  --ink:#1A1A1A;          /* type, rules, circle + rim, nav button */
+  --ink-2:#4D4D4D;        /* secondary labels on white (8.0:1) */
+  --display:'Archivo Black','Archivo',Impact,sans-serif;
+  --body:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#E4E4E4}
+body{font-family:var(--body);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.copy :focus-visible{outline-color:#fff}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* one frame: 1200 wide; nav 72 + 20 + poster 552 + 20 + imprint 161 + 24 = 849 */
+.page{width:1200px;min-height:800px;max-height:860px;margin:0 auto;background:var(--white);overflow:hidden;padding-bottom:24px}
+
+/* ---------- 00 nav: white masthead over a 3px ink rule ---------- */
+.nav{height:72px;margin:0 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--ink)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:36px;height:36px;display:block;flex:none}
+.word{font-family:var(--display);font-size:15px;letter-spacing:.05em;text-transform:uppercase;line-height:1;padding-top:2px}
+.links{display:flex;gap:30px;font-weight:600;font-size:15px;line-height:1}
+.links a{padding:10px 0 8px;border-bottom:3px solid transparent}
+.links a:hover{border-bottom-color:var(--ink)}
+.links a[aria-current="page"]{border-bottom-color:var(--tomato)}
+.navr{display:flex;align-items:center;gap:26px}
+.quote-link{font-weight:700;font-size:14px;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 20px;background:var(--ink);color:#fff;border:2px solid var(--ink);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.btn:hover{background:#fff;color:var(--ink)}
+
+/* ---------- 01 the poster: two flat fields abutting inside a white margin ---------- */
+.poster{display:grid;grid-template-columns:640px 464px;height:552px;margin:20px 48px 0}
+
+/* copy panel (teal): only white text ever sits here; ink on teal fails AA and is never used */
+.copy{background:var(--teal);color:#fff;padding:36px 48px 28px 52px;display:flex;flex-direction:column}
+.eyebrow{display:inline-block;align-self:flex-start;padding-top:10px;border-top:4px solid var(--mustard);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.4}
+h1{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.01em;margin-top:18px}
+h1 span{display:block;font-size:50px;line-height:.92;white-space:nowrap}
+h1 span.big{font-size:88px;line-height:.9;margin-top:8px;color:var(--mustard)} /* 3.1:1 on teal: large text only, never below 52px */
+.sub{font-size:17px;line-height:1.5;max-width:490px;margin:18px 0 22px}
+.sub b{font-weight:700}
+.ctas{display:flex;gap:12px;align-items:center}
+.cta{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 26px;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap;border:2px solid transparent}
+.cta.primary{background:var(--mustard);border-color:var(--mustard);color:var(--ink)}
+.cta.primary:hover{background:#fff;border-color:#fff}
+.cta.ghost{background:transparent;border-color:#fff;color:#fff}
+.cta.ghost:hover{background:#fff;color:var(--teal)}
+.guar{margin-top:auto;padding-top:12px;border-top:2px solid rgba(255,255,255,.55);display:flex;align-items:center;gap:14px;max-width:500px}
+.portrait{width:40px;height:40px;border-radius:50%;background:var(--mustard);flex:none;position:relative;overflow:hidden}
+.portrait svg{position:absolute;left:0;bottom:-3px;width:40px;height:40px}
+.guar p{font-size:13px;line-height:1.45}
+.guar p b{font-weight:700}
+.guar p a{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--mustard);font-weight:600;white-space:nowrap}
+
+/* object panel (mustard): the megaphone as poster geometry, the 5% badge, one halftone disc, the imprint */
+.object{position:relative;background:var(--mustard);overflow:hidden}
+.object figcaption{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.dots{position:absolute;left:196px;top:106px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,26,26,.2) 1.3px,transparent 1.9px) 0 0/9px 9px} /* the only texture on the page */
+.mega{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mega .bar{transform-origin:340.2px 268px;transform-box:view-box}
+.badge{position:absolute;left:40px;top:36px;width:164px} /* disc top sits level with the eyebrow rule across the panel seam */
+.badge .disc{width:88px;height:88px;border-radius:50%;background:var(--tomato);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:30px;line-height:1;padding-top:2px} /* white on tomato 4.3:1: large text only */
+.badge .k{margin-top:12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4}
+.badge .t{margin-top:4px;font-size:13px;font-weight:600;line-height:1.4}
+.imprint{position:absolute;right:40px;bottom:28px;width:240px;padding-top:8px;border-top:3px solid var(--ink);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.45;text-align:right}
+
+/* ---------- motion: CSS only; reduced-motion users get the finished poster with zero keyframes ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .mega .bar{animation:ray .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  .badge,.dots{animation:show .4s ease-out .35s both}
+  @keyframes ray{from{transform:scale(0)}to{transform:scale(1)}}
+  @keyframes show{from{opacity:0}to{opacity:1}}
+}
+
+/* ---------- 02 imprint strip: evidence as the small print at the foot of a poster ---------- */
+.trust{margin:20px 48px 0;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
+.row1{display:grid;grid-template-columns:1fr 1fr 1fr 380px} /* 241px cells so every label holds one line and the three figures share a baseline */
+.stat{display:flex;align-items:center;gap:12px;padding:16px 16px 16px 0;border-right:2px solid var(--ink)}
+.stat + .stat{padding-left:20px}
+.num{width:32px;height:32px;border-radius:50%;background:var(--mustard);display:grid;place-items:center;font-family:var(--display);font-size:14px;line-height:1;flex:none;padding-top:1px}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:32px;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.stat span{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;margin-top:6px}
+.qb{padding:14px 0 14px 24px}
+.who{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);line-height:1.4} /* teal on white 5.8:1 */
+.qb blockquote p{font-size:17px;font-weight:600;line-height:1.3;margin-top:6px;letter-spacing:-.005em}
+.row2{display:flex;align-items:center;height:44px;border-top:2px solid var(--ink);white-space:nowrap;overflow:hidden}
+.row2 .lab{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding-right:22px;flex:none}
+.row2 ul{display:flex;flex:1;justify-content:space-between;align-items:center;list-style:none;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.row2 li{display:flex;align-items:center;gap:14px} /* 14px after each square equals the space-between leftover before it at 1200, so the squares sit centred */
+.row2 li::before{content:"";width:8px;height:8px;background:var(--mustard);flex:none}
+.row2 li:first-child::before{display:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href="#" aria-label="Nonprofit Megaphone, home">
+      <svg viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+        <polygon points="8.5,25.6 21.1,13.4 27.6,24.6 10.7,29.4" fill="#1F6F78"/>
+        <circle cx="7" cy="29" r="5" fill="#1A1A1A"/>
+        <g stroke="#D9482B" stroke-width="2.4">
+          <line x1="28.3" y1="16.2" x2="31.5" y2="11.1"/>
+          <line x1="28.7" y1="16.5" x2="33.4" y2="13.8"/>
+          <line x1="28.8" y1="17" x2="34.2" y2="16.8"/>
+        </g>
+      </svg>
+      <span class="word">Nonprofit Megaphone</span>
+    </a>
+    <div class="links"><a href="#" aria-current="page">Services</a><a href="#">Our work</a><a href="#">Happy clients</a><a href="#">Team</a><a href="#">Blog</a></div>
+    <div class="navr">
+      <a class="quote-link" href="#">Get a free quote &rarr;</a>
+      <a class="btn" href="#">Book a free call</a>
+    </div>
+  </nav>
+
+  <section class="poster" aria-labelledby="h1">
+    <div class="copy">
+      <p class="eyebrow">Google search ads for nonprofits &middot; $10,000 a month, free</p>
+      <h1 id="h1"><span>$10,000 a month.</span><span>Kept, not lost.</span><span class="big">Be heard.</span></h1>
+      <p class="sub">Google gives eligible nonprofits <b>$10,000 a month</b> in search ads. We get it for you, guaranteed, keep it above Google&rsquo;s <b>5% click-through floor</b>, and run it every week so the people searching for your cause find you first.</p>
+      <div class="ctas">
+        <a class="cta primary" href="#">Book a free call</a>
+        <a class="cta ghost" href="#">Am I eligible?</a>
+      </div>
+      <div class="guar">
+        <div class="portrait" role="img" aria-label="Portrait of Amber Snow, CEO (photograph placeholder)"><svg viewBox="0 0 44 44" fill="#1A1A1A" aria-hidden="true"><circle cx="22" cy="17" r="9"/><path d="M4 47c0-11 8-17 18-17s18 6 18 17z"/></svg></div>
+        <p><b>Our guarantee is a person, not a policy.</b> Not happy? Meet our CEO, Amber Snow, and we pay you $25. <a href="#">Read the guarantee &rarr;</a></p>
+      </div>
+    </div>
+
+    <figure class="object" aria-labelledby="objcap">
+      <figcaption id="objcap">Poster graphic: a megaphone built from an ink circle, a teal wedge with an ink rim and three tomato bars radiating from its mouth, on a mustard field. Beside it, Google&rsquo;s rule: keep a 5% click-through rate or risk deactivation after two missed months.</figcaption>
+      <div class="dots" aria-hidden="true"></div>
+      <svg class="mega" viewBox="0 0 464 552" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <!-- the horn: a wedge at 30 degrees -->
+        <polygon points="97.6,375.8 230.5,202 342.5,396 125.6,424.2" fill="#1F6F78"/>
+        <!-- the rim -->
+        <polygon points="224.5,191.6 243.6,180.6 367.6,395.4 348.5,406.4" fill="#1A1A1A"/>
+        <!-- the mouthpiece -->
+        <circle cx="70" cy="424" r="58" fill="#1A1A1A"/>
+        <!-- three radiating bars: the sound, fanning from a point 62 beyond the rim -->
+        <g stroke="#D9482B" stroke-width="20">
+          <line class="bar" style="--d:.05s" x1="345.5" y1="259.5" x2="387.9" y2="191.7"/>
+          <line class="bar" style="--d:.14s" x1="348.9" y1="263"   x2="431.1" y2="215.5"/>
+          <line class="bar" style="--d:.23s" x1="350.2" y1="267.7" x2="430.1" y2="264.9"/>
+        </g>
+      </svg>
+      <div class="badge">
+        <p class="disc">5%</p>
+        <p class="k">Google&rsquo;s rule</p>
+        <p class="t">Keep a 5% click-through rate or risk deactivation after two missed months.</p>
+      </div>
+      <p class="imprint">One of nine inaugural Google Ad Grants Certified Professional agencies<br>60+&nbsp;person&nbsp;team</p>
+    </figure>
+  </section>
+
+  <section class="trust" aria-label="Trust">
+    <div class="row1">
+      <div class="stat"><span class="num" aria-hidden="true">1</span><div><b>100%</b><span>Acquisition guarantee</span></div></div>
+      <div class="stat"><span class="num" aria-hidden="true">2</span><div><b>780+</b><span>Nonprofit clients</span></div></div>
+      <div class="stat"><span class="num" aria-hidden="true">3</span><div><b>$48M+</b><span>Ad spend managed</span></div></div>
+      <div class="qb">
+        <p class="who">Michelle Hurtado<br>Google&rsquo;s first Head of Ad Grants</p>
+        <blockquote><p>&ldquo;As Head of Google Ad Grants, I highly recommend Nonprofit Megaphone!&rdquo;</p></blockquote>
+      </div>
+    </div>
+    <div class="row2">
+      <span class="lab">Among 780+ clients</span>
+      <ul>
+        <li>UNCF</li><li>Scouting America</li><li>COPD Foundation</li><li>YWCA Chicago</li><li>Earthwatch</li><li>Solar Sister</li><li>AAU</li><li>JFCS</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

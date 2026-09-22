@@ -1,0 +1,227 @@
+{
+  "date": "22 Sep 2026",
+  "lede": "Nonprofit Megaphone leads its category wearing the category's most common outfit: an electric-blue template shared with three direct competitors. Each direction below keeps the proof and gives it a look of its own. Every mockup is live HTML at desktop and phone width.",
+  "order": [
+    "Amplitude",
+    "Broadsheet",
+    "Public_Works",
+    "Full_Volume",
+    "Signed_Sentence",
+    "Poster",
+    "Receipt",
+    "Atlas",
+    "Sky"
+  ],
+  "new": [
+    "Poster",
+    "Receipt",
+    "Atlas",
+    "Sky"
+  ],
+  "badges": {
+    "Amplitude": "Recommended",
+    "Broadsheet": "Runner-up"
+  },
+  "why": [
+    {
+      "title": "The site today",
+      "bullets": [
+        "One exit everywhere, \"Book a Free Call\", under seven different labels",
+        "No pricing, no eligibility check, nothing a board can forward",
+        "The proof is real but scattered: 780+ clients, $48M+ managed, Google's own endorsement"
+      ]
+    },
+    {
+      "title": "Who is buying",
+      "bullets": [
+        "Tired executive and communications directors; burnout is up sharply in 2026",
+        "Their concrete fear is losing the grant to Google's 5% click-through rule",
+        "They research before they call and reward calm competence over hype"
+      ]
+    },
+    {
+      "title": "The white space",
+      "bullets": [
+        "Electric-blue SaaS is the most crowded look in the category",
+        "Nobody owns proof-as-document, warm editorial, or a signal red",
+        "One direction keeps the blue, so evolution versus rupture is a real choice"
+      ]
+    }
+  ],
+  "compact": {
+    "Amplitude": {
+      "bullets": [
+        "The megaphone's own geometry: vermilion arcs, rays and level bars on warm paper",
+        "Proof pinned to the diagram: a named lead at the origin, dated outcomes on the arcs",
+        "Google's 5% floor drawn as the innermost ring, so the risk is visible up front"
+      ],
+      "rightFor": "A leadership team that wants an ownable rebrand and will lock the design tokens in Webflow.",
+      "needs": [
+        "Name account leads publicly",
+        "Client sign-off on outcome chips",
+        "Decide on published pricing"
+      ],
+      "ground": "Warm paper",
+      "accent": "Vermilion, brand blue at the origin",
+      "type": "Bricolage Grotesque / Hanken Grotesk",
+      "device": "Signal diagram",
+      "register": "Energetic, brand-derived",
+      "oneLiner": "The megaphone's own geometry as a live proof diagram on warm paper."
+    },
+    "Broadsheet": {
+      "bullets": [
+        "The publication of record: newsprint white, black ink, one deep blue",
+        "An \"on the record\" ledger with dated, sourced figures and a real chart",
+        "Lowest-risk register; reads as a sharpening to 780 existing clients"
+      ],
+      "rightFor": "A team that wants institutional authority, will publish pricing and dated figures, and prefers the safest register.",
+      "needs": [
+        "Publish a price range",
+        "Consent for a real report",
+        "Verify the chart's client figures"
+      ],
+      "ground": "Cool newsprint white",
+      "accent": "Deep brand blue only",
+      "type": "Newsreader / Schibsted Grotesk",
+      "device": "Newspaper ledger",
+      "register": "Institutional, calm",
+      "oneLiner": "The publication of record: newsprint, black ink, one deep blue."
+    },
+    "Public_Works": {
+      "bullets": [
+        "Civic infrastructure: pure white, flat blue blocks, a signal-red button, one typeface",
+        "The hero is a grant account record with Google's four rules checked off",
+        "Plain language and accessibility as the aesthetic; an audit, not an ad"
+      ],
+      "rightFor": "A team selling to boards and compliance-minded directors that puts clarity ahead of styling.",
+      "needs": [
+        "Consent for a real account record",
+        "Publish and maintain \"the rules\"",
+        "Decide on published pricing"
+      ],
+      "ground": "Pure white",
+      "accent": "Civic blue blocks, signal red CTA",
+      "type": "Public Sans",
+      "device": "Grant record card",
+      "register": "Civic, plain-language",
+      "oneLiner": "Civic infrastructure in pure white, flat blue and a signal red."
+    },
+    "Full_Volume": {
+      "bullets": [
+        "Keeps the electric blue on purpose, as one big bordered stage",
+        "Proof staged as physical objects: a dashboard card, stickers, a highlighter",
+        "The evolutionary option: same identity, far better execution"
+      ],
+      "rightFor": "A team that will not retire the blue for its clients and wants the execution fixed, not the identity replaced.",
+      "needs": [
+        "Client consent for the card's figures",
+        "A short motion sprint",
+        "Decide on published pricing"
+      ],
+      "ground": "Electric blue stage on off-white",
+      "accent": "Yellow highlighter, coral CTA",
+      "type": "Bricolage Grotesque wide / Instrument Sans",
+      "device": "Stickers and a dashboard prop",
+      "register": "Pop, confident",
+      "oneLiner": "The electric blue kept, and turned from a wall into a stage."
+    },
+    "Signed_Sentence": {
+      "bullets": [
+        "Linen, forest green and ochre with Fraunces italic; the warmest of the set",
+        "The hero is a photographed account lead beside the one sentence they sign each month",
+        "People-first: the team is the product, shown plainly"
+      ],
+      "rightFor": "A team whose strongest asset is its people and that will fund a photo shoot and a monthly signed note.",
+      "needs": [
+        "Fund a two-day photo shoot",
+        "Commit to a monthly signed note",
+        "Name account leads publicly"
+      ],
+      "ground": "Linen with forest bands",
+      "accent": "Ochre",
+      "type": "Fraunces / Instrument Sans",
+      "device": "Signed note and photo plate",
+      "register": "Warm, human",
+      "oneLiner": "The people who run your grant, and the sentence they sign each month."
+    },
+    "Poster": {
+      "ground": "White page, mustard and teal fields",
+      "accent": "Tomato, sparingly",
+      "type": "Archivo Black / Archivo",
+      "device": "Geometric poster megaphone",
+      "register": "Bold, civic, graphic"
+    },
+    "Receipt": {
+      "ground": "Cool light gray",
+      "accent": "Ink green only",
+      "type": "Geist / JetBrains Mono",
+      "device": "A thermal-paper receipt",
+      "register": "Transparent, dry-witted"
+    },
+    "Sky": {
+      "ground": "Pale sky fading to white",
+      "accent": "Clear blue CTA, one sun dot",
+      "type": "Manrope light",
+      "device": "Floating chips on a rising line",
+      "register": "Calm, airy, hopeful"
+    },
+    "Atlas": {
+      "ground": "Pale steel blue-gray with map tints",
+      "accent": "Coral pins and CTA",
+      "type": "Source Serif 4 / Source Sans 3",
+      "device": "A contour map of reach",
+      "register": "Exploratory, precise, calm"
+    }
+  },
+  "recommendation": {
+    "name": "Amplitude",
+    "bullets": [
+      "The only signature grown from the brand's own mark, so it is ownable",
+      "Carries the full proof layer while staying calm enough for a tired buyer",
+      "Ships static-first in CSS and inline SVG; motion is optional"
+    ]
+  },
+  "runnerUp": {
+    "name": "Broadsheet",
+    "bullets": [
+      "Lowest risk and easiest to approve; reads as sharpening, not rupture",
+      "The most honest evidence object in the set",
+      "Cheapest to build well in Webflow, but the least ownable"
+    ]
+  },
+  "evidence": [
+    "A signed one-sentence monthly note from a named account lead",
+    "The guarantee is a person: Amber Snow, $25, a direct email",
+    "Every figure dated, from one canonical numbers sheet",
+    "Google's 5% floor drawn and explained wherever a chart appears",
+    "A rep-free \"Am I eligible?\" check with an honest no",
+    "A flat monthly fee stated; a range if leadership approves"
+  ],
+  "decisions": [
+    "Publish a price range?",
+    "Name account leads publicly?",
+    "Consent a real client report?",
+    "Fund photography, and how much?",
+    "Keep, evolve or retire the blue?",
+    "Fund a motion sprint or ship static?"
+  ],
+  "notYet": [
+    "Everything beyond the homepage: 716 URLs, 618 undated posts, 54 case studies",
+    "The booking flow: seven CTA labels and an unstyled calendar embed",
+    "Timeline and budget, which depend on the direction chosen"
+  ],
+  "firstRound": {
+    "The_Ledger": {
+      "angle": "Data instrument",
+      "why": "Statement-as-hero; absorbed by Broadsheet and Public Works."
+    },
+    "Charter": {
+      "angle": "Heritage modern",
+      "why": "Heritage navy and gold; reads as a law firm."
+    },
+    "Signal_Room": {
+      "angle": "Dark premium",
+      "why": "Dark dashboard; lowest score with the nonprofit buyer."
+    }
+  }
+}
